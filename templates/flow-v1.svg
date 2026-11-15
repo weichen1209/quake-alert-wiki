@@ -46,7 +46,6 @@
   <path class="e" d="M748 219H782" marker-end="url(#a)"/>
   <path class="r" d="M871 248C871 300 673 300 673 252" marker-end="url(#ar)"/>
   <text class="l" x="700" y="304">不通過：回N3修改（最多3次）</text>
-  <path class="e" d="M956 219C990 219 990 140 990 140 990 140 990 120 960 120" opacity="0"/>
   <text class="g" x="800" y="330">通過 → 下一篇來源</text>
 
   <!-- slides loop -->
@@ -71,7 +70,7 @@
   <path class="r" d="M698 488C698 540 485 540 485 492" marker-end="url(#ar)"/>
   <text class="l" x="520" y="546">不通過：重生出錯的頁（最多3次）</text>
   <path class="r" d="M640 430C640 380 109 380 109 252" marker-end="url(#ar)"/>
-  <text class="l" x="250" y="380">Wiki缺資料：回到N1補來源</text>
+  <text class="l" x="126" y="292">Wiki缺資料：回到N1補來源</text>
 
   <!-- legend -->
   <rect class="ai" x="30" y="590" width="22" height="16" rx="3"/><text class="s" x="58" y="603">AI節點</text>

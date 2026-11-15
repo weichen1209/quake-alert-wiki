@@ -83,6 +83,25 @@ def section_text(body, title):
     return m.group(1).strip() if m else None
 
 
+def owner_of(f, ln, code, msg):
+    """這個錯是哪個節點產生的：討論單依小節分（AI的部分算N2，D00算N0；學生回覆算R；決定算N3），其他檔案算N3。"""
+    if not f.startswith("wiki/discussions/"):
+        return "N3"
+    if code == "W11":
+        return "R" if "學生回覆" in msg else "N3"
+    first = "N0" if f.rsplit("/", 1)[-1].startswith("D00") else "N2"
+    sec, path = "", W.ROOT / f
+    if path.exists() and ln:
+        for line in path.read_text(encoding="utf-8").split("\n")[:ln]:
+            if line.startswith("## "):
+                sec = line[3:].strip()
+    if sec == "學生回覆":
+        return "R"
+    if sec == "決定" and first == "N2":
+        return "N3"
+    return first
+
+
 def lint():
     issues = []  # (等級, 代碼, 檔案, 行號, 訊息)
     def add(level, code, f, ln, msg):
@@ -239,7 +258,13 @@ def main():
     issues = sorted(lint(), key=lambda x: (x[2], x[3], x[1]))
     errs = Counter(c for lv, c, *_ in issues if lv == "E")
     warns = Counter(c for lv, c, *_ in issues if lv == "W")
-    lines = [f"{lv} {code} {f}:{ln} {msg}" for lv, code, f, ln, msg in issues]
+    owners = {}
+    lines = []
+    for lv, code, f, ln, msg in issues:
+        who = owner_of(f, ln, code, msg)
+        if lv == "E":
+            owners.setdefault(who, Counter())[code] += 1
+        lines.append(f"{lv} {code} {f}:{ln} [{who}] {msg}")
     lines.append(f"錯誤 {sum(errs.values())} 個、警告 {sum(warns.values())} 個"
                  + (f"（{'、'.join(f'{k}×{v}' for k, v in sorted((errs + warns).items()))}）" if issues else ""))
     out = "\n".join(lines)
@@ -251,7 +276,8 @@ def main():
         name = f"{seq:02d}-C1-{args.target}.txt"
         (d / name).write_text(out + "\n", encoding="utf-8")
         note = f"警告{sum(warns.values())}" if warns else ""
-        runlog.add(args.run, "C1", args.target, "fail" if errs else "pass", note, dict(errs), name)
+        runlog.add(args.run, "C1", args.target, "fail" if errs else "pass", note, dict(errs), name,
+                   {k: dict(v) for k, v in owners.items()})
     sys.exit(1 if errs else 0)
 
 
