@@ -102,3 +102,9 @@
 - 原因：run-02的C1a、C1各抓到1次討論單的「問題1」（規則說內部編號不查，程式沒排除）；大綱照第6.5節寫試算數字會被W05抓，AI加了出處再用行內程式碼避開W07
 - 修改：tools/wikilib.py排除「問題N」「第N題」；tools/lint_wiki.py不查試算數字兩行的W05、W07（數字由C0的O02比對Wiki頁）；AGENTS.md改成v2.1（第4.2、4.4、6.5、10節）
 - 流程圖不變；之後的N5把試算數字兩行改回第6.5節的格式
+
+## [2026-11-15] ingest | S09 地震來時保命三步驟
+- 討論單：discussions/D09-S09-保命三步驟.md
+- 新增：sources/S09-cwa-edu-three-steps.md
+- 修改：topics/收到警報怎麼做.md（分「收到警報後（S05）」「地震搖晃時（S09）」兩節，加不同來源的說法和還缺什麼）；topics/預警時間與盲區.md（加S09的說法一節）；overview.md、index.md；queries/ 和 slides/ 之後N4到N6處理
+- 檢查：C1a（討論單）第1次 E1（S06的英文引文沒有出處）→ 第2次 E0；C1 第1次 E0

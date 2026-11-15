@@ -1,0 +1,2 @@
+E W06 wiki/discussions/D09-S09-保命三步驟.md:53 [N2] 沒有出處的「」超過12字：「DROP, COVER, AND HOLD ON」
+錯誤 1 個、警告 0 個（W06×1）
