@@ -79,3 +79,9 @@
 - 流程：N2後面加C1a討論單檢查（通過才給學生回覆）；N5後面加C0大綱檢查（查詢頁、試算數字、Wiki缺資料，缺資料在產生簡報前回N1）；C2b第一次用新的審查AI，之後同一個AI複查
 - 規則：AGENTS.md改成v2（第4.2到4.4節放寬出處位置和內部編號、加（計算：…）、W13討論單的節、第8.4節大綱檢查代碼）；程式：lint_wiki.py加--only、check_outline.py
 - 下一步：run-02用v2跑第二批來源（cwa-pws-info、cwa-pws-2020-response）並更新簡報
+
+## [2026-11-15] ingest | S07 有關災防告警服務（PWS）與氣象署地震相關資訊之說明
+- 討論單：discussions/D07-S07-PWS說明頁.md
+- 新增：sources/S07-cwa-pws-info.md、concepts/災防告警細胞廣播.md
+- 修改：topics/國家級警報.md（表加S07、衝突加S07已有規模6.5條件、時間線加105年5月12日和107年5月15日、113年9月1日標明是S05新聞稿的說法）；topics/警報名稱比較.md（加S07用法）；concepts/強震即時警報.md（加S07的P波資料和四項限制）；topics/預警時間與盲區.md（加盲區說明）；overview.md、index.md；queries/ 和 slides/ 之後N4到N6處理
+- 檢查：C1a（討論單）第1次 E5 → 第2次 E0；C1 第1次 E4（數字標錯來源）→ 第2次 E0；學生讀頁面時另外發現國家級警報的衝突段有重複句，C1查不到，併入第2次修改

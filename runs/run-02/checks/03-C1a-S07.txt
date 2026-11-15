@@ -1,0 +1,6 @@
+E W06 wiki/discussions/D07-S07-PWS說明頁.md:13 [N2] 引文和S07原文不一致：「107年5月15日停止其中一種」
+E W07 wiki/discussions/D07-S07-PWS說明頁.md:41 [N2] 數字 2026 在S05、S07、S03、S03原文找不到：現在是兩篇來源（S03、S07）的資料點早於S05說的新增日，但S07頁面可能在
+E W06 wiki/discussions/D07-S07-PWS說明頁.md:52 [N2] 引文和S07原文不一致：「是哪一年改的」
+E W06 wiki/discussions/D07-S07-PWS說明頁.md:58 [N2] 沒有出處的「」超過12字：「113年8月30日新聞稿說這是新增」
+E W06 wiki/discussions/D07-S07-PWS說明頁.md:60 [N2] 沒有出處的「」超過12字：「S03、S04只寫早期震波，沒有寫是P波」
+錯誤 5 個、警告 0 個（W06×4、W07×1）

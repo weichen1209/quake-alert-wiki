@@ -307,7 +307,12 @@
           ],
           "start": "^有關「災防告警服務」"
         }
-      ]
+      ],
+      "id": "S07",
+      "file": "S07-cwa-pws-info.md",
+      "retrieved": "2026-11-15",
+      "sha256": "e2df87761b38ccad5e7da290bc01817b63f82c243c4a2ef2b9f114570ee67557",
+      "chars": 1533
     },
     {
       "key": "cwa-press-2024-pws",

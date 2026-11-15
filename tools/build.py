@@ -105,6 +105,12 @@ def md_to_html(md, ctx):
             out.append("<hr>")
             i += 1
             continue
+        m = re.fullmatch(r"!\[([^\]]*)\]\(([^)\s]+\.svg)\)", s)  # 只給 FLOW.md 放流程圖（templates/ 的svg複製到 docs/ 根目錄）
+        if m:
+            out.append(f'<figure class="flow"><img src="{esc(m.group(2).split("/")[-1])}" alt="{esc(m.group(1))}">'
+                       f"<figcaption>{inline(m.group(1), ctx)}</figcaption></figure>")
+            i += 1
+            continue
         if s.startswith("|") and i + 1 < len(lines) and re.match(r"^\s*\|?\s*:?-{3,}", lines[i + 1]):
             head = [c.strip() for c in s.strip("|").split("|")]
             rows = []
