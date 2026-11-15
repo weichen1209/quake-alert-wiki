@@ -23,3 +23,9 @@
 - 新增：sources/S03-cwa-faq-eew.md、concepts/強震即時警報.md、topics/警報名稱比較.md
 - 修改：topics/國家級警報.md（加不同來源的說法：S01和S03的發布條件，都日期未標示）；concepts/P波與S波.md（加連結）；index.md（加討論單、概念、來源、主題）；overview.md 內容仍不足，先不建；預警時間與盲區等S04再建
 - 檢查：第1次 E14 W1 → 第2次 E0 W1（保留的警告：W03，同S01）
+
+## [2026-11-15] ingest | S04 地震速報－軟體專區（強震即時警報之原理等）
+- 討論單：discussions/D04-S04-強震即時警報原理.md
+- 新增：sources/S04-cwa-eew-principle.md、topics/預警時間與盲區.md
+- 修改：concepts/強震即時警報.md（加S04的定義、和預測的差別、三種極限）；topics/警報名稱比較.md（加預測對照和「速報」用法）；index.md（加討論單、來源、主題）；topics/國家級警報.md 學生決定先不改；overview.md 仍不足，先不建；試算用的S波速度和發布秒數仍缺，等做簡報時補來源
+- 檢查：第1次 E6 W1 → 第2次 E0 W1（保留的警告：W03，同S01）

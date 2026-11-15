@@ -24,3 +24,10 @@
 {"seq": 24, "time": "2026-11-15T21:22:13", "node": "C1", "target": "S03", "attempt": 1, "status": "fail", "codes": {"W06": 13, "W07": 1}, "note": "警告1", "check_file": "24-C1-S03.txt", "owners": {"N3": {"W06": 5}, "N2": {"W06": 8, "W07": 1}}}
 {"seq": 25, "time": "2026-11-15T21:22:53", "node": "N3", "target": "S03", "attempt": 2, "status": "done", "codes": {}, "note": "依C1修改：逐字引文補出處、非原文拿掉「」、刪自己算的差14"}
 {"seq": 26, "time": "2026-11-15T21:22:53", "node": "C1", "target": "S03", "attempt": 2, "status": "pass", "codes": {}, "note": "警告1", "check_file": "26-C1-S03.txt"}
+{"seq": 27, "time": "2026-11-15T21:22:59", "node": "N1", "target": "S04", "attempt": 1, "status": "done", "codes": {}, "note": "取得 cwa-eew-principle"}
+{"seq": 28, "time": "2026-11-15T21:25:20", "node": "N2", "target": "S04", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫討論單D04：發現S01到S04都沒有S波速度和發布警報秒數（N0規劃的假設錯），提出補來源等三種做法、4個問題"}
+{"seq": 29, "time": "2026-11-15T21:25:20", "node": "R", "target": "S04", "attempt": 1, "status": "reply", "codes": {}, "note": "學生回覆4題：選補來源但等做簡報時一次補、預警時間與盲區現在建、簡訊通報只放摘要頁、日本一句和誤報例子"}
+{"seq": 30, "time": "2026-11-15T21:26:11", "node": "N3", "target": "S04", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫決定，新增來源摘要頁、topics/預警時間與盲區.md，改強震即時警報、警報名稱比較、index、log"}
+{"seq": 31, "time": "2026-11-15T21:26:11", "node": "C1", "target": "S04", "attempt": 1, "status": "fail", "codes": {"W06": 6}, "note": "警告1", "check_file": "31-C1-S04.txt", "owners": {"N3": {"W06": 2}, "N2": {"W06": 4}}}
+{"seq": 32, "time": "2026-11-15T21:26:37", "node": "N3", "target": "S04", "attempt": 2, "status": "done", "codes": {}, "note": "依C1修改：引文補出處或拿掉「」"}
+{"seq": 33, "time": "2026-11-15T21:26:38", "node": "C1", "target": "S04", "attempt": 2, "status": "pass", "codes": {}, "note": "警告1", "check_file": "33-C1-S04.txt"}

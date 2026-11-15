@@ -281,7 +281,12 @@
             ]
           ]
         }
-      ]
+      ],
+      "id": "S04",
+      "file": "S04-cwa-eew-principle.md",
+      "retrieved": "2026-11-15",
+      "sha256": "ca36267c6fac4dfe701278733de112a8375da3631e12460edb6949a1a83ea15e",
+      "chars": 1916
     },
     {
       "key": "cwa-pws-info",
