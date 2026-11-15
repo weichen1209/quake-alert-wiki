@@ -2,6 +2,8 @@
 
   python3 tools/lint_wiki.py                      只檢查
   python3 tools/lint_wiki.py --run run-01 --target S01   檢查並記錄到執行紀錄
+  python3 tools/lint_wiki.py --only wiki/discussions/D07-….md --run run-02 --target S07
+                                                  只檢查一個檔案（v2的C1a討論單檢查）
 有錯誤（E）時結束碼為1。
 """
 import argparse
@@ -104,7 +106,19 @@ def owner_of(f, ln, code, msg):
     return first
 
 
-def lint():
+DISC_REQUIRED = ["AI：想問的問題", "學生回覆", "決定"]
+DISC_SOURCE_REQUIRED = ["AI：這篇的重點", "AI：和現有Wiki的關係"]
+
+
+def sentence_span(t, start, end):
+    """包含 t[start:end] 的那一句（以。！？分句）。"""
+    s = max(t.rfind(c, 0, start) for c in "。！？") + 1
+    ends = [i for i in (t.find(c, end) for c in "。！？") if i != -1]
+    return t[s:(min(ends) + 1 if ends else len(t))]
+
+
+def lint(only=None):
+    """only：只檢查這些頁面（相對 wiki/），並跳過全體檢查（W03、W04、W08、W09、W10、W11）。"""
     issues = []  # (等級, 代碼, 檔案, 行號, 訊息)
     def add(level, code, f, ln, msg):
         issues.append((level, code, f, ln, msg))
@@ -112,7 +126,7 @@ def lint():
     got = W.fetched()
 
     # W10 raw 沒被改過
-    for sid, e in got.items():
+    for sid, e in ({} if only else got).items():
         p = W.RAW / e["file"]
         if not p.exists():
             add("E", "W10", f"raw/{e['file']}", 0, "檔案不見了")
@@ -122,7 +136,7 @@ def lint():
     pages = W.wiki_pages()
     metas, inbound = {}, {p: set() for p in pages}
 
-    for rel in pages:
+    for rel in (only or pages):
         path = W.WIKI / rel
         text = path.read_text(encoding="utf-8")
         meta, body, start = W.split_front(text)
@@ -140,6 +154,14 @@ def lint():
         if meta.get("updated") and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(meta["updated"])):
             add("E", "W01", f, 1, "updated 要寫成 YYYY-MM-DD")
         ptype = meta.get("type", "")
+
+        # W13 討論單要有固定的節（v2）
+        if ptype == "discussion":
+            heads = set(re.findall(r"^## (.+?)\s*$", body, re.M))
+            need = DISC_REQUIRED + (DISC_SOURCE_REQUIRED if re.search(r"discussions/D\d{2}-S\d{2}-", f) else [])
+            miss = [h for h in need if h not in heads]
+            if miss:
+                add("E", "W13", f, 1, f"討論單少了：{'、'.join(miss)}")
 
         # W02 連結
         for ln_off, line in enumerate(body.split("\n")):
@@ -166,7 +188,8 @@ def lint():
                 if sid not in got:
                     add("E", "W12", f, ln, f"出處 {sid} 不存在或還沒取得")
             # W05 每段要有出處
-            if ptype != "discussion" and kind in ("para", "item", "row", "quote"):
+            design = ptype == "query" and strip_marker(t).startswith("目的：")   # v2：簡報設計的說明不用出處
+            if ptype != "discussion" and kind in ("para", "item", "row", "quote") and not design:
                 if "相關頁面" not in section and not link_only(t) and not W.CITE.search(t):
                     add("E", "W05", f, ln, f"沒有出處標記：{strip_marker(t)[:40]}")
             # W06 引文
@@ -174,6 +197,9 @@ def lint():
                 q = m.group(1)
                 cites = re.match(r"((?:〔S\d{2}〕)+)", t[m.end():])
                 ids = re.findall(r"S\d{2}", cites.group(1)) if cites else []
+                if not ids and len(q) > 12:
+                    # v2：超過12字的「」出處可以寫在同一句的句尾，用同一句的出處比對
+                    ids = W.CITE.findall(sentence_span(t, m.start(), m.end()))
                 if ids:
                     bodies = [W.raw_body(s) for s in ids if s in got]
                     if bodies and not any(W.norm(q) in W.norm(b) for b in bodies):
@@ -191,6 +217,9 @@ def lint():
                     for num in W.numbers_in(sent):
                         if not any(W.has_number(num, W.raw_body(s)) for s in ids):
                             add("E", "W07", f, ln, f"數字 {num} 在{'、'.join(ids)}原文找不到：{sent.strip()[:40]}")
+
+    if only:
+        return issues
 
     # W03 孤兒頁
     for rel, src in inbound.items():
@@ -256,8 +285,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--run")
     ap.add_argument("--target", default="wiki")
+    ap.add_argument("--only", nargs="*", help="只檢查這些檔案（wiki/… 路徑），記成C1a")
+    ap.add_argument("--node", help="記錄用的節點名稱（預設：有 --only 是C1a，否則C1）")
     args = ap.parse_args()
-    issues = sorted(lint(), key=lambda x: (x[2], x[3], x[1]))
+    only = [re.sub(r"^wiki/", "", o) for o in args.only] if args.only else None
+    node = args.node or ("C1a" if only else "C1")
+    issues = sorted(lint(only), key=lambda x: (x[2], x[3], x[1]))
     errs = Counter(c for lv, c, *_ in issues if lv == "E")
     warns = Counter(c for lv, c, *_ in issues if lv == "W")
     owners = {}
@@ -275,10 +308,10 @@ def main():
         seq = len(runlog.events(args.run)) + 1
         d = W.ROOT / "runs" / args.run / "checks"
         d.mkdir(parents=True, exist_ok=True)
-        name = f"{seq:02d}-C1-{args.target}.txt"
+        name = f"{seq:02d}-{node}-{args.target}.txt"
         (d / name).write_text(out + "\n", encoding="utf-8")
         note = f"警告{sum(warns.values())}" if warns else ""
-        runlog.add(args.run, "C1", args.target, "fail" if errs else "pass", note, dict(errs), name,
+        runlog.add(args.run, node, args.target, "fail" if errs else "pass", note, dict(errs), name,
                    {k: dict(v) for k, v in owners.items()})
     sys.exit(1 if errs else 0)
 

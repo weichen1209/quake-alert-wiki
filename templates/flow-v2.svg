@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#1c1b18"/>
+    </marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#c4362c"/>
+    </marker>
+    <style>
+      .t{font-size:14px;fill:#1c1b18;font-weight:700}
+      .s{font-size:12px;fill:#45413a}
+      .l{font-size:12px;fill:#c4362c}
+      .g{font-size:12px;fill:#7a7366}
+      .n{font-size:11px;fill:#fff;font-weight:700}
+      .ai{fill:#fbf8f2;stroke:#1c1b18;stroke-width:1.6}
+      .pg{fill:#dbe9ef;stroke:#2c6e8f;stroke-width:1.6}
+      .ck{fill:#f6dcd6;stroke:#c4362c;stroke-width:1.8}
+      .nw{fill:#f6dcd6;stroke:#c4362c;stroke-width:3}
+      .hu{fill:#fff4e6;stroke:#d47a22;stroke-width:1.6;stroke-dasharray:5 4}
+      .e{fill:none;stroke:#1c1b18;stroke-width:1.5}
+      .r{fill:none;stroke:#c4362c;stroke-width:1.5;stroke-dasharray:6 4}
+    </style>
+  </defs>
+  <rect width="1000" height="640" fill="#f4efe6"/>
+  <text x="30" y="36" font-size="20" font-weight="900" fill="#1c1b18">graph v2：檢查往前移（新增C1a、C0）</text>
+
+  <!-- N0 -->
+  <rect class="ai" x="30" y="60" width="170" height="54" rx="8"/>
+  <text class="t" x="44" y="84">N0 規劃討論</text><text class="s" x="44" y="103">範圍、讀者、第一批來源</text>
+  <path class="e" d="M115 114V150" marker-end="url(#a)"/>
+
+  <!-- ingest loop -->
+  <rect x="20" y="152" width="960" height="190" rx="12" fill="none" stroke="#7a7366" stroke-dasharray="3 5"/>
+  <text class="g" x="34" y="172">每篇來源重複一次（ingest loop）</text>
+  <rect class="pg" x="34" y="190" width="135" height="58" rx="8"/>
+  <text class="t" x="46" y="214">N1 取得資料</text><text class="s" x="46" y="234">fetch.py存進raw/</text>
+  <rect class="ai" x="193" y="190" width="135" height="58" rx="8"/>
+  <text class="t" x="205" y="214">N2 討論</text><text class="s" x="205" y="234">AI寫重點和問題</text>
+  <rect class="nw" x="352" y="190" width="135" height="58" rx="8"/>
+  <text class="t" x="364" y="214">C1a 討論單檢查</text><text class="s" x="364" y="234">引文、數字、格式</text>
+  <rect x="440" y="178" width="40" height="17" rx="4" fill="#c4362c"/><text class="n" x="448" y="191">新增</text>
+  <rect class="hu" x="511" y="190" width="135" height="58" rx="8"/>
+  <text class="t" x="523" y="214">學生回覆</text><text class="s" x="523" y="234">決定強調什麼</text>
+  <rect class="ai" x="670" y="190" width="135" height="58" rx="8"/>
+  <text class="t" x="682" y="214">N3 生成頁面</text><text class="s" x="682" y="234">摘要、概念、目錄</text>
+  <rect class="ck" x="829" y="190" width="135" height="58" rx="8"/>
+  <text class="t" x="841" y="214">C1 Wiki檢查</text><text class="s" x="841" y="234">lint_wiki.py</text>
+  <path class="e" d="M169 219H189" marker-end="url(#a)"/>
+  <path class="e" d="M328 219H348" marker-end="url(#a)"/>
+  <path class="e" d="M487 219H507" marker-end="url(#a)"/>
+  <path class="e" d="M646 219H666" marker-end="url(#a)"/>
+  <path class="e" d="M805 219H825" marker-end="url(#a)"/>
+  <path class="r" d="M419 248C419 292 260 292 260 252" marker-end="url(#ar)"/>
+  <text class="l" x="252" y="306">不通過：回N2修改（最多3次）</text>
+  <path class="r" d="M896 248C896 292 737 292 737 252" marker-end="url(#ar)"/>
+  <text class="l" x="728" y="306">不通過：回N3修改（最多3次）</text>
+  <text class="g" x="829" y="330">通過 → 下一篇來源</text>
+
+  <!-- slides loop -->
+  <path class="e" d="M760 342V392" marker-end="url(#a)"/>
+  <text class="g" x="772" y="372">來源都處理完</text>
+  <rect x="20" y="394" width="960" height="170" rx="12" fill="none" stroke="#7a7366" stroke-dasharray="3 5"/>
+  <text class="g" x="34" y="414">簡報（query loop）</text>
+  <rect class="ai" x="34" y="430" width="135" height="58" rx="8"/>
+  <text class="t" x="46" y="454">N4 查詢Wiki</text><text class="s" x="46" y="474">讀目錄、選頁、回答</text>
+  <rect class="ai" x="193" y="430" width="135" height="58" rx="8"/>
+  <text class="t" x="205" y="454">N5 整理大綱</text><text class="s" x="205" y="474">每頁目的與Wiki頁</text>
+  <rect class="nw" x="352" y="430" width="135" height="58" rx="8"/>
+  <text class="t" x="364" y="454">C0 大綱檢查</text><text class="s" x="364" y="474">缺資料、試算數字</text>
+  <rect x="440" y="418" width="40" height="17" rx="4" fill="#c4362c"/><text class="n" x="448" y="431">新增</text>
+  <rect class="ai" x="511" y="430" width="135" height="58" rx="8"/>
+  <text class="t" x="523" y="454">N6 產生簡報</text><text class="s" x="523" y="474">寫deck.html</text>
+  <rect class="ck" x="670" y="430" width="135" height="58" rx="8"/>
+  <text class="t" x="682" y="454">C2 簡報檢查</text><text class="s" x="682" y="474">程式＋AI審查</text>
+  <rect class="pg" x="829" y="430" width="135" height="58" rx="8"/>
+  <text class="t" x="841" y="454">N7 發佈</text><text class="s" x="841" y="474">build.py → Pages</text>
+  <path class="e" d="M169 459H189" marker-end="url(#a)"/>
+  <path class="e" d="M328 459H348" marker-end="url(#a)"/>
+  <path class="e" d="M487 459H507" marker-end="url(#a)"/>
+  <path class="e" d="M646 459H666" marker-end="url(#a)"/>
+  <path class="e" d="M805 459H825" marker-end="url(#a)"/>
+  <path class="r" d="M419 488C419 532 260 532 260 492" marker-end="url(#ar)"/>
+  <text class="l" x="226" y="546">查詢頁或試算數字有錯：回N5</text>
+  <path class="r" d="M737 488C737 532 578 532 578 492" marker-end="url(#ar)"/>
+  <text class="l" x="560" y="546">不通過：重生出錯的頁（最多3次）</text>
+  <path class="r" d="M405 430C405 380 101 380 101 252" marker-end="url(#ar)"/>
+  <text class="l" x="420" y="380">C0發現Wiki缺資料：回N1補來源（產生簡報之前）</text>
+
+  <!-- legend -->
+  <rect class="ai" x="30" y="590" width="22" height="16" rx="3"/><text class="s" x="58" y="603">AI節點</text>
+  <rect class="pg" x="130" y="590" width="22" height="16" rx="3"/><text class="s" x="158" y="603">程式節點</text>
+  <rect class="ck" x="240" y="590" width="22" height="16" rx="3"/><text class="s" x="268" y="603">檢查節點</text>
+  <rect class="nw" x="350" y="590" width="22" height="16" rx="3"/><text class="s" x="378" y="603">v2新增的檢查</text>
+  <rect class="hu" x="490" y="590" width="22" height="16" rx="3"/><text class="s" x="518" y="603">學生</text>
+  <path class="r" d="M570 598H610" marker-end="url(#ar)"/><text class="s" x="618" y="603">重複執行的路線</text>
+</svg>

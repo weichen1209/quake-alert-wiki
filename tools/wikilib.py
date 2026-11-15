@@ -14,7 +14,14 @@ TYPES = {"overview", "concept", "topic", "source", "discussion", "query"}
 CITE = re.compile(r"〔(S\d{2})〕")
 LINK = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
 NUM = re.compile(r"(?<![A-Za-z0-9.])\d+(?:\.\d+)?")
-CONVERT = re.compile(r"（換算：[^）]*）")
+CONVERT = re.compile(r"（(?:換算|計算)：[^）]*）")   # v2：自己算的數字寫成（計算：…）
+# v2：這些不是來源的數字，W07、P03不檢查（run-01有23個錯是這類）
+SKIP_NUM = [
+    re.compile(r"`[^`]*`"),                                                  # 行內程式碼：檔名、來源代號
+    re.compile(r"第\d+(?:\.\d+)?(?:\s*[到至、～-]\s*\d+)*\s*[頁點步節版次]"),   # 內部編號：第9頁、第4.5節
+    re.compile(r"共\d+頁|重點\s*\d+(?:\s*[到至、～-]\s*\d+)*"),
+    re.compile(r"（(?:西元)?\d{4}年）|（民國\d+年）"),                        # 年份補註：113年（2024年）
+]
 
 
 def registry():
@@ -83,8 +90,10 @@ def has_number(num, text):
 
 
 def numbers_in(text):
-    """抓出要檢查的數字：去掉出處標記、換算括號、連結網址。"""
+    """抓出要檢查的數字：去掉出處標記、換算和計算括號、連結網址、行內程式碼、內部編號、年份補註。"""
     t = CONVERT.sub("", CITE.sub("", text))   # 換算括號是全形，要在NFKC之前拿掉
+    for pat in SKIP_NUM:
+        t = pat.sub("", t)
     t = LINK.sub(lambda m: m.group(1), t)
     t = unicodedata.normalize("NFKC", t)
     return NUM.findall(t)
