@@ -257,7 +257,12 @@
             ]
           ]
         }
-      ]
+      ],
+      "id": "S03",
+      "file": "S03-cwa-faq-eew.md",
+      "retrieved": "2026-11-15",
+      "sha256": "df111802088115c5e0bb07fa35710645e0d8756a826acfd229c2617fe3ffb4e8",
+      "chars": 4476
     },
     {
       "key": "cwa-eew-principle",
