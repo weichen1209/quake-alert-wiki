@@ -149,7 +149,12 @@
             ]
           ]
         }
-      ]
+      ],
+      "id": "S02",
+      "file": "S02-cwa-faq-basics.md",
+      "retrieved": "2026-11-15",
+      "sha256": "c858d4a52ac4a7988c2c7fc3f5362a5c5f9f497e0e4a54c5baecacd04221dcba",
+      "chars": 3016
     },
     {
       "key": "cwa-faq-eew",

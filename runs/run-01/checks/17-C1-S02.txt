@@ -1,0 +1,17 @@
+E W06 wiki/concepts/規模.md:38 [N3] 沒有出處的「」超過12字：「新聞媒體常有『規模6.5級』之誤植說法」
+E W06 wiki/concepts/震源與震央.md:30 [N3] 沒有出處的「」超過12字：「距離震央愈近之地區，接收到之地震波能量愈為集中」
+W W03 wiki/discussions/D00-規劃.md:1 [N0] 沒有其他頁面連到這頁
+E W06 wiki/discussions/D02-S02-地震基本概念.md:12 [N2] 沒有出處的「」超過12字：「地震錯動發生的起始點（位於地下深處）。」
+E W06 wiki/discussions/D02-S02-地震基本概念.md:21 [N2] 沒有出處的「」超過12字：「距離震央愈近之地區，接收到之地震波能量愈為集中」
+E W07 wiki/discussions/D02-S02-地震基本概念.md:31 [N2] 數字 8 在S02原文找不到：修改：`wiki/index.md`、`wiki/log.md`；`wiki/o
+E W06 wiki/discussions/D02-S02-地震基本概念.md:33 [N2] 沒有出處的「」超過12字：「預估至少一縣市政府所在地震度達5級以上」
+E W07 wiki/discussions/D02-S02-地震基本概念.md:33 [N2] 數字 2024 在S01、S02原文找不到：這點要等cwa-press-2024-pws的寫法再確認〔S01〕〔S02〕。
+E W06 wiki/discussions/D02-S02-地震基本概念.md:39 [N2] 沒有出處的「」超過12字：「新聞媒體常有『規模6.5級』之誤植說法」
+E W06 wiki/discussions/D02-S02-地震基本概念.md:40 [N2] 沒有出處的「」超過12字：「現今地震儀器已能詳細描述地震的搖晃情形」
+E W06 wiki/discussions/D02-S02-地震基本概念.md:53 [N2] 沒有出處的「」超過12字：「S02的分級表把5級分成5弱和5強，S01沒說5級指哪一種」
+E W07 wiki/discussions/D02-S02-地震基本概念.md:67 [N3] 數字 2024 在S01、S02原文找不到：修改 `topics/國家級警報.md`：保留S01的「5級以上」原文，加一句說
+E W06 wiki/sources/S02-cwa-faq-basics.md:14 [N3] 沒有出處的「」超過12字：「地震錯動發生的起始點（位於地下深處）。」
+E W06 wiki/sources/S02-cwa-faq-basics.md:16 [N3] 沒有出處的「」超過12字：「其傳遞速度次之，破壞力通常大於P波。」
+E W06 wiki/sources/S02-cwa-faq-basics.md:20 [N3] 沒有出處的「」超過12字：「震度（Intensity），是表示地震時地面上的人所感受到振」
+E W07 wiki/topics/國家級警報.md:22 [N3] 數字 2024 在S01、S02原文找不到：這頁照S01原文寫5級，不判斷是5弱還是5強，等cwa-press-2024-p
+錯誤 15 個、警告 1 個（W03×1、W06×11、W07×4）

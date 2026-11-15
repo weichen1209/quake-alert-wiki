@@ -10,3 +10,10 @@
 {"seq": 10, "time": "2026-11-15T21:14:13", "node": "C1", "target": "S01", "attempt": 2, "status": "fail", "codes": {"W07": 1}, "note": "警告1", "check_file": "10-C1-S01.txt", "owners": {"N3": {"W07": 1}}}
 {"seq": 11, "time": "2026-11-15T21:14:46", "node": "N3", "target": "S01", "attempt": 3, "status": "done", "codes": {}, "note": "依C1第2次修改：決定裡的來源代號改成文字"}
 {"seq": 12, "time": "2026-11-15T21:14:46", "node": "C1", "target": "S01", "attempt": 3, "status": "pass", "codes": {}, "note": "警告1", "check_file": "12-C1-S01.txt"}
+{"seq": 13, "time": "2026-11-15T21:15:09", "node": "N1", "target": "S02", "attempt": 1, "status": "done", "codes": {}, "note": "取得 cwa-faq-basics"}
+{"seq": 14, "time": "2026-11-15T21:17:11", "node": "N2", "target": "S02", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫討論單D02：10個重點、和S01的5級與5弱5強對不上、raw上標遺失、4個問題"}
+{"seq": 15, "time": "2026-11-15T21:17:11", "node": "R", "target": "S02", "attempt": 1, "status": "reply", "codes": {}, "note": "學生回覆4題：P波S波頁現在建不寫表面波、深度距離放震源與震央、分級表完整放兩個倍數並列、國家級警報頁加5弱5強那句"}
+{"seq": 16, "time": "2026-11-15T21:18:22", "node": "N3", "target": "S02", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫決定，新增來源摘要頁和規模、震度、震源與震央、P波與S波四個概念頁，改國家級警報、index、log"}
+{"seq": 17, "time": "2026-11-15T21:18:22", "node": "C1", "target": "S02", "attempt": 1, "status": "fail", "codes": {"W06": 11, "W07": 4}, "note": "警告1", "check_file": "17-C1-S02.txt", "owners": {"N3": {"W06": 5, "W07": 2}, "N2": {"W06": 6, "W07": 2}}}
+{"seq": 18, "time": "2026-11-15T21:19:02", "node": "N3", "target": "S02", "attempt": 2, "status": "done", "codes": {}, "note": "依C1修改：引文各自緊接出處、非逐字的拿掉「」、來源代號改成文字、刪內部數字"}
+{"seq": 19, "time": "2026-11-15T21:19:02", "node": "C1", "target": "S02", "attempt": 2, "status": "pass", "codes": {}, "note": "警告1", "check_file": "19-C1-S02.txt"}

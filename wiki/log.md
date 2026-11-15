@@ -11,3 +11,9 @@
 - 新增：sources/S01-cwa-edu-pws-story.md、topics/國家級警報.md
 - 修改：index.md（加來源、主題兩節和D01）；overview.md 內容不足，先不建
 - 檢查：第1次 E8 W1 → 第2次 E1 W1 → 第3次 E0 W1（保留的警告：W03，D00是規劃討論單，沒有頁面需要連到它）
+
+## [2026-11-15] ingest | S02 地震百問（選錄）：震源與震央、地震波、規模、震度
+- 討論單：discussions/D02-S02-地震基本概念.md
+- 新增：sources/S02-cwa-faq-basics.md、concepts/規模.md、concepts/震度.md、concepts/震源與震央.md、concepts/P波與S波.md
+- 修改：topics/國家級警報.md（加震度5級的分級說明和概念頁連結）；index.md（加概念一節、S02和D02）；overview.md 內容仍不足，先不建
+- 檢查：第1次 E15 W1 → 第2次 E0 W1（保留的警告：W03，同S01）
