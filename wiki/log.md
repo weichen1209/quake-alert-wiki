@@ -46,4 +46,10 @@
 - 用到的Wiki頁：overview.md、concepts/規模.md、震度.md、震源與震央.md、P波與S波.md、強震即時警報.md、topics/預警時間與盲區.md、警報名稱比較.md、國家級警報.md、收到警報怎麼做.md
 - 學生的決定：試算的發布警報秒數用20（對應PWS約20多秒內，簡化成20秒），頁面上說明這是簡化
 - 缺資料：S波速度（第10頁 data-vs 要用，Wiki沒有數字，第10頁暫不放calc-eew元件，補來源後再放，位置已留註解）；113年9月1日之前的發布條件年份（第14頁）；完整防護動作（第15頁）；缺資料回N1補來源
-- 檢查：尚未執行C2
+- 檢查：C2a第1次 E0（程式看不出第10頁沒有試算）；C2b第1次 E6 W11（另一個AI審查，見runs/run-01/checks/47-C2b-deck.txt）；Wiki缺S波速度 → 回N1取得S06
+
+## [2026-11-15] ingest | S06 Earthquake Early Warning – Overview
+- 討論單：discussions/D06-S06-美國地震預警.md
+- 新增：sources/S06-usgs-eew-overview.md
+- 修改：concepts/P波與S波.md（加S06速度和換算、不同來源的說法）；topics/預警時間與盲區.md（加速度來源和試算說明）；concepts/強震即時警報.md（加預警不是預測）；overview.md；index.md；不建美國ShakeAlert頁，門檻和感測器數量不收
+- 檢查：第1次 E54 → 第2次 E18 → 第3次 E16（S06的部分已通過；剩下16個都在queries/Q02-簡報大綱.md，是N5的大綱第一次被檢查到，交給重做大綱時修）

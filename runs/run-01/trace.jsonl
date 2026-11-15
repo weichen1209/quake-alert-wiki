@@ -47,3 +47,11 @@
 {"seq": 47, "time": "2026-11-15T21:38:41", "node": "C2b", "target": "deck", "attempt": 1, "status": "fail", "codes": {"R2": 2, "R3": 4}, "note": "另一個AI審查：第10頁沒有試算、第13頁兩個「另一篇」不是同一篇、第14頁把預定上線寫成已上線、術語沒解釋；建議11條", "check_file": "47-C2b-deck.txt"}
 {"seq": 48, "time": "2026-11-15T21:38:41", "node": "N6", "target": "deck", "attempt": 2, "status": "gap", "codes": {}, "note": "Wiki缺資料：S波速度（第10頁試算）→ 回N1補來源"}
 {"seq": 49, "time": "2026-11-15T21:38:45", "node": "N1", "target": "S06", "attempt": 1, "status": "done", "codes": {}, "note": "缺資料回N1：取得 usgs-eew-overview（S波速度）"}
+{"seq": 50, "time": "2026-11-15T21:40:14", "node": "N2", "target": "S06", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫討論單D06：第一次有P波S波速度（英里/秒）、指出almost twice和1.5倍對不上、試算會是美國速度配臺灣秒數、4個問題"}
+{"seq": 51, "time": "2026-11-15T21:40:14", "node": "R", "target": "S06", "attempt": 1, "status": "reply", "codes": {}, "note": "學生回覆4題：換算成約4.0公里/秒並註明是USGS、不建美國頁、試算頁明寫是簡化組合、門檻和感測器數量不收"}
+{"seq": 52, "time": "2026-11-15T21:41:08", "node": "N3", "target": "S06", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫決定，新增來源摘要頁，P波與S波補速度和換算（約4.0公里/秒）、預警時間與盲區加試算說明、強震即時警報加預警不是預測"}
+{"seq": 53, "time": "2026-11-15T21:41:08", "node": "C1", "target": "S06", "attempt": 1, "status": "fail", "codes": {"W06": 26, "W07": 27, "W05": 1}, "note": "", "check_file": "53-C1-S06.txt", "owners": {"N3": {"W06": 7, "W07": 9}, "N2": {"W06": 15, "W07": 7}, "N5": {"W07": 11, "W06": 4, "W05": 1}}}
+{"seq": 54, "time": "2026-11-15T21:42:45", "node": "N3", "target": "S06", "attempt": 2, "status": "done", "codes": {}, "note": "依C1修改：英文引文照原文（含®問題）並緊接出處、非原文拿掉「」、算出的數字移進換算括號；Q02的錯留給N5"}
+{"seq": 55, "time": "2026-11-15T21:42:45", "node": "C1", "target": "S06", "attempt": 2, "status": "fail", "codes": {"W07": 13, "W06": 4, "W05": 1}, "note": "", "check_file": "55-C1-S06.txt", "owners": {"N2": {"W07": 2}, "N5": {"W07": 11, "W06": 4, "W05": 1}}}
+{"seq": 56, "time": "2026-11-15T21:43:08", "node": "N3", "target": "S06", "attempt": 3, "status": "done", "codes": {}, "note": "依C1第2次修改：D06第41行拿掉不屬於S06的20"}
+{"seq": 57, "time": "2026-11-15T21:43:09", "node": "C1", "target": "S06", "attempt": 3, "status": "fail", "codes": {"W07": 11, "W06": 4, "W05": 1}, "note": "", "check_file": "57-C1-S06.txt", "owners": {"N5": {"W07": 11, "W06": 4, "W05": 1}}}
