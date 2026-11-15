@@ -208,7 +208,7 @@ updated: 2026-11-15
 </section>
 ```
 
-- `data-kind`：title、objectives、hook、concept、process、practice、misconception、quiz、summary、sources。順序：title、objectives 開頭；quiz、summary、sources 結尾。
+- `data-kind`：title、objectives、hook、concept、process、practice、misconception、quiz、summary、sources。順序：title、objectives 開頭；quiz（可以多頁）、summary、sources 結尾；中間至少一頁 practice（放互動試算）。
 - `data-wiki`：這頁用到的Wiki頁（相對 `wiki/` 的路徑，空白分隔）。title、sources 以外每頁都要有。頁尾的「出處」由build自動產生。
 - 可用標籤：section、h1、h2、h3、p、ul、ol、li、strong、em、small、span、div、table、thead、tbody、tr、th、td、aside、figure、figcaption、button、a（只能連到Wiki頁）。不能用script、style、img、iframe、行內style屬性。
 - 可用的class：slide、lead、compare、card、steps、timeline、callout、warn、cols、big、muted、notes、scale、quiz、calc-eew、src。
