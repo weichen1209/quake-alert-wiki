@@ -211,7 +211,7 @@ updated: 2026-11-15
 - `data-kind`：title、objectives、hook、concept、process、practice、misconception、quiz、summary、sources。順序：title、objectives 開頭；quiz（可以多頁）、summary、sources 結尾；中間至少一頁 practice（放互動試算）。
 - `data-wiki`：這頁用到的Wiki頁（相對 `wiki/` 的路徑，空白分隔）。title、sources 以外每頁都要有。頁尾的「出處」由build自動產生。
 - 可用標籤：section、h1、h2、h3、p、ul、ol、li、strong、em、small、span、div、table、thead、tbody、tr、th、td、aside、figure、figcaption、button、a（只能連到Wiki頁）。不能用script、style、img、iframe、行內style屬性。
-- 可用的class：slide、lead、compare、card、steps、timeline、callout、warn、cols、big、muted、notes、scale、quiz、calc-eew、src。
+- 可用的class：slide、lead、compare、card、steps、timeline、callout、warn、cols、big、muted、notes、scale、quiz、why、calc-eew、src。
 - 互動元件：
   - 預警時間試算：`<div class="calc-eew" data-vs="S波速度(公里/秒)" data-alert="發布警報的秒數" data-wiki="……"></div>`，數值要出現在data-wiki的頁面裡。
   - 測驗：`<div class="quiz" data-answer="b"><p>題目</p><button data-opt="a">…</button>…<p class="why" data-wiki="……">解析</p></div>`，每題4個選項。
