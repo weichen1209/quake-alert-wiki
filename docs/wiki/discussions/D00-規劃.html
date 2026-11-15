@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>討論單 D00：整體規劃｜地震預警LLM Wiki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css"></head>
+<body><header class="top"><div class="in"><a class="brand" href="../../index.html">地震預警 LLM Wiki</a><nav><a href="../../index.html">首頁</a><a href="../../slides/index.html">教學簡報</a><a href="../index.html">Wiki目錄</a><a href="../../graph.html">頁面關係圖</a><a href="../../flow.html">流程圖</a><a href="../../runs/index.html">執行紀錄</a><a href="../../map.html">簡報對應表</a><a href="../../AGENTS.html">規則</a></nav></div></header>
+<div class="wrap"><main><div class="meta"><span class="type" style="background:#d47a22">討論單</span>更新 2026-11-15　來源 －<span class="summary">開始取得來源之前，先和學生確認主題範圍、讀者、簡報要回答的問題、第一批來源和預計建立的頁面</span></div><h1>討論單 D00：整體規劃</h1><h2 id="AI-規劃">AI：規劃</h2>
+<p><strong>主題範圍</strong></p>
+<ul><li>包含：規模和震度的差別、震源與震央、P波和S波、強震即時警報（EEW）的原理和計算、國家級警報（PWS）的發布條件和歷次調整、為什麼震央附近會先搖才響、收到警報後怎麼做。</li><li>不包含：海嘯警報、天氣類警報（颱風、豪雨）、地震預測（預報幾天後會不會地震）、其他國家的完整制度。美國的做法只當作對照，不展開。</li><li>不包含：建築耐震設計、保險、災後救助。</li></ul>
+<p><strong>讀者</strong></p>
+<ul><li>沒有地震學背景、收過國家級警報的一般人（高中生、大學生），照 AGENTS.md 第1節。</li><li>簡報用來在課堂上講，一場約10到15分鐘，不需要先修知識。</li></ul>
+<p><strong>簡報要回答的問題</strong></p>
+<ol><li>規模和震度有什麼不一樣？</li><li>P波和S波是什麼，為什麼可以利用它們的時間差？</li><li>強震即時警報是怎麼算出來的，從地震發生到發出警報要幾秒？</li><li>國家級警報（PWS）在什麼條件下發布？這些條件有沒有改過？</li><li>為什麼震央附近的人會先搖才收到警報？</li><li>地震速報、強震即時警報、國家級警報三個名稱有什麼關係？</li><li>收到警報之後該做什麼？</li><li>其他國家的預警系統用同樣的原理嗎？（對照用，視來源取得情況決定要不要放）</li></ol>
+<h2 id="AI-第一批來源">AI：第一批來源</h2>
+<p>建議先 ingest 這5篇，順序如下：</p>
+<ol><li><code>cwa-edu-pws-story</code>：用白話故事說國家級警報和測報過程，適合先建立整體圖像，也最接近讀者。</li><li><code>cwa-faq-basics</code>：震源與震央、地震波、規模、震度的定義，是後面所有頁面的概念基礎。</li><li><code>cwa-faq-eew</code>：地震預報、速報和強震即時警報的差別，補上三個名稱的關係。</li><li><code>cwa-eew-principle</code>：強震即時警報的原理和系統說明，用來寫試算互動元件需要的數值（S波速度、發布警報的秒數）。</li><li><code>cwa-press-2024-pws</code>：113年8月30日的新聞稿，說明PWS新增發布條件，是目前最新的制度說法。</li></ol>
+<p>選這5篇的理由：問題1到6都能由它們回答；順序是先概念、後系統、最後制度，讓每一篇的討論單可以引用前一篇建好的頁面。</p>
+<p>其餘候選留著做這些用途：</p>
+<ul><li><code>cwa-pws-info</code>：頁面標示110年9月2日的說明，用來和 <code>cwa-press-2024-pws</code> 比對發布條件的差別，寫進「不同來源的說法」。</li><li><code>cwa-pws-2020-response</code>：109年前後調整發布條件的回應，用來補制度變化的時間線；ingest 前要先確認文件日期。</li><li><code>usgs-eew-overview</code>：美國的預警簡介（英文），只在決定要放問題8時才取得。</li><li><code>cwa-edu-three-steps</code>：收到警報後的動作，回答問題7。</li><li><code>cwa-protection</code>：地震防護的補充，和 <code>cwa-edu-three-steps</code> 互相對照，內容重複時只取其中一篇。</li></ul>
+<h2 id="AI-預計建立的頁面">AI：預計建立的頁面</h2>
+<p><strong>concepts/</strong></p>
+<ul><li><code>規模.md</code>：描述地震大小的尺度，和震度分開說明。</li><li><code>震度.md</code>：各地搖晃的程度和分級。</li><li><code>震源與震央.md</code>：地震發生的位置和它在地表的投影。</li><li><code>P波與S波.md</code>：兩種地震波的速度差，預警時間差的來源。</li><li><code>強震即時警報.md</code>：EEW的定義、原理和它與地震速報的差別。</li><li><code>災防告警細胞廣播.md</code>：PWS的技術和它與手機提醒的關係。</li></ul>
+<p><strong>topics/</strong></p>
+<ul><li><code>國家級警報.md</code>：發布條件、發布流程和歷次調整（含不同來源的說法）。</li><li><code>預警時間與盲區.md</code>：為什麼震央附近先搖才響，以及預警時間怎麼估。</li><li><code>警報名稱比較.md</code>：地震速報、強震即時警報、國家級警報的差別。</li><li><code>收到警報怎麼做.md</code>：警報後的行動（取得防護類來源後才建立）。</li></ul>
+<p>另外依流程建立 <code>wiki/index.md</code>、<code>wiki/overview.md</code>、<code>wiki/log.md</code>，以及每篇來源的 <code>wiki/sources/Sxx-*.md</code> 和對應的討論單。</p>
+<h2 id="AI-想問的問題">AI：想問的問題</h2>
+<ol><li>簡報定位要偏哪一邊：偏「搞懂原理」（規模、震度、P波S波、預警計算占大半），還是偏「制度和行動」（國家級警報的發布條件、變化和收到警報怎麼做占大半）？兩邊都要的話，各占幾成？</li><li>問題8（和美國預警系統對照）要不要放？放的話第一批要再多取得 <code>usgs-eew-overview</code>，而且簡報會出現英文來源。</li><li>簡報要不要有互動元件：預警時間試算（輸入震央距離，算還剩幾秒）和測驗題？有的話，第一批來源裡一定要找到S波速度和發布警報秒數的數字。</li><li>「收到警報怎麼做」是主要目的之一，要不要把 <code>cwa-edu-three-steps</code> 換進第一批，換掉 <code>cwa-faq-eew</code>？</li><li>制度部分要不要把歷次調整做成時間線（110年、113年等），還是只講現行規定？做時間線需要在第二批取得 <code>cwa-pws-info</code> 和 <code>cwa-pws-2020-response</code>。</li></ol>
+<h2 id="學生回覆">學生回覆</h2>
+<ol><li>原理和制度大約六比四。原理放規模和震度、P波和S波、預警時間和盲區；制度放國家級警報的發布條件和收到警報怎麼做。我最想弄懂的是為什麼有時候先搖才響。</li><li>先不放美國的對照。做簡報時如果發現缺資料，再回來補。</li><li>要。預警時間試算和測驗都要，試算用的數字一定要從Wiki來。</li><li>不換，第一批照你排的5篇，收到警報怎麼做之後再補。</li><li>要做時間線。我在網路上看到的發布門檻說法不一樣，想知道是哪一年改的。這兩篇放第二批。</li></ol>
+<h2 id="決定">決定</h2>
+<p>（AI依回覆整理：要新增、修改哪些頁）</p></main><aside class="side"><h4>討論單（1）</h4><ul><li><a href="D00-規劃.html" class=on>討論單 D00：整體規劃</a></li></ul></aside></div>
+<footer class="bot">資料來源：交通部中央氣象署等公開資料（見各來源頁的授權說明）｜<a href="https://github.com/weichen1209/quake-alert-wiki">GitHub</a></footer>
+</body></html>

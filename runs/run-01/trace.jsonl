@@ -1,0 +1,4 @@
+{"seq": 1, "time": "2026-11-15T21:06:37", "node": "N0", "target": "D00", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫規劃討論單：範圍、讀者、8個問題、第一批5篇來源、預計10頁"}
+{"seq": 2, "time": "2026-11-15T21:06:37", "node": "R", "target": "D00", "attempt": 1, "status": "reply", "codes": {}, "note": "學生回覆5題：原理六成制度四成、不放美國對照、要試算和測驗、第一批不換、要時間線"}
+{"seq": 3, "time": "2026-11-15T21:07:47", "node": "N0", "target": "D00", "attempt": 2, "status": "done", "codes": {}, "note": "AI依回覆寫「決定」，建立log.md、index.md"}
+{"seq": 4, "time": "2026-11-15T21:07:47", "node": "N1", "target": "S01", "attempt": 1, "status": "done", "codes": {}, "note": "取得 cwa-edu-pws-story"}

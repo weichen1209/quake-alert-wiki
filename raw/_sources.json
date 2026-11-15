@@ -22,7 +22,12 @@
           ],
           "stop": "^上一篇$"
         }
-      ]
+      ],
+      "id": "S01",
+      "file": "S01-cwa-edu-pws-story.md",
+      "retrieved": "2026-11-15",
+      "sha256": "cfa063db9b62b9561d58a73b45660240bc18f59369754088907e1974e76ec918",
+      "chars": 1832
     },
     {
       "key": "cwa-faq-basics",

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>規則 AGENTS.md｜地震預警LLM Wiki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css"></head>
+<body><header class="top"><div class="in"><a class="brand" href="index.html">地震預警 LLM Wiki</a><nav><a href="index.html">首頁</a><a href="slides/index.html">教學簡報</a><a href="wiki/index.html">Wiki目錄</a><a href="graph.html">頁面關係圖</a><a href="flow.html">流程圖</a><a href="runs/index.html">執行紀錄</a><a href="map.html">簡報對應表</a><a href="AGENTS.html" class=on>規則</a></nav></div></header>
+<div class="wrap single"><main><h1 id="AGENTS-md-地震預警LLM-Wiki的規則">AGENTS.md：地震預警LLM Wiki的規則</h1>
+<p>這份文件寫給維護這個Wiki、用Wiki做簡報的AI。改Wiki或簡報之前先讀完；規則和檢查程式的結果不一致時，先回報，不要自己改掉其中一邊。</p>
+<p>目前版本：v1（2026-11-15）</p>
+<h2 id="1-專案目的">1. 專案目的</h2>
+<p>把「地震預警與國家級警報」的公開資料整理成一份LLM Wiki，再只用Wiki的內容做一份給新手的教學HTML簡報。</p>
+<ul><li>讀者：沒有地震學背景、收過國家級警報的一般人（高中生、大學生）。</li><li>簡報要讓讀者看完能說明：規模和震度的差別、P波和S波、強震即時警報怎麼算、國家級警報的發布條件、為什麼震央附近會先搖才響、收到警報怎麼做。</li></ul>
+<h2 id="2-三層結構">2. 三層結構</h2>
+<div class="tablewrap"><table><thead><tr><th>層</th><th>位置</th><th>誰寫</th><th>規則</th></tr></thead><tbody><tr><td>原始來源</td><td><code>raw/</code></td><td><code>tools/fetch.py</code></td><td>寫入後不能修改，<code>raw/_sources.json</code> 記SHA-256</td></tr><tr><td>Wiki</td><td><code>wiki/</code></td><td>AI</td><td>照第4、5節的格式寫，每次修改記在 <code>wiki/log.md</code></td></tr><tr><td>規則</td><td><code>AGENTS.md</code></td><td>學生和AI討論後修改</td><td>修改要在第10節記版本</td></tr></tbody></table></div>
+<h2 id="3-目錄">3. 目錄</h2>
+<pre><code>raw/_sources.json      來源清單（候選和已取得）
+raw/Sxx-*.md           已取得的原始來源（文字）
+wiki/index.md          目錄：每頁一行摘要
+wiki/log.md            時序紀錄（只往後加）
+wiki/overview.md       主題總覽
+wiki/concepts/         單一概念，例如 規模.md、震度.md
+wiki/topics/           制度、流程、比較，例如 國家級警報.md
+wiki/sources/          每篇來源一頁摘要 Sxx-*.md
+wiki/discussions/      討論單 Dxx-*.md（先討論、後生成）
+wiki/queries/          查詢結果歸檔 Qxx-*.md（例如簡報大綱）
+slides/deck.html       簡報內容（只有各頁的section）
+templates/             簡報和網站的版型（AI不改）
+tools/                 程式
+runs/run-xx/           每次執行的紀錄
+docs/                  GitHub Pages輸出（build.py產生，不手改）</code></pre>
+<h2 id="4-頁面格式">4. 頁面格式</h2>
+<h3 id="4-1-前置資料">4.1 前置資料</h3>
+<p>每個 <code>wiki/</code> 頁面（index.md、log.md 除外）開頭都要有：</p>
+<pre><code>---
+title: 震度
+type: concept
+summary: 地面上各地搖晃的程度，臺灣分0到7級共10級
+sources: [S02, S05]
+updated: 2026-11-15
+---</code></pre>
+<ul><li><code>type</code> 只能是 overview、concept、topic、source、discussion、query。</li><li><code>summary</code> 一句話，會放進 index.md。</li><li><code>sources</code> 列這頁用到的來源編號。</li></ul>
+<h3 id="4-2-出處">4.2 出處</h3>
+<ul><li>每一段和每個清單項目都要有出處標記，寫在句號前：<code>規模是描述地震大小的絕對尺度〔S02〕。</code></li><li>一句用到兩篇來源就寫兩個：<code>〔S02〕〔S05〕</code>。</li><li>只放連結的清單項目（例如「相關頁面」一節）不用出處。</li></ul>
+<h3 id="4-3-引文">4.3 引文</h3>
+<ul><li>「」裡接著出處標記的是引文：<code>「預估規模5.0以上」〔S05〕</code>，引文要和raw原文逐字相同（空白不算）。原文裡的「」在引文裡改成『』。</li><li>沒有出處標記的「」只能放名稱或用語，12個字以內，例如「趴下、掩護、穩住」。</li><li>文章、網頁的標題用〈〉，例如〈地震防護〉，不用「」。</li></ul>
+<h3 id="4-4-數字">4.4 數字</h3>
+<ul><li>有出處的句子裡，阿拉伯數字要能在那篇來源的原文找到（例如來源寫「規模5.0」，Wiki就寫5.0，不寫成5）。</li><li>單位換算寫成 <code>（換算：3.7英里約6.0公里）</code>，括號裡的數字不檢查，但要在討論單或頁面寫出算法。</li><li>年份照來源寫法（民國或西元），需要時在括號補另一種：<code>113年（2024年）</code>。</li></ul>
+<h3 id="4-5-日期和不同說法">4.5 日期和不同說法</h3>
+<ul><li>規則、門檻、系統效能這類會改的說法，要寫出是哪一份文件、哪一天的說法。</li><li>不同來源說法不一樣時，兩種都留，在該頁加一節 <code>## 不同來源的說法</code>，列出各自的來源、日期和差在哪；不要自己判斷哪個對，除非有來源說明哪個是現行。</li></ul>
+<h3 id="4-6-連結">4.6 連結</h3>
+<ul><li>頁面之間用相對路徑：<code>[震度](../concepts/震度.md)</code>。</li><li>每頁至少要被一個其他頁面連到（index.md 不算）。</li><li>檔名用頁面標題，例如 <code>wiki/concepts/震度.md</code>；來源摘要用 <code>Sxx-簡稱.md</code>。</li></ul>
+<h3 id="4-7-Markdown範圍">4.7 Markdown範圍</h3>
+<p>只用：標題（#到###）、段落、清單（可兩層）、表格、粗體、連結、引用區塊（&gt;）。不用HTML、圖片、註腳。</p>
+<h2 id="5-各類頁面寫什麼">5. 各類頁面寫什麼</h2>
+<ul><li><strong>source（來源摘要）</strong>：這篇是誰、何時發布、講什麼；5到10個重點（每點附出處，重要的用引文）；這篇讓哪些頁面新增或修改；最後連到它的討論單。</li><li><strong>concept</strong>：一句定義、白話說明、和相近概念的差別、常見誤解（有來源才寫）、相關頁面。</li><li><strong>topic</strong>：制度或流程的步驟、條件、時間；不同年份的變化；不同來源的說法。</li><li><strong>overview</strong>：用5到8段串起整個主題，每段連到細節頁。</li><li><strong>discussion（討論單）</strong>：格式見第6.2節。</li><li><strong>query</strong>：問題、讀了哪些頁、回答（每點附Wiki頁和出處）。</li></ul>
+<h2 id="6-流程-graph-v1">6. 流程（graph v1）</h2>
+<pre><code>N0 規劃討論（一次）
+  ↓
+┌─ 每篇來源重複 ───────────────────────────┐
+│ N1 取得資料 → N2 討論 → 學生回覆 → N3 生成/更新頁面 → C1 Wiki檢查 │
+│                                  ↑          不通過（最多3次） ↓     │
+│                                  └────────── 修改 ─────────────┘     │
+└───────────────────────────────────────────┘
+  ↓
+N4 查詢Wiki → N5 整理重點（大綱）→ N6 產生簡報 → C2 簡報檢查（程式＋AI審查）
+                                       ↑      不通過：重生出錯的頁（最多3次）
+                                       └────────────┘
+                                       Wiki缺資料：回到N1補來源
+  ↓
+N7 建置與發佈 → 記錄log</code></pre>
+<h3 id="6-1-N1-取得資料">6.1 N1 取得資料</h3>
+<p><code>python3 tools/fetch.py &lt;key&gt;</code> 從 <code>raw/_sources.json</code> 取一篇，自動編號Sxx，存成 <code>raw/Sxx-key.md</code>。</p>
+<h3 id="6-2-N2-討論-先討論-後生成">6.2 N2 討論（先討論、後生成）</h3>
+<p>AI讀新來源、<code>wiki/index.md</code> 和相關頁面後，寫 <code>wiki/discussions/Dxx-Sxx-簡稱.md</code>，這時還不能改其他Wiki頁：</p>
+<pre><code>---
+title: 討論單 D01：S01 ……
+type: discussion
+summary: ……
+sources: [S01]
+updated: 2026-11-15
+---
+## AI：這篇的重點
+1. ……「引文」〔S01〕
+## AI：和現有Wiki的關係
+- 新增：……
+- 修改：……
+- 和其他來源不一致：……
+## AI：想問的問題
+1. ……
+## 學生回覆
+（學生寫）
+## 決定
+（AI依回覆整理：要新增、修改哪些頁）</code></pre>
+<p>學生回覆後，AI才把「決定」寫完並進入N3。</p>
+<h3 id="6-3-N3-生成">6.3 N3 生成</h3>
+<p>照討論單的「決定」新增或修改頁面，更新 <code>wiki/index.md</code>、<code>wiki/overview.md</code>（需要時），最後在 <code>wiki/log.md</code> 加一筆。</p>
+<h3 id="6-4-C1-Wiki檢查">6.4 C1 Wiki檢查</h3>
+<p><code>python3 tools/lint_wiki.py</code>。有錯誤（E）就回N3修改，最多3次；警告（W）要在log註明為什麼保留。</p>
+<h3 id="6-5-N4-查詢-N5-大綱">6.5 N4 查詢、N5 大綱</h3>
+<ul><li>N4：讀 <code>wiki/index.md</code>，選頁，回答「新手要依序懂哪些事才能理解國家級警報」，存成 <code>wiki/queries/Qxx-*.md</code>。</li><li>N5：把回答排成簡報大綱，存成 <code>wiki/queries/Qxx-簡報大綱.md</code>：每頁寫目的、重點、用到的Wiki頁。</li></ul>
+<h3 id="6-6-N6-產生簡報">6.6 N6 產生簡報</h3>
+<p>照大綱寫 <code>slides/deck.html</code>，格式見第7節。只能用Wiki頁裡的內容；Wiki沒有的事不能寫，需要的話回報「Wiki缺資料」。</p>
+<h3 id="6-7-C2-簡報檢查">6.7 C2 簡報檢查</h3>
+<ul><li>程式：<code>python3 tools/check_slides.py</code>。</li><li>AI審查：另一個AI只讀簡報和它引用的Wiki頁，逐頁檢查「內容有沒有Wiki依據」「新手看不看得懂」，寫成 <code>runs/run-xx/review.md</code>。</li><li>有錯誤就回N6重寫出錯的頁，最多3次。</li></ul>
+<h3 id="6-8-N7-建置與發佈">6.8 N7 建置與發佈</h3>
+<p><code>python3 tools/build.py</code> 產生 <code>docs/</code>，push後GitHub Pages更新。</p>
+<h3 id="6-9-log-md">6.9 log.md</h3>
+<p>每筆一個標題，格式固定，只往後加，不改舊紀錄：</p>
+<pre><code>## [2026-11-15] ingest | S01 國家級警報來了--地震測報過程
+- 討論單：discussions/D01-S01-……
+- 新增：……
+- 修改：……
+- 檢查：第1次 E3 W1 → 第2次 E0 W1（保留的警告：……）</code></pre>
+<p>類別只能是 plan、ingest、query、slides、lint、graph。「檢查」那行在C1之後補上（同一筆紀錄，可以改）。</p>
+<h2 id="7-簡報格式">7. 簡報格式</h2>
+<p><code>slides/deck.html</code> 只放 <code>&lt;section&gt;</code>，版型、換頁和互動元件在 <code>templates/deck.html</code>，由 <code>tools/build.py</code> 合併。</p>
+<pre><code>&lt;section class=&quot;slide&quot; data-kind=&quot;concept&quot; data-wiki=&quot;concepts/震度.md concepts/規模.md&quot;&gt;
+  &lt;h2&gt;規模和震度不一樣&lt;/h2&gt;
+  &lt;div class=&quot;compare&quot;&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;h3&gt;規模&lt;/h3&gt;&lt;p&gt;……&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;h3&gt;震度&lt;/h3&gt;&lt;p&gt;……&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;aside class=&quot;notes&quot;&gt;講者備註：……&lt;/aside&gt;
+&lt;/section&gt;</code></pre>
+<ul><li><code>data-kind</code>：title、objectives、hook、concept、process、practice、misconception、quiz、summary、sources。順序：title、objectives 開頭；quiz（可以多頁）、summary、sources 結尾；中間至少一頁 practice（放互動試算）。</li><li><code>data-wiki</code>：這頁用到的Wiki頁（相對 <code>wiki/</code> 的路徑，空白分隔）。title、sources 以外每頁都要有。頁尾的「出處」由build自動產生。</li><li>可用標籤：section、h1、h2、h3、p、ul、ol、li、strong、em、small、span、div、table、thead、tbody、tr、th、td、aside、figure、figcaption、button、a（只能連到Wiki頁）。不能用script、style、img、iframe、行內style屬性。</li><li>可用的class：slide、lead、compare、card、steps、timeline、callout、warn、cols、big、muted、notes、scale、quiz、why、calc-eew、src。</li><li>互動元件：<ul><li>預警時間試算：<code>&lt;div class=&quot;calc-eew&quot; data-vs=&quot;S波速度(公里/秒)&quot; data-alert=&quot;發布警報的秒數&quot; data-wiki=&quot;……&quot;&gt;&lt;/div&gt;</code>，數值要出現在data-wiki的頁面裡。</li><li>測驗：<code>&lt;div class=&quot;quiz&quot; data-answer=&quot;b&quot;&gt;&lt;p&gt;題目&lt;/p&gt;&lt;button data-opt=&quot;a&quot;&gt;…&lt;/button&gt;…&lt;p class=&quot;why&quot; data-wiki=&quot;……&quot;&gt;解析&lt;/p&gt;&lt;/div&gt;</code>，每題4個選項。</li></ul></li><li>每頁正文（不含notes）160字以內；全部10到22頁。</li><li>數字、引文的規則和Wiki一樣：要能在 <code>data-wiki</code> 的頁面裡找到。</li></ul>
+<h2 id="8-檢查代碼">8. 檢查代碼</h2>
+<h3 id="8-1-Wiki-tools-lint_wiki-py">8.1 Wiki（tools/lint_wiki.py）</h3>
+<div class="tablewrap"><table><thead><tr><th>代碼</th><th>等級</th><th>檢查</th></tr></thead><tbody><tr><td>W01</td><td>E</td><td>前置資料缺欄位、type不合法</td></tr><tr><td>W02</td><td>E</td><td>連結指到不存在的檔案</td></tr><tr><td>W03</td><td>W</td><td>孤兒頁（沒有其他頁連到）</td></tr><tr><td>W04</td><td>E</td><td>index.md 沒列到的頁面，或列了不存在的頁面</td></tr><tr><td>W05</td><td>E</td><td>段落或清單項目沒有出處標記</td></tr><tr><td>W06</td><td>E</td><td>引文和raw原文不一致；沒有出處的「」超過12字</td></tr><tr><td>W07</td><td>E</td><td>有出處的句子裡，數字在該來源原文找不到</td></tr><tr><td>W08</td><td>E</td><td>log.md 標題格式不對或日期倒退</td></tr><tr><td>W09</td><td>E</td><td>已取得的來源沒有來源摘要頁，或摘要頁的id不對</td></tr><tr><td>W10</td><td>E</td><td>raw/ 檔案的SHA-256和 _sources.json 不同</td></tr><tr><td>W11</td><td>E</td><td>來源摘要頁沒有對應的討論單，或討論單沒有學生回覆</td></tr><tr><td>W12</td><td>E</td><td>出處標記指到不存在或還沒取得的來源</td></tr></tbody></table></div>
+<h3 id="8-2-簡報-tools-check_slides-py">8.2 簡報（tools/check_slides.py）</h3>
+<div class="tablewrap"><table><thead><tr><th>代碼</th><th>等級</th><th>檢查</th></tr></thead><tbody><tr><td>P01</td><td>E</td><td>頁面種類或順序不合第7節</td></tr><tr><td>P02</td><td>E</td><td>缺data-wiki，或指到不存在的Wiki頁</td></tr><tr><td>P03</td><td>E</td><td>數字在data-wiki的頁面裡找不到</td></tr><tr><td>P04</td><td>E</td><td>引文（12字以上的「」）在data-wiki的頁面裡找不到</td></tr><tr><td>P05</td><td>E</td><td>互動元件的數值在它的data-wiki頁面裡找不到</td></tr><tr><td>P06</td><td>E</td><td>用了不允許的標籤、class、屬性或外部連結</td></tr><tr><td>P07</td><td>W</td><td>單頁正文超過160字；總頁數不在10到22頁</td></tr><tr><td>P08</td><td>E</td><td>測驗不是4個選項、缺答案或解析</td></tr></tbody></table></div>
+<h2 id="9-不要做的事">9. 不要做的事</h2>
+<ul><li>不改 <code>raw/</code> 的檔案；來源有錯就在Wiki寫明，不改原文。</li><li>不刪 <code>wiki/log.md</code> 的舊紀錄；寫錯就在新紀錄更正。</li><li>不把自己的推論寫成來源的說法；推論要寫「（推論）」並說明根據。</li><li>簡報不寫Wiki沒有的內容，不從網路或自己的知識補。</li><li>不改 <code>templates/</code>、<code>tools/</code>；需要改時先回報。</li></ul>
+<h2 id="10-版本紀錄">10. 版本紀錄</h2>
+<ul><li>v1（2026-11-15）：第一版流程。檢查放在生成之後：C1在每篇來源生成後，C2在整份簡報產生後。</li></ul></main></div>
+<footer class="bot">資料來源：交通部中央氣象署等公開資料（見各來源頁的授權說明）｜<a href="https://github.com/weichen1209/quake-alert-wiki">GitHub</a></footer>
+</body></html>

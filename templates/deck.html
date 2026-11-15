@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --paper-2:#ebe3d3; --card:#fbf8f2; --ink:#1c1b18; --ink-2:#45413a; --muted:#7a7366;
+  --rule:#d8cfbd; --alert:#c4362c; --alert-soft:#f6dcd6; --p:#2c6e8f; --p-soft:#dbe9ef; --s:#d47a22;
+  --ok:#2f7d4f; --ok-soft:#dcefe3;
+  --serif:"Noto Serif TC","Songti TC",serif; --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--paper);color:var(--ink);font-family:var(--sans)}
+body{overflow:hidden}
+.deck{position:fixed;inset:0;
+  background-image:linear-gradient(var(--paper-2) 1px,transparent 1px),linear-gradient(90deg,var(--paper-2) 1px,transparent 1px);
+  background-size:100% 32px,32px 100%;background-position:0 -1px,-1px 0}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
+  padding:clamp(56px,7vh,84px) clamp(20px,7vw,120px) clamp(76px,10vh,108px);overflow-y:auto}
+.slide.active{display:flex;animation:in .35s ease-out}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.slide>*{max-width:1080px;width:100%;margin-left:auto;margin-right:auto}
+.kicker{position:absolute;top:clamp(16px,3vh,28px);left:clamp(20px,7vw,120px);font:600 13px/1 var(--mono);
+  letter-spacing:.08em;color:var(--muted)}
+.kicker b{color:var(--alert);font-weight:600}
+h1,h2,h3{font-family:var(--serif);font-weight:900;margin:0 0 .5em;line-height:1.25;letter-spacing:.01em}
+h1{font-size:clamp(34px,5.6vw,68px)}
+h2{font-size:clamp(26px,3.6vw,44px)}
+h3{font-size:clamp(18px,2vw,24px);font-weight:600}
+p,li,td,th{font-size:clamp(16px,1.75vw,22px);line-height:1.7}
+p{margin:0 0 .7em}
+ul,ol{margin:0 0 .7em;padding-left:1.3em}
+li{margin:.2em 0}
+strong{font-weight:700;background:linear-gradient(transparent 62%,rgba(212,122,34,.28) 62%)}
+small,.muted{color:var(--muted)}
+small{font-size:.8em}
+.lead{font-size:clamp(19px,2.2vw,27px);line-height:1.6;color:var(--ink-2)}
+.big{font:600 clamp(48px,8vw,104px)/1.05 var(--mono);color:var(--alert);letter-spacing:-.02em;margin:.1em 0 .2em}
+.callout{border-left:6px solid var(--p);background:var(--p-soft);padding:.8em 1.1em;border-radius:0 10px 10px 0;margin:.4em 0 .9em}
+.warn{border-left:6px solid var(--alert);background:var(--alert-soft);padding:.8em 1.1em;border-radius:0 10px 10px 0;margin:.4em 0 .9em}
+.callout>:last-child,.warn>:last-child,.card>:last-child{margin-bottom:0}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,40px)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.5vw,32px);margin:.3em 0 .8em}
+.card{background:var(--card);border:1px solid var(--rule);border-top:6px solid var(--ink);border-radius:10px;padding:1em 1.2em}
+.compare .card:nth-child(2){border-top-color:var(--alert)}
+.compare .card:nth-child(3){border-top-color:var(--p)}
+.steps{list-style:none;padding:0;display:flex;gap:10px;counter-reset:st;margin:.4em 0 1em}
+.steps>li{flex:1;position:relative;background:var(--card);border:1px solid var(--rule);border-radius:10px;
+  padding:2.3em .9em .9em;counter-increment:st;font-size:clamp(14px,1.45vw,19px);line-height:1.55}
+.steps>li::before{content:counter(st,decimal-leading-zero);position:absolute;top:.6em;left:.9em;font:600 .85em var(--mono);color:var(--alert)}
+.steps>li:not(:last-child)::after{content:"";position:absolute;right:-9px;top:50%;width:8px;height:2px;background:var(--ink)}
+.timeline{list-style:none;padding:0 0 0 1.4em;border-left:3px solid var(--ink);margin:.4em 0 1em}
+.timeline>li{position:relative;margin:0 0 .9em;padding-left:.4em}
+.timeline>li::before{content:"";position:absolute;left:calc(-1.4em - 9px);top:.55em;width:13px;height:13px;border-radius:50%;
+  background:var(--paper);border:3px solid var(--alert)}
+.timeline>li>strong:first-child{font-family:var(--mono);font-weight:600;background:none;color:var(--alert);margin-right:.5em}
+table{border-collapse:collapse;width:100%;margin:.3em 0 .9em;background:var(--card)}
+th,td{border-bottom:1px solid var(--rule);padding:.42em .6em;text-align:left;vertical-align:top;font-size:clamp(14px,1.4vw,18px)}
+th{font-family:var(--sans);font-weight:700;background:var(--paper-2)}
+table.scale td:first-child{font:600 1em var(--mono);white-space:nowrap;color:#fff;text-align:center;width:4.2em}
+table.scale tbody tr:nth-child(1) td:first-child{background:#b9b2a2}
+table.scale tbody tr:nth-child(2) td:first-child{background:#a6b98f}
+table.scale tbody tr:nth-child(3) td:first-child{background:#8fb06a}
+table.scale tbody tr:nth-child(4) td:first-child{background:#d6b13a}
+table.scale tbody tr:nth-child(5) td:first-child{background:#e0912f}
+table.scale tbody tr:nth-child(6) td:first-child{background:#d96f28}
+table.scale tbody tr:nth-child(7) td:first-child{background:#cf5126}
+table.scale tbody tr:nth-child(8) td:first-child{background:#bb3524}
+table.scale tbody tr:nth-child(9) td:first-child{background:#9c2420}
+table.scale tbody tr:nth-child(10) td:first-child{background:#6e1717}
+figure{margin:0 0 .8em}
+figcaption{font-size:.85em;color:var(--muted)}
+.notes{display:none}
+body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px dashed var(--muted);border-radius:8px;
+  font-size:15px;color:var(--ink-2);background:rgba(255,255,255,.5)}
+.src{position:absolute;left:clamp(20px,7vw,120px);right:clamp(20px,7vw,120px);bottom:clamp(30px,4.5vh,44px);
+  font:12px/1.5 var(--sans);color:var(--muted);max-width:none}
+.src a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule);margin-right:.7em}
+.src a:hover{color:var(--alert);border-color:var(--alert)}
+.src span{font-family:var(--mono);letter-spacing:.06em;margin-right:.6em}
+/* 標題頁 */
+.slide[data-kind="title"]{justify-content:flex-end;padding-bottom:clamp(90px,16vh,160px)}
+.slide[data-kind="title"] h1{max-width:13em}
+.seismo{position:absolute;left:0;right:0;top:12vh;height:30vh;width:100%;max-width:none;opacity:.95}
+.seismo .base{stroke:var(--rule);stroke-width:1}
+.seismo .trace{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round}
+.seismo .tag{font:600 12px var(--mono);fill:var(--muted)}
+.seismo .mark{stroke-width:1.5;stroke-dasharray:4 4}
+/* 測驗 */
+.quiz{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:1em 1.2em;margin:.3em 0 1em}
+.quiz>p:first-child{font-weight:700;margin-bottom:.6em}
+.quiz button{display:block;width:100%;text-align:left;margin:.35em 0;padding:.55em .8em;border:1px solid var(--rule);
+  border-radius:8px;background:#fff;font:inherit;font-size:clamp(15px,1.55vw,20px);color:var(--ink);cursor:pointer}
+.quiz button::before{content:attr(data-opt);font:600 .85em var(--mono);color:var(--muted);margin-right:.7em;text-transform:uppercase}
+.quiz button:hover{border-color:var(--ink)}
+.quiz button.right{background:var(--ok-soft);border-color:var(--ok)}
+.quiz button.wrong{background:var(--alert-soft);border-color:var(--alert)}
+.quiz .why{display:none;margin:.7em 0 0;padding-top:.6em;border-top:1px dashed var(--rule);font-size:clamp(15px,1.5vw,19px)}
+.quiz.done .why{display:block}
+/* 預警時間試算 */
+.calc-eew{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:1em 1.2em;margin:.3em 0 1em}
+.calc-eew .row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(12px,2.5vw,28px);align-items:center}
+.calc-eew label{display:block;font-weight:700;margin-bottom:.3em;font-size:clamp(15px,1.5vw,19px)}
+.calc-eew input[type=range]{width:100%;accent-color:var(--alert)}
+.calc-eew .out{font:600 clamp(15px,1.5vw,19px)/1.6 var(--mono)}
+.calc-eew .out b{color:var(--alert);font-weight:600}
+.calc-eew .verdict{margin:.5em 0 0;font-weight:700}
+.calc-eew .verdict.blind{color:var(--alert)}
+.calc-eew .verdict.ok{color:var(--ok)}
+.calc-eew svg{width:100%;height:auto;display:block}
+.calc-eew .formula{font:13px/1.5 var(--mono);color:var(--muted);margin:.6em 0 0}
+/* 下方控制列 */
+.hud{position:fixed;left:0;right:0;bottom:0;height:30px;display:flex;align-items:center;gap:12px;
+  padding:0 clamp(12px,3vw,28px);font:12px var(--mono);color:var(--muted);background:linear-gradient(transparent,rgba(244,239,230,.96) 40%)}
+.hud button,.hud a{font:inherit;color:var(--ink-2);background:none;border:1px solid var(--rule);border-radius:4px;padding:2px 8px;cursor:pointer;text-decoration:none}
+.hud button:hover,.hud a:hover{border-color:var(--ink)}
+.hud .bar{flex:1;height:3px;background:var(--rule);border-radius:2px;overflow:hidden}
+.hud .bar i{display:block;height:100%;width:0;background:var(--alert);transition:width .25s}
+@media (max-width:760px){
+  .cols,.compare,.calc-eew .row{grid-template-columns:1fr}
+  .steps{flex-direction:column}
+  .steps>li:not(:last-child)::after{display:none}
+  .slide{justify-content:flex-start;padding-top:64px}
+  .src{position:static;margin-top:1.2em}
+  .seismo{top:70px;height:22vh}
+}
+@media print{
+  body{overflow:visible}.deck{position:static}.hud{display:none}
+  .slide{display:flex;position:relative;min-height:100vh;page-break-after:always}
+}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+{{SLIDES}}
+</main>
+<nav class="hud" aria-label="簡報控制">
+  <button type="button" id="prev" aria-label="上一頁">←</button>
+  <span id="count">1 / 1</span>
+  <button type="button" id="next" aria-label="下一頁">→</button>
+  <div class="bar"><i id="bar"></i></div>
+  <button type="button" id="notesBtn" title="顯示講者備註（N）">備註</button>
+  <a href="{{WIKI_HOME}}">Wiki</a>
+</nav>
+<script>
+(function(){
+  const KIND = {title:"開場",objectives:"學習目標",hook:"先想一想",concept:"概念",process:"流程",practice:"練習",
+    misconception:"常見誤解",quiz:"小測驗",summary:"重點整理",sources:"資料來源"};
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  const total = slides.length;
+  slides.forEach((s, i) => {
+    const k = document.createElement("div");
+    k.className = "kicker";
+    k.innerHTML = String(i + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0") +
+      "　<b>" + (KIND[s.dataset.kind] || "") + "</b>";
+    s.prepend(k);
+  });
+  let cur = 0;
+  function show(i){
+    cur = Math.max(0, Math.min(total - 1, i));
+    slides.forEach((s, j) => s.classList.toggle("active", j === cur));
+    document.getElementById("count").textContent = (cur + 1) + " / " + total;
+    document.getElementById("bar").style.width = ((cur + 1) / total * 100) + "%";
+    if (location.hash !== "#" + (cur + 1)) history.replaceState(null, "", "#" + (cur + 1));
+  }
+  const fromHash = () => parseInt((location.hash || "#1").slice(1), 10) - 1 || 0;
+  document.getElementById("prev").onclick = () => show(cur - 1);
+  document.getElementById("next").onclick = () => show(cur + 1);
+  document.getElementById("notesBtn").onclick = () => document.body.classList.toggle("show-notes");
+  window.addEventListener("hashchange", () => show(fromHash()));
+  document.addEventListener("keydown", e => {
+    if (e.target.tagName === "INPUT") return;
+    if (["ArrowRight","PageDown"," "].includes(e.key)) { e.preventDefault(); show(cur + 1); }
+    else if (["ArrowLeft","PageUp"].includes(e.key)) { e.preventDefault(); show(cur - 1); }
+    else if (e.key === "Home") show(0);
+    else if (e.key === "End") show(total - 1);
+    else if (e.key === "n" || e.key === "N") document.body.classList.toggle("show-notes");
+  });
+  let tx = null;
+  document.addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, {passive:true});
+  document.addEventListener("touchend", e => {
+    if (tx === null) return;
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 60) show(cur + (dx < 0 ? 1 : -1));
+    tx = null;
+  });
+
+  // 標題頁的地震波形（裝飾）：先是振幅小的P波，後面是振幅大的S波
+  const NS = "http://www.w3.org/2000/svg";
+  const titleSlide = slides.find(s => s.dataset.kind === "title");
+  if (titleSlide) {
+    const W = 1200, H = 260, mid = H / 2, pAt = 300, sAt = 560;
+    let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647 - 0.5;
+    let d = "M0 " + mid;
+    for (let x = 2; x <= W; x += 2) {
+      let a = 2;
+      if (x > pAt) a += 26 * Math.exp(-(x - pAt) / 260);
+      if (x > sAt) a += 96 * Math.exp(-(x - sAt) / 210) * Math.min(1, (x - sAt) / 30);
+      d += " L" + x + " " + (mid + rnd() * 2 * a).toFixed(1);
+    }
+    const svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    svg.setAttribute("preserveAspectRatio", "none");
+    svg.setAttribute("class", "seismo");
+    svg.setAttribute("aria-hidden", "true");
+    svg.innerHTML =
+      '<line class="base" x1="0" x2="' + W + '" y1="' + mid + '" y2="' + mid + '"/>' +
+      '<line class="mark" x1="' + pAt + '" x2="' + pAt + '" y1="10" y2="' + (H - 10) + '" stroke="#2c6e8f"/>' +
+      '<line class="mark" x1="' + sAt + '" x2="' + sAt + '" y1="10" y2="' + (H - 10) + '" stroke="#c4362c"/>' +
+      '<text class="tag" x="' + (pAt + 8) + '" y="22">P波</text>' +
+      '<text class="tag" x="' + (sAt + 8) + '" y="22">S波</text>' +
+      '<path class="trace" d="' + d + '"/>';
+    titleSlide.prepend(svg);
+  }
+
+  // 測驗
+  document.querySelectorAll(".quiz").forEach(q => {
+    q.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+      if (q.classList.contains("done")) return;
+      q.classList.add("done");
+      q.querySelectorAll("button").forEach(x => {
+        if (x.dataset.opt === q.dataset.answer) x.classList.add("right");
+      });
+      if (b.dataset.opt !== q.dataset.answer) b.classList.add("wrong");
+    }));
+  });
+
+  // 預警時間試算：可提前秒數 = 距離 ÷ S波速度 − 警報送達的秒數（簡化：震源當成在地表、波速固定）
+  document.querySelectorAll(".calc-eew").forEach(c => {
+    const vs = parseFloat(c.dataset.vs), alertT = parseFloat(c.dataset.alert);
+    const blind = vs * alertT;
+    const uid = "dist" + Math.random().toString(36).slice(2, 7);
+    c.innerHTML =
+      '<div class="row"><div>' +
+      '<label for="' + uid + '">你離震央多遠？ <span class="km"></span></label>' +
+      '<input id="' + uid + '" type="range" min="0" max="300" step="5" value="120">' +
+      '<div class="out"></div><p class="verdict"></p>' +
+      '<p class="formula">簡化試算：可提前秒數 ＝ 距離 ÷ S波速度（' + vs + ' 公里/秒）－ 警報送達時間（' + alertT +
+      ' 秒）。把震源當成在地表、波速固定，只用來看趨勢。</p>' +
+      '</div><div><svg viewBox="0 0 320 320" role="img" aria-label="震央、盲區和你的位置"></svg></div></div>';
+    const input = c.querySelector("input"), out = c.querySelector(".out"), verdict = c.querySelector(".verdict");
+    const km = c.querySelector(".km"), svg = c.querySelector("svg");
+    function draw(){
+      const d = parseFloat(input.value), ts = d / vs, lead = ts - alertT;
+      km.textContent = d + " 公里";
+      out.innerHTML = "S波抵達：<b>" + ts.toFixed(1) + "</b> 秒<br>警報送達：<b>" + alertT + "</b> 秒";
+      if (lead > 0) { verdict.className = "verdict ok"; verdict.textContent = "警報比S波早到約 " + lead.toFixed(1) + " 秒"; }
+      else { verdict.className = "verdict blind"; verdict.textContent = "在盲區：S波比警報早到約 " + (-lead).toFixed(1) + " 秒"; }
+      const R = 140, scale = R / 300, cx = 160, cy = 160;
+      svg.innerHTML =
+        '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="#d8cfbd" stroke-dasharray="3 5"/>' +
+        '<circle cx="' + cx + '" cy="' + cy + '" r="' + (blind * scale) + '" fill="rgba(196,54,44,.14)" stroke="#c4362c"/>' +
+        '<text x="' + cx + '" y="' + (cy - blind * scale - 6) + '" text-anchor="middle" font-size="11" fill="#c4362c" font-family="monospace">盲區 約' + Math.round(blind) + '公里</text>' +
+        '<circle cx="' + cx + '" cy="' + cy + '" r="5" fill="#1c1b18"/>' +
+        '<text x="' + (cx + 9) + '" y="' + (cy + 4) + '" font-size="11" fill="#1c1b18" font-family="monospace">震央</text>' +
+        '<circle cx="' + (cx + d * scale) + '" cy="' + cy + '" r="7" fill="' + (lead > 0 ? "#2f7d4f" : "#c4362c") + '"/>' +
+        '<text x="' + (cx + d * scale) + '" y="' + (cy + 24) + '" text-anchor="middle" font-size="11" fill="#45413a" font-family="monospace">你</text>' +
+        '<text x="' + (cx + R) + '" y="' + (cy + R + 14) + '" text-anchor="end" font-size="10" fill="#7a7366" font-family="monospace">300公里</text>';
+    }
+    input.addEventListener("input", draw);
+    draw();
+  });
+
+  show(fromHash());
+})();
+</script>
+</body>
+</html>
