@@ -32,3 +32,6 @@
 {"seq": 32, "time": "2026-11-15T22:19:57", "node": "R", "target": "S09", "attempt": 1, "status": "reply", "codes": {}, "note": "學生回覆4題：收到警報怎麼做分兩節（收到警報後S05、搖晃時S09）、室外動作兩種都留、簡報放三步驟和理由且行動不便者一句、來源限制照建議"}
 {"seq": 33, "time": "2026-11-15T22:21:14", "node": "N3", "target": "S09", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫決定，新增來源摘要頁，收到警報怎麼做分兩節（收到警報後、地震搖晃時）並加不同來源的說法，改預警時間與盲區、overview、index、log"}
 {"seq": 34, "time": "2026-11-15T22:21:14", "node": "C1", "target": "S09", "attempt": 1, "status": "pass", "codes": {}, "note": "", "check_file": "34-C1-S09.txt"}
+{"seq": 35, "time": "2026-11-15T22:22:19", "node": "N4", "target": "Q01", "attempt": 2, "status": "done", "codes": {}, "note": "依S09更新：收到警報後（S05）和地震搖晃時（S09）兩種情境，室外說法不同並列"}
+{"seq": 36, "time": "2026-11-15T22:22:19", "node": "N5", "target": "Q02", "attempt": 2, "status": "done", "codes": {}, "note": "依C0和S09更新：第17頁放三步驟和理由、行動不便者一句、駕駛中標新聞稿；起始年標學生決定不補；試算數字兩行改回第6.5節格式"}
+{"seq": 37, "time": "2026-11-15T22:22:19", "node": "C0", "target": "Q02", "attempt": 2, "status": "pass", "codes": {}, "note": "", "check_file": "37-C0-Q02.txt"}
