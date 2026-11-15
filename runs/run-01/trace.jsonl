@@ -55,3 +55,8 @@
 {"seq": 55, "time": "2026-11-15T21:42:45", "node": "C1", "target": "S06", "attempt": 2, "status": "fail", "codes": {"W07": 13, "W06": 4, "W05": 1}, "note": "", "check_file": "55-C1-S06.txt", "owners": {"N2": {"W07": 2}, "N5": {"W07": 11, "W06": 4, "W05": 1}}}
 {"seq": 56, "time": "2026-11-15T21:43:08", "node": "N3", "target": "S06", "attempt": 3, "status": "done", "codes": {}, "note": "依C1第2次修改：D06第41行拿掉不屬於S06的20"}
 {"seq": 57, "time": "2026-11-15T21:43:09", "node": "C1", "target": "S06", "attempt": 3, "status": "fail", "codes": {"W07": 11, "W06": 4, "W05": 1}, "note": "", "check_file": "57-C1-S06.txt", "owners": {"N5": {"W07": 11, "W06": 4, "W05": 1}}}
+{"seq": 58, "time": "2026-11-15T21:44:25", "node": "N4", "target": "Q01", "attempt": 2, "status": "done", "codes": {}, "note": "依S06更新：步驟補P波S波速度和試算數字"}
+{"seq": 59, "time": "2026-11-15T21:44:25", "node": "N5", "target": "Q02", "attempt": 2, "status": "done", "codes": {}, "note": "依S06更新：試算data-vs用4.0、data-alert用20；修C1抓到的16個錯（頁碼、非原文「」）；仍缺113年以前的條件、完整防護動作"}
+{"seq": 60, "time": "2026-11-15T21:44:25", "node": "C1", "target": "Q02", "attempt": 1, "status": "fail", "codes": {"W07": 3}, "note": "", "check_file": "60-C1-Q02.txt", "owners": {"N4": {"W07": 1}, "N5": {"W07": 2}}}
+{"seq": 61, "time": "2026-11-15T21:44:42", "node": "N5", "target": "Q02", "attempt": 3, "status": "done", "codes": {}, "note": "依C1把4.0移進換算括號（Q01、Q02）"}
+{"seq": 62, "time": "2026-11-15T21:44:43", "node": "C1", "target": "Q02", "attempt": 2, "status": "pass", "codes": {}, "note": "", "check_file": "62-C1-Q02.txt"}
