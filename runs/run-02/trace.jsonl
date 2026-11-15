@@ -9,3 +9,13 @@
 {"seq": 9, "time": "2026-11-15T22:05:51", "node": "R", "target": "S07", "attempt": 2, "status": "note", "codes": {}, "note": "學生讀國家級警報頁：衝突段同一句重複兩次、「兩篇沒有標示S03的日期」意思不通，C1查不到；併入N3第2次修改"}
 {"seq": 10, "time": "2026-11-15T22:06:05", "node": "N3", "target": "S07", "attempt": 2, "status": "done", "codes": {}, "note": "依C1修改：113、100、10改標各自的來源（拆句，沒有刪數字）；依學生意見重寫國家級警報的衝突段"}
 {"seq": 11, "time": "2026-11-15T22:06:06", "node": "C1", "target": "S07", "attempt": 2, "status": "pass", "codes": {}, "note": "", "check_file": "11-C1-S07.txt"}
+{"seq": 12, "time": "2026-11-15T22:06:18", "node": "N1", "target": "S08", "attempt": 1, "status": "done", "codes": {}, "note": "取得 cwa-pws-2020-response"}
+{"seq": 13, "time": "2026-11-15T22:08:29", "node": "N2", "target": "S08", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫討論單D08：8個重點、檔名20201008但原文沒寫日期、只有一段條件且以縣市政府所在地為準（臺北市3級）、4個問題"}
+{"seq": 14, "time": "2026-11-15T22:08:29", "node": "C1a", "target": "S08", "attempt": 1, "status": "fail", "codes": {"W06": 3, "W07": 3}, "note": "", "check_file": "14-C1a-S08.txt", "owners": {"N2": {"W06": 3, "W07": 3}}}
+{"seq": 15, "time": "2026-11-15T22:09:23", "node": "N2", "target": "S08", "attempt": 2, "status": "done", "codes": {}, "note": "依C1a修改：Wiki用語和Wiki頁的句子拿掉「」、S07的引文改標S07並照原文、檔名改成行內程式碼、問題1改寫（規則說內部編號不查，程式沒排除「問題N」）"}
+{"seq": 16, "time": "2026-11-15T22:09:24", "node": "C1a", "target": "S08", "attempt": 2, "status": "pass", "codes": {}, "note": "", "check_file": "16-C1a-S08.txt"}
+{"seq": 17, "time": "2026-11-15T22:09:28", "node": "R", "target": "S08", "attempt": 1, "status": "reply", "codes": {}, "note": "學生回覆4題：日期標檔名推測、簡報時間線不放S08、條件比較頁加一句臺北市3級的特例、名稱照建議、臺中市和臺北市的研議只放Wiki"}
+{"seq": 18, "time": "2026-11-15T22:10:58", "node": "N3", "target": "S08", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫決定，新增來源摘要頁，改國家級警報（S08一欄、條件一節、臺北市3級特例、S08的說法一節、時間線標檔名推測）、災防告警細胞廣播、overview、index、log"}
+{"seq": 19, "time": "2026-11-15T22:10:58", "node": "C1", "target": "S08", "attempt": 1, "status": "fail", "codes": {"W07": 1}, "note": "", "check_file": "19-C1-S08.txt", "owners": {"N3": {"W07": 1}}}
+{"seq": 20, "time": "2026-11-15T22:11:21", "node": "N3", "target": "S08", "attempt": 2, "status": "done", "codes": {}, "note": "依C1修改：決定裡的問題1、問題3、問題4改成不帶數字的說法（問題3原本通過，是因為S08原文剛好有3）"}
+{"seq": 21, "time": "2026-11-15T22:11:21", "node": "C1", "target": "S08", "attempt": 2, "status": "pass", "codes": {}, "note": "", "check_file": "21-C1-S08.txt"}

@@ -343,7 +343,12 @@
           "kind": "pdf",
           "url": "https://www.cwa.gov.tw/Data/service/hottopic/20201008_SC_PWSv2.pdf"
         }
-      ]
+      ],
+      "id": "S08",
+      "file": "S08-cwa-pws-2020-response.md",
+      "retrieved": "2026-11-15",
+      "sha256": "b7b17efb9ea64ce798f4d02f36e8b183e65e83d201d7a02511948d4879ccf2df",
+      "chars": 667
     },
     {
       "key": "usgs-eew-overview",
