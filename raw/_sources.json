@@ -1,0 +1,386 @@
+{
+  "note": "來源清單（取得資料節點用）。有 id 的是已取得、存進 raw/ 的來源；沒有 id 的是候選。",
+  "sources": [
+    {
+      "key": "cwa-edu-pws-story",
+      "title": "國家級警報來了--地震測報過程",
+      "publisher": "交通部中央氣象署 數位科普網",
+      "license": "中央氣象署「政府網站資料開放宣告」：可重製、改作、公開傳輸，使用時註明出處",
+      "parts": [
+        {
+          "kind": "html",
+          "url": "https://edu.cwa.gov.tw/PopularScience/ec/ec_3.html",
+          "specs": [
+            [
+              "div",
+              "class",
+              "in_left"
+            ]
+          ],
+          "drop": [
+            "facebook"
+          ],
+          "stop": "^上一篇$"
+        }
+      ]
+    },
+    {
+      "key": "cwa-faq-basics",
+      "title": "地震百問（選錄）：震源與震央、地震波、規模、震度",
+      "publisher": "交通部中央氣象署 地震測報中心",
+      "license": "中央氣象署「政府網站資料開放宣告」：可重製、改作、公開傳輸，使用時註明出處",
+      "parts": [
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/13",
+          "heading": "第13問",
+          "specs": [
+            [
+              "div",
+              "class",
+              "aboutContent"
+            ]
+          ],
+          "title_specs": [
+            [
+              "div",
+              "class",
+              "pageSideHead"
+            ]
+          ]
+        },
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/21",
+          "heading": "第21問",
+          "specs": [
+            [
+              "div",
+              "class",
+              "aboutContent"
+            ]
+          ],
+          "title_specs": [
+            [
+              "div",
+              "class",
+              "pageSideHead"
+            ]
+          ]
+        },
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/26",
+          "heading": "第25問",
+          "specs": [
+            [
+              "div",
+              "class",
+              "aboutContent"
+            ]
+          ],
+          "title_specs": [
+            [
+              "div",
+              "class",
+              "pageSideHead"
+            ]
+          ]
+        },
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/31",
+          "heading": "第30問",
+          "specs": [
+            [
+              "div",
+              "class",
+              "aboutContent"
+            ]
+          ],
+          "title_specs": [
+            [
+              "div",
+              "class",
+              "pageSideHead"
+            ]
+          ]
+        },
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/36",
+          "heading": "第35問",
+          "specs": [
+            [
+              "div",
+              "class",
+              "aboutContent"
+            ]
+          ],
+          "title_specs": [
+            [
+              "div",
+              "class",
+              "pageSideHead"
+            ]
+          ]
+        },
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/37",
+          "heading": "第36問",
+          "specs": [
+            [
+              "div",
+              "class",
+              "aboutContent"
+            ]
+          ],
+          "title_specs": [
+            [
+              "div",
+              "class",
+              "pageSideHead"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "key": "cwa-faq-eew",
+      "title": "地震百問（選錄）：地震預報、地震速報與強震即時警報",
+      "publisher": "交通部中央氣象署 地震測報中心",
+      "license": "中央氣象署「政府網站資料開放宣告」：可重製、改作、公開傳輸，使用時註明出處",
+      "parts": [
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/96",
+          "heading": "第82問",
+          "specs": [
+            [
+              "div",
+              "class",
+              "aboutContent"
+            ]
+          ],
+          "title_specs": [
+            [
+              "div",
+              "class",
+              "pageSideHead"
+            ]
+          ]
+        },
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/97",
+          "heading": "第83問",
+          "specs": [
+            [
+              "div",
+              "class",
+              "aboutContent"
+            ]
+          ],
+          "title_specs": [
+            [
+              "div",
+              "class",
+              "pageSideHead"
+            ]
+          ]
+        },
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/98",
+          "heading": "第84問",
+          "specs": [
+            [
+              "div",
+              "class",
+              "aboutContent"
+            ]
+          ],
+          "title_specs": [
+            [
+              "div",
+              "class",
+              "pageSideHead"
+            ]
+          ]
+        },
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/99",
+          "heading": "第85問",
+          "specs": [
+            [
+              "div",
+              "class",
+              "aboutContent"
+            ]
+          ],
+          "title_specs": [
+            [
+              "div",
+              "class",
+              "pageSideHead"
+            ]
+          ]
+        },
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/100",
+          "heading": "第86問",
+          "specs": [
+            [
+              "div",
+              "class",
+              "aboutContent"
+            ]
+          ],
+          "title_specs": [
+            [
+              "div",
+              "class",
+              "pageSideHead"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "key": "cwa-eew-principle",
+      "title": "地震速報－軟體專區（強震即時警報之原理等）",
+      "publisher": "交通部中央氣象署 地震測報中心",
+      "license": "中央氣象署「政府網站資料開放宣告」：可重製、改作、公開傳輸，使用時註明出處",
+      "parts": [
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-tw/guidance/eew",
+          "specs": [
+            [
+              "div",
+              "class",
+              "earthBasic"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "key": "cwa-pws-info",
+      "title": "有關「災防告警服務」（PWS）與氣象署地震相關資訊之說明",
+      "publisher": "交通部中央氣象署 地震測報中心",
+      "published": "頁面標示110年9月2日",
+      "license": "中央氣象署「政府網站資料開放宣告」：可重製、改作、公開傳輸，使用時註明出處",
+      "parts": [
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-tw/pws/info_d/2",
+          "specs": [
+            [
+              "div",
+              "class",
+              "warningInfoBg"
+            ]
+          ],
+          "start": "^有關「災防告警服務」"
+        }
+      ]
+    },
+    {
+      "key": "cwa-press-2024-pws",
+      "title": "新聞稿：交通部中央氣象署地震災防告警細胞廣播訊息（PWS）新增發布條件",
+      "publisher": "交通部中央氣象署（高雄市政府網站轉載的PDF）",
+      "published": "113年8月30日（中象113字第25號）",
+      "license": "新聞稿屬公文（著作權法第9條），不受著作權保護；原發布機關為交通部中央氣象署",
+      "parts": [
+        {
+          "kind": "pdf",
+          "url": "https://orgws.kcg.gov.tw/001/KcgOrgUploadFiles/212/relfile/76456/429674/8c71d86a-21a9-4594-9efe-d6a3d0eb00bd.pdf"
+        }
+      ]
+    },
+    {
+      "key": "cwa-pws-2020-response",
+      "title": "有關近期PWS推播「地震速報」發布條件及範圍調整之媒體報導，中央氣象局回應",
+      "publisher": "交通部中央氣象局",
+      "published": "未寫日期（檔名20201008）",
+      "license": "中央氣象署「政府網站資料開放宣告」：可重製、改作、公開傳輸，使用時註明出處",
+      "parts": [
+        {
+          "kind": "pdf",
+          "url": "https://www.cwa.gov.tw/Data/service/hottopic/20201008_SC_PWSv2.pdf"
+        }
+      ]
+    },
+    {
+      "key": "usgs-eew-overview",
+      "title": "Earthquake Early Warning – Overview",
+      "publisher": "U.S. Geological Survey",
+      "license": "美國聯邦政府著作，屬公有領域（USGS-authored information is in the U.S. public domain）",
+      "parts": [
+        {
+          "kind": "html",
+          "url": "https://www.usgs.gov/programs/earthquake-hazards/science/earthquake-early-warning-overview",
+          "specs": [
+            [
+              "div",
+              "class",
+              "paragraph--type--wysiwyg-text-with-media"
+            ]
+          ],
+          "dedupe": true,
+          "drop": [
+            "Media",
+            "Sources/Usage: Public Domain\\. View Media Details",
+            "File icon"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "cwa-edu-three-steps",
+      "title": "地震來時保命三步驟",
+      "publisher": "交通部中央氣象署 數位科普網",
+      "license": "中央氣象署「政府網站資料開放宣告」：可重製、改作、公開傳輸，使用時註明出處",
+      "parts": [
+        {
+          "kind": "html",
+          "url": "https://edu.cwa.gov.tw/PopularScience/ec/ec_4.html",
+          "specs": [
+            [
+              "div",
+              "class",
+              "in_left"
+            ]
+          ],
+          "drop": [
+            "facebook"
+          ],
+          "stop": "^上一篇$"
+        }
+      ]
+    },
+    {
+      "key": "cwa-protection",
+      "title": "地震防護",
+      "publisher": "交通部中央氣象署 地震測報中心",
+      "license": "中央氣象署「政府網站資料開放宣告」：可重製、改作、公開傳輸，使用時註明出處",
+      "parts": [
+        {
+          "kind": "html",
+          "url": "https://scweb.cwa.gov.tw/zh-tw/page/intro/11",
+          "specs": [
+            [
+              "div",
+              "class",
+              "aboutContent"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
