@@ -1,6 +1,6 @@
 """執行紀錄：每個節點跑完記一筆到 runs/<run>/trace.jsonl，report 產生 runs/<run>/README.md。
 
-  python3 tools/runlog.py add <run> <節點> <對象> <結果> [說明]
+  python3 tools/runlog.py add <run> <節點> <對象> <結果> [說明] [--codes R1=2,R3=1] [--file 檔名]
   python3 tools/runlog.py report <run>
 結果用 pass、fail、done、reply、gap 其中一種。檢查程式加 --run 時會自動記錄。
 """
@@ -57,7 +57,8 @@ def report(run):
         lines.append(f"| {e['seq']} | {e['time'][11:16]} | {name} | {e['target']} | {e['attempt']} | {e['status']} | {codes} | {note} |")
     # 依「產生錯誤的節點」統計：檢查程式有標就照標的（例如討論單裡AI寫的部分算N2），
     # 沒標就算在檢查節點前面那個生成節點
-    owner = {"C1": "N3", "C0": "N5", "C2a": "N6", "C2b": "N6"}
+    # 學生回覆時（R）發現的錯算在寫討論單的N2
+    owner = {"C1": "N3", "C0": "N5", "C2a": "N6", "C2b": "N6", "R": "N2"}
     per_node = defaultdict(Counter)
     fails = Counter()
     for e in ev:
@@ -67,7 +68,7 @@ def report(run):
                 for k, v in codes.items():
                     per_node[src][k] += v
     lines += ["", "## 各生成節點被檢查抓到錯的次數", "",
-              "檢查沒通過時，錯誤依所在的檔案和小節算到產生它的節點：討論單裡AI寫的部分算N2（D00算N0），「學生回覆」算R，「決定」和其他Wiki頁算N3。", "",
+              "檢查沒通過時，錯誤依所在的檔案和小節算到產生它的節點：討論單裡AI寫的部分算N2（D00算N0），「學生回覆」算R，「決定」和其他Wiki頁算N3。學生回覆時發現的錯算N2。", "",
               "| 節點 | 有錯的檢查次數 | 錯誤代碼合計 |", "|---|---|---|"]
     for node in [n for n in ["N0", "N2", "R", "N3", "N5", "N6"] if n in ("N2", "N3", "N5", "N6") or fails.get(n)]:
         c = per_node.get(node, Counter())
@@ -82,7 +83,18 @@ def main():
     if len(sys.argv) >= 3 and sys.argv[1] == "report":
         report(sys.argv[2])
     elif len(sys.argv) >= 6 and sys.argv[1] == "add":
-        rec = add(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], " ".join(sys.argv[6:]))
+        # 選用：--codes R1=2,R3=1（錯誤代碼）、--file 檔名（checks/ 裡的輸出）
+        rest, codes, cfile = sys.argv[6:], {}, None
+        for flag in ("--codes", "--file"):
+            if flag in rest:
+                i = rest.index(flag)
+                val = rest[i + 1]
+                rest = rest[:i] + rest[i + 2:]
+                if flag == "--codes":
+                    codes = {k: int(v) for k, v in (p.split("=") for p in val.split(",") if p)}
+                else:
+                    cfile = val
+        rec = add(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], " ".join(rest), codes, cfile)
         print(f"#{rec['seq']} {rec['node']} {rec['target']} 第{rec['attempt']}次 {rec['status']}")
     else:
         print(__doc__)

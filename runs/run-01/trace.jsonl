@@ -31,3 +31,11 @@
 {"seq": 31, "time": "2026-11-15T21:26:11", "node": "C1", "target": "S04", "attempt": 1, "status": "fail", "codes": {"W06": 6}, "note": "警告1", "check_file": "31-C1-S04.txt", "owners": {"N3": {"W06": 2}, "N2": {"W06": 4}}}
 {"seq": 32, "time": "2026-11-15T21:26:37", "node": "N3", "target": "S04", "attempt": 2, "status": "done", "codes": {}, "note": "依C1修改：引文補出處或拿掉「」"}
 {"seq": 33, "time": "2026-11-15T21:26:38", "node": "C1", "target": "S04", "attempt": 2, "status": "pass", "codes": {}, "note": "警告1", "check_file": "33-C1-S04.txt"}
+{"seq": 34, "time": "2026-11-15T21:26:44", "node": "N1", "target": "S05", "attempt": 1, "status": "done", "codes": {}, "note": "取得 cwa-press-2024-pws"}
+{"seq": 35, "time": "2026-11-15T21:28:35", "node": "N2", "target": "S05", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫討論單D05：10個重點、S03和S05對規模6.5條件的衝突、地震速報三種用法、4個問題"}
+{"seq": 36, "time": "2026-11-15T21:28:35", "node": "R", "target": "S05", "attempt": 1, "status": "reply", "codes": {}, "note": "學生回覆4題：衝突並列不判斷、簡報寫新聞稿的說法、名稱比較三篇並列、現在建收到警報怎麼做"}
+{"seq": 37, "time": "2026-11-15T21:29:15", "node": "R", "target": "S05", "attempt": 2, "status": "fail", "codes": {"W11": 1}, "note": "學生回覆時發現D05缺「學生回覆」「決定」兩節（N2漏寫，回報卻說兩節是佔位文字），學生補上後通知N3重讀"}
+{"seq": 38, "time": "2026-11-15T21:30:57", "node": "N3", "target": "S05", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫決定，新增來源摘要頁、topics/收到警報怎麼做.md、overview.md，改國家級警報（S03和S05衝突並列）、警報名稱比較、index、log"}
+{"seq": 39, "time": "2026-11-15T21:30:57", "node": "C1", "target": "S05", "attempt": 1, "status": "fail", "codes": {"W07": 6, "W06": 15}, "note": "警告1", "check_file": "39-C1-S05.txt", "owners": {"N2": {"W07": 5, "W06": 11}, "N3": {"W06": 4, "W07": 1}}}
+{"seq": 40, "time": "2026-11-15T21:32:17", "node": "N3", "target": "S05", "attempt": 2, "status": "done", "codes": {}, "note": "依C1修改：引文補出處、非原文拿掉「」、刪掉規則允許的（2024年）和來源代號（沒有回報規則和檢查不一致）"}
+{"seq": 41, "time": "2026-11-15T21:32:17", "node": "C1", "target": "S05", "attempt": 2, "status": "pass", "codes": {}, "note": "警告1", "check_file": "41-C1-S05.txt"}

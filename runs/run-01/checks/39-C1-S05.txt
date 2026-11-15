@@ -1,0 +1,23 @@
+W W03 wiki/discussions/D00-規劃.md:1 [N0] 沒有其他頁面連到這頁
+E W07 wiki/discussions/D05-S05-PWS新增發布條件.md:10 [N2] 數字 2024 在S05原文找不到：這篇是交通部中央氣象署113年（2024年）8月30日發布的新聞稿，編號中象11
+E W06 wiki/discussions/D05-S05-PWS新增發布條件.md:20 [N2] 沒有出處的「」超過12字：「應迅速掩護並遠離窗戶和吊燈等易碎落物」
+E W06 wiki/discussions/D05-S05-PWS新增發布條件.md:20 [N2] 沒有出處的「」超過12字：「應尋找開闊地蹲下並保護頭部」
+E W07 wiki/discussions/D05-S05-PWS新增發布條件.md:27 [N2] 數字 2024 在S05原文找不到：新增：`sources/S05-cwa-press-2024-pws.md`，放
+E W07 wiki/discussions/D05-S05-PWS新增發布條件.md:30 [N2] 數字 2024 在S05原文找不到：開始寫「時間線」：113年（2024年）9月1日新增規模6.5以上條件，是第一個
+E W06 wiki/discussions/D05-S05-PWS新增發布條件.md:33 [N2] 引文和S03原文不一致：「兩段條件，見國家級警報」
+E W06 wiki/discussions/D05-S05-PWS新增發布條件.md:34 [N2] 沒有出處的「」超過12字：「運用行動通信系統中的細胞廣播技術」
+E W06 wiki/discussions/D05-S05-PWS新增發布條件.md:38 [N2] 沒有出處的「」超過12字：「(1)當偵測地震預估規模5.0以上，針對預估震度可能達4級以」
+E W06 wiki/discussions/D05-S05-PWS新增發布條件.md:38 [N2] 沒有出處的「」超過12字：「截至2021(民國110)年9月」
+E W07 wiki/discussions/D05-S05-PWS新增發布條件.md:38 [N2] 數字 113 在S03原文找不到：兩個說法沒辦法同時是「現行規定」：如果S05正確，S03的第(2)條就是在113
+E W07 wiki/discussions/D05-S05-PWS新增發布條件.md:38 [N2] 數字 113 在S03原文找不到：兩個說法沒辦法同時是「現行規定」：如果S05正確，S03的第(2)條就是在113
+E W06 wiki/discussions/D05-S05-PWS新增發布條件.md:39 [N2] 沒有出處的「」超過12字：「預估至少一縣市政府所在地震度達5級以上」
+E W06 wiki/discussions/D05-S05-PWS新增發布條件.md:40 [N2] 沒有出處的「」超過12字：「地震規模5.0以上，且任一縣市預估震度達3級以上」
+E W06 wiki/discussions/D05-S05-PWS新增發布條件.md:44 [N2] 引文和S05原文不一致：「113年8月30日新聞稿的說法」
+E W06 wiki/discussions/D05-S05-PWS新增發布條件.md:53 [N2] 沒有出處的「」超過12字：「日期未標示，可能是113年9月以後才更新的版本（推論）」
+E W06 wiki/discussions/D05-S05-PWS新增發布條件.md:54 [N2] 沒有出處的「」超過12字：「113年8月30日新聞稿的說法」
+E W06 wiki/discussions/D05-S05-PWS新增發布條件.md:66 [N3] 沒有出處的「」超過12字：「113年8月30日新聞稿的說法」
+E W07 wiki/overview.md:23 [N3] 數字 2020 在S05原文找不到：發布條件在113年9月1日之前的調整年份，要等第二批來源（`cwa-pws-in
+E W06 wiki/sources/S05-cwa-press-2024-pws.md:14 [N3] 沒有出處的「」超過12字：「(訂於113年9月1日上線)」
+E W06 wiki/sources/S05-cwa-press-2024-pws.md:22 [N3] 沒有出處的「」超過12字：「應迅速掩護並遠離窗戶和吊燈等易碎落物」
+E W06 wiki/sources/S05-cwa-press-2024-pws.md:22 [N3] 沒有出處的「」超過12字：「應尋找開闊地蹲下並保護頭部」
+錯誤 21 個、警告 1 個（W03×1、W06×15、W07×6）

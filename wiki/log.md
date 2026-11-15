@@ -29,3 +29,9 @@
 - 新增：sources/S04-cwa-eew-principle.md、topics/預警時間與盲區.md
 - 修改：concepts/強震即時警報.md（加S04的定義、和預測的差別、三種極限）；topics/警報名稱比較.md（加預測對照和「速報」用法）；index.md（加討論單、來源、主題）；topics/國家級警報.md 學生決定先不改；overview.md 仍不足，先不建；試算用的S波速度和發布秒數仍缺，等做簡報時補來源
 - 檢查：第1次 E6 W1 → 第2次 E0 W1（保留的警告：W03，同S01）
+
+## [2026-11-15] ingest | S05 新聞稿：交通部中央氣象署地震災防告警細胞廣播訊息（PWS）新增發布條件
+- 討論單：discussions/D05-S05-PWS新增發布條件.md
+- 新增：sources/S05-cwa-press-2024-pws.md、topics/收到警報怎麼做.md、overview.md
+- 修改：topics/國家級警報.md（加S05的發布條件、三來源並列的表和S03與S05的規模6.5衝突、時間線加113年9月1日）；topics/警報名稱比較.md（加「地震速報」在S01、S03、S05的用法）；index.md（加總覽、討論單、來源、主題）；concepts/強震即時警報.md 不改；concepts/災防告警細胞廣播.md 不建
+- 檢查：第1次 E21 W1 → 第2次 E0 W1（保留的警告：W03，同S01）

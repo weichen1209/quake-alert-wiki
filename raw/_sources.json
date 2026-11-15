@@ -320,7 +320,12 @@
           "kind": "pdf",
           "url": "https://orgws.kcg.gov.tw/001/KcgOrgUploadFiles/212/relfile/76456/429674/8c71d86a-21a9-4594-9efe-d6a3d0eb00bd.pdf"
         }
-      ]
+      ],
+      "id": "S05",
+      "file": "S05-cwa-press-2024-pws.md",
+      "retrieved": "2026-11-15",
+      "sha256": "9774df5da3bafe0720c3b96d47d3f99c22dab8747df212e10217be41a8720a5b",
+      "chars": 1003
     },
     {
       "key": "cwa-pws-2020-response",
