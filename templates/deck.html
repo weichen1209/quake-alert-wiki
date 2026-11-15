@@ -48,7 +48,7 @@ small{font-size:.8em}
 .callout{border-left:6px solid var(--p);background:var(--p-soft);padding:.8em 1.1em;border-radius:0 10px 10px 0;margin:.4em 0 .9em}
 .warn{border-left:6px solid var(--alert);background:var(--alert-soft);padding:.8em 1.1em;border-radius:0 10px 10px 0;margin:.4em 0 .9em}
 .callout>:last-child,.warn>:last-child,.card>:last-child{margin-bottom:0}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,40px)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,40px);margin-bottom:.8em}
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.5vw,32px);margin:.3em 0 .8em}
 .card{background:var(--card);border:1px solid var(--rule);border-top:6px solid var(--ink);border-radius:10px;padding:1em 1.2em}
 .compare .card:nth-child(2){border-top-color:var(--alert)}
@@ -268,7 +268,7 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
         '<circle cx="' + cx + '" cy="' + cy + '" r="' + (blind * scale) + '" fill="rgba(196,54,44,.14)" stroke="#c4362c"/>' +
         '<text x="' + cx + '" y="' + (cy - blind * scale - 6) + '" text-anchor="middle" font-size="11" fill="#c4362c" font-family="monospace">試算盲區 約' + Math.round(blind) + '公里</text>' +
         '<circle cx="' + cx + '" cy="' + cy + '" r="5" fill="#1c1b18"/>' +
-        '<text x="' + (cx + 9) + '" y="' + (cy + 4) + '" font-size="11" fill="#1c1b18" font-family="monospace">震央</text>' +
+        '<text x="' + (cx - 9) + '" y="' + (cy + 4) + '" text-anchor="end" font-size="11" fill="#1c1b18" font-family="monospace">震央</text>' +
         '<circle cx="' + (cx + d * scale) + '" cy="' + cy + '" r="7" fill="' + (lead > 0 ? "#2f7d4f" : "#c4362c") + '"/>' +
         '<text x="' + (cx + d * scale) + '" y="' + (cy + 24) + '" text-anchor="middle" font-size="11" fill="#45413a" font-family="monospace">你</text>' +
         '<text x="' + (cx + R) + '" y="' + (cy + R + 14) + '" text-anchor="end" font-size="10" fill="#7a7366" font-family="monospace">300公里</text>';

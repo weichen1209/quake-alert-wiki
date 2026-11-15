@@ -48,3 +48,5 @@
 {"seq": 48, "time": "2026-11-15T22:29:36", "node": "N7", "target": "docs", "attempt": 1, "status": "done", "codes": {}, "note": "build.py產生docs/：22頁簡報、出處頁自動列出S01到S09"}
 {"seq": 49, "time": "2026-11-15T22:35:29", "node": "T", "target": "deck", "attempt": 1, "status": "note", "codes": {}, "note": "學生截圖時發現：1280×720的視窗裡第10、22頁比視窗高，版型把內容垂直置中，標題被切掉、出處壓到內文；改成內容太高時從上方排、出處跟在內容後面，試算圖依視窗高度縮小（簡報內容沒改）"}
 {"seq": 50, "time": "2026-11-15T22:35:29", "node": "N7", "target": "docs", "attempt": 2, "status": "done", "codes": {}, "note": "版型修正後重新建置docs/"}
+{"seq": 51, "time": "2026-11-15T22:37:56", "node": "T", "target": "deck", "attempt": 2, "status": "note", "codes": {}, "note": "學生截圖時發現：試算拉到盲區內時「你」的點蓋住「震央」兩個字，標籤改放左邊；兩欄卡片下面的說明貼著卡片，加間距（簡報內容沒改）"}
+{"seq": 52, "time": "2026-11-15T22:37:56", "node": "N7", "target": "docs", "attempt": 3, "status": "done", "codes": {}, "note": "版型第2次修正後重新建置docs/"}
