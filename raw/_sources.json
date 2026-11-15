@@ -401,7 +401,12 @@
           ],
           "stop": "^上一篇$"
         }
-      ]
+      ],
+      "id": "S09",
+      "file": "S09-cwa-edu-three-steps.md",
+      "retrieved": "2026-11-15",
+      "sha256": "9f513f3375c847c8c97c89ac156f070b9b9069191d55f073c2b987da720b396c",
+      "chars": 1015
     },
     {
       "key": "cwa-protection",

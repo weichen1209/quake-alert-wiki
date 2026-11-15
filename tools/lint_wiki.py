@@ -189,6 +189,9 @@ def lint(only=None):
                     add("E", "W12", f, ln, f"出處 {sid} 不存在或還沒取得")
             # W05 每段要有出處
             design = ptype == "query" and strip_marker(t).startswith("目的：")   # v2：簡報設計的說明不用出處
+            # v2.1：大綱「試算數字」的 data-vs、data-alert 行指向Wiki頁，不用出處，數字由C0（O02）比對那一頁
+            calc_line = ptype == "query" and re.match(r"`?data-(vs|alert)\s*[：:]", strip_marker(t)) is not None
+            design = design or calc_line
             if ptype != "discussion" and kind in ("para", "item", "row", "quote") and not design:
                 if "相關頁面" not in section and not link_only(t) and not W.CITE.search(t):
                     add("E", "W05", f, ln, f"沒有出處標記：{strip_marker(t)[:40]}")
@@ -207,7 +210,7 @@ def lint(only=None):
                 elif len(q) > 12:
                     add("E", "W06", f, ln, f"沒有出處的「」超過12字：「{q[:30]}」")
             # W07 數字
-            if kind in ("para", "item", "row", "quote"):
+            if kind in ("para", "item", "row", "quote") and not calc_line:
                 unit_ids = W.CITE.findall(t)
                 for sent in re.split(r"(?<=[。！？])", strip_marker(t)):
                     ids = W.CITE.findall(sent) or unit_ids

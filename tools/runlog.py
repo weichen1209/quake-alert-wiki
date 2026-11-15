@@ -16,7 +16,7 @@ NODES = {
     "N0": "規劃討論", "N1": "取得資料", "N2": "討論", "R": "學生回覆", "N3": "生成頁面",
     "C1": "Wiki檢查", "N4": "查詢Wiki", "N5": "整理大綱", "C0": "大綱檢查", "N6": "產生簡報",
     "C2a": "簡報檢查（程式）", "C2b": "簡報審查（AI）", "N7": "建置發佈", "L": "Wiki全體檢查",
-    "T": "版型修正（學生）", "C1a": "討論單檢查",
+    "T": "版型修正（學生）", "C1a": "討論單檢查", "F": "規則和程式修正（學生）",
 }
 
 
@@ -107,9 +107,9 @@ def report(run):
         if c:
             lines.append(f"| {node} {NODES.get(node, '')} | {c['runs']} | {c['fails']} | {c['new']} |")
     lines += ["", "## 各生成節點被檢查抓到的錯", "",
-              "錯誤依所在的檔案和小節算到產生它的節點：討論單裡AI寫的部分算N2（D00算N0），「學生回覆」算R，「決定」和其他Wiki頁算N3，queries/的查詢頁算N4、大綱算N5，簡報算N6。學生回覆時發現的錯算N2。", "",
+              "錯誤依所在的檔案和小節算到產生它的節點：討論單裡AI寫的部分算N2（D00算N0），「學生回覆」算R，「決定」和其他Wiki頁算N3，queries/的查詢頁算N4、大綱算N5，大綱列出的Wiki缺資料（O03）算N1（要回N1補來源），簡報算N6。學生回覆時發現的錯算N2。", "",
               "| 節點 | 有錯的檢查次數 | 抓到的錯 | 代碼 |", "|---|---|---|---|"]
-    for node in [n for n in ["N0", "N2", "R", "N3", "N4", "N5", "N6"] if n in ("N2", "N3", "N5", "N6") or fails.get(n)]:
+    for node in [n for n in ["N0", "N1", "N2", "R", "N3", "N4", "N5", "N6"] if n in ("N2", "N3", "N5", "N6") or fails.get(n)]:
         c = per_node.get(node, Counter())
         codes = "、".join(f"{k}×{v}" for k, v in sorted(c.items())) or "－"
         lines.append(f"| {node} {NODES[node]} | {fails.get(node, 0)} | {sum(c.values())} | {codes} |")

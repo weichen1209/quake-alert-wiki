@@ -19,3 +19,9 @@
 {"seq": 19, "time": "2026-11-15T22:10:58", "node": "C1", "target": "S08", "attempt": 1, "status": "fail", "codes": {"W07": 1}, "note": "", "check_file": "19-C1-S08.txt", "owners": {"N3": {"W07": 1}}}
 {"seq": 20, "time": "2026-11-15T22:11:21", "node": "N3", "target": "S08", "attempt": 2, "status": "done", "codes": {}, "note": "依C1修改：決定裡的問題1、問題3、問題4改成不帶數字的說法（問題3原本通過，是因為S08原文剛好有3）"}
 {"seq": 21, "time": "2026-11-15T22:11:21", "node": "C1", "target": "S08", "attempt": 2, "status": "pass", "codes": {}, "note": "", "check_file": "21-C1-S08.txt"}
+{"seq": 22, "time": "2026-11-15T22:16:42", "node": "N4", "target": "Q01", "attempt": 1, "status": "done", "codes": {}, "note": "AI依S07、S08更新新手學習順序：10步改11步（P波、盲區、警報限制、細胞廣播、五篇條件、時間線）"}
+{"seq": 23, "time": "2026-11-15T22:16:42", "node": "N5", "target": "Q02", "attempt": 1, "status": "done", "codes": {}, "note": "AI排22頁大綱（條件拆兩頁、加警報限制頁），4條R4全採用；試算數字兩行為了避開W07加了行內程式碼；Wiki缺資料2項：規模6.5條件的起始年、完整的防護動作；AI違反指示自己跑了一次check_outline.py（唯讀、沒有記錄），有主動回報"}
+{"seq": 24, "time": "2026-11-15T22:16:42", "node": "C0", "target": "Q02", "attempt": 1, "status": "fail", "codes": {"O03": 2}, "note": "", "check_file": "24-C0-Q02.txt", "owners": {"N1": {"O03": 2}}}
+{"seq": 25, "time": "2026-11-15T22:18:03", "node": "F", "target": "lint", "attempt": 1, "status": "done", "codes": {}, "note": "學生發現大綱的試算數字兩行用行內程式碼避開W07，原因是第6.5節的格式沒有出處、W05會抓；加上「問題1」的不一致，檢查程式改成v2.1（流程圖不變）"}
+{"seq": 26, "time": "2026-11-15T22:18:03", "node": "R", "target": "Q02", "attempt": 1, "status": "reply", "codes": {}, "note": "學生決定C0的2項缺資料：規模6.5條件的起始年，剩下的候選來源都沒有，決定不補，簡報照D07講來源說法不同；完整的防護動作回N1補〈地震來時保命三步驟〉"}
+{"seq": 27, "time": "2026-11-15T22:18:03", "node": "N1", "target": "S09", "attempt": 1, "status": "done", "codes": {}, "note": "C0發現缺資料回N1（在產生簡報之前）：取得 cwa-edu-three-steps（防護動作）"}
