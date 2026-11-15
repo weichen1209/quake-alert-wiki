@@ -1,0 +1,10 @@
+W W03 wiki/discussions/D00-規劃.md:1 [N0] 沒有其他頁面連到這頁
+E W06 wiki/discussions/D01-S01-國家級警報故事.md:27 [N2] 引文和S01原文不一致：「S01的說法，日期未標示」
+E W07 wiki/discussions/D01-S01-國家級警報故事.md:27 [N2] 數字 6 在S01原文找不到：新增：`topics/國家級警報.md` 的初版，放重點1到3（發布條件、起點、
+E W07 wiki/discussions/D01-S01-國家級警報故事.md:27 [N2] 數字 7 在S01原文找不到：新增：`topics/國家級警報.md` 的初版，放重點1到3（發布條件、起點、
+E W06 wiki/discussions/D01-S01-國家級警報故事.md:36 [N2] 沒有出處的「」超過12字：「也就是我們手機顯現的地震訊息最原始的樣子」
+E W07 wiki/discussions/D01-S01-國家級警報故事.md:54 [N3] 數字 113 在S01原文找不到：新增 `topics/國家級警報.md`：現在就建，發布條件寫明是這篇的說法、原
+E W06 wiki/sources/S01-cwa-edu-pws-story.md:22 [N3] 沒有出處的「」超過12字：「災防告警廣播訊息系統（Public Warning Syst」
+E W06 wiki/topics/國家級警報.md:40 [N3] 沒有出處的「」超過12字：「災防告警廣播訊息系統（Public Warning Syst」
+E W06 wiki/topics/國家級警報.md:40 [N3] 沒有出處的「」超過12字：「災防告警廣播訊息服務系統（PWS）」
+錯誤 8 個、警告 1 個（W03×1、W06×5、W07×3）

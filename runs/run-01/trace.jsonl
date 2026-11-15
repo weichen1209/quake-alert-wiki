@@ -2,3 +2,11 @@
 {"seq": 2, "time": "2026-11-15T21:06:37", "node": "R", "target": "D00", "attempt": 1, "status": "reply", "codes": {}, "note": "學生回覆5題：原理六成制度四成、不放美國對照、要試算和測驗、第一批不換、要時間線"}
 {"seq": 3, "time": "2026-11-15T21:07:47", "node": "N0", "target": "D00", "attempt": 2, "status": "done", "codes": {}, "note": "AI依回覆寫「決定」，建立log.md、index.md"}
 {"seq": 4, "time": "2026-11-15T21:07:47", "node": "N1", "target": "S01", "attempt": 1, "status": "done", "codes": {}, "note": "取得 cwa-edu-pws-story"}
+{"seq": 5, "time": "2026-11-15T21:12:21", "node": "N2", "target": "S01", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫討論單D01：9個重點、6個待查的不一致、4個問題"}
+{"seq": 6, "time": "2026-11-15T21:12:21", "node": "R", "target": "S01", "attempt": 1, "status": "reply", "codes": {}, "note": "學生回覆4題：國家級警報主題頁現在建、名稱比較頁先不建、山上情境只放摘要頁、引文照原文且單位統一"}
+{"seq": 7, "time": "2026-11-15T21:13:26", "node": "N3", "target": "S01", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫決定，新增來源摘要頁、topics/國家級警報.md，改index、log；overview先不建"}
+{"seq": 8, "time": "2026-11-15T21:13:26", "node": "C1", "target": "S01", "attempt": 1, "status": "fail", "codes": {"W06": 5, "W07": 3}, "note": "警告1", "check_file": "08-C1-S01.txt", "owners": {"N2": {"W06": 2, "W07": 2}, "N3": {"W07": 1, "W06": 3}}}
+{"seq": 9, "time": "2026-11-15T21:14:13", "node": "N3", "target": "S01", "attempt": 2, "status": "done", "codes": {}, "note": "依C1修改：引文補出處、刪內部編號、決定改寫；W03（D00）保留"}
+{"seq": 10, "time": "2026-11-15T21:14:13", "node": "C1", "target": "S01", "attempt": 2, "status": "fail", "codes": {"W07": 1}, "note": "警告1", "check_file": "10-C1-S01.txt", "owners": {"N3": {"W07": 1}}}
+{"seq": 11, "time": "2026-11-15T21:14:46", "node": "N3", "target": "S01", "attempt": 3, "status": "done", "codes": {}, "note": "依C1第2次修改：決定裡的來源代號改成文字"}
+{"seq": 12, "time": "2026-11-15T21:14:46", "node": "C1", "target": "S01", "attempt": 3, "status": "pass", "codes": {}, "note": "警告1", "check_file": "12-C1-S01.txt"}
