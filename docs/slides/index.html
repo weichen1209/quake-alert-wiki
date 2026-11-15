@@ -160,7 +160,7 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
 <section class="slide" data-kind="hook" data-wiki="topics/預警時間與盲區.md">
   <h2>手機還沒響，地就先搖了</h2>
   <p class="big">為什麼？</p>
-  <p>近震央地區接收到警報時，S波可能已經到達。這件事會在後面講清楚。</p>
+  <p>近震央地區接收到警報時，S波可能已經到達（S波是什麼，後面會講）。</p>
   <aside class="notes">先讓大家猜原因，不要馬上給答案。</aside>
 <div class="src"><span>出處</span><a href="../wiki/topics/預警時間與盲區.html">預警時間與盲區</a></div></section>
 
@@ -189,28 +189,29 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
     <div class="card"><h3>P波</h3><p>所有地震波中速度最快，最先抵達測站。</p></div>
     <div class="card"><h3>S波</h3><p>速度次之，破壞力通常大於P波。</p></div>
   </div>
-  <aside class="notes">Wiki沒有給兩種波的速度數字，這頁不講速度。</aside>
+  <aside class="notes">中央氣象署的來源沒有給速度數字；速度只有美國USGS有，在試算頁用。P波先到、S波後到如何用於預警，Wiki沒有直接說明（推論：先到的訊號可以提早偵測）。</aside>
 <div class="src"><span>出處</span><a href="../wiki/concepts/P波與S波.html">P波與S波</a></div></section>
 
 <section class="slide" data-kind="process" data-wiki="concepts/強震即時警報.md">
   <h2>強震即時警報怎麼運作</h2>
+  <p>目的：讓距離震央較遠的地區，在破壞性震波抵達前提早應變。</p>
   <ol class="steps">
-    <li>靠近震央的少數地震站，最早收錄到早期震波訊號</li>
+    <li>靠近震央的少數地震站，最早收錄到早期震波訊號（原文沒有說是哪一種波）</li>
     <li>快速演算出震央資訊</li>
-    <li>推估各地的預估震度與到時</li>
+    <li>推估各地的預估震度，和破壞性S波到達的時間</li>
     <li>快速對外通報</li>
   </ol>
   <aside class="notes">原文寫的是「早期震波訊號」，沒有寫是P波，所以不要在這裡說成P波。</aside>
 <div class="src"><span>出處</span><a href="../wiki/concepts/強震即時警報.html">強震即時警報</a></div></section>
 
 <section class="slide" data-kind="process" data-wiki="concepts/強震即時警報.md topics/預警時間與盲區.md">
-  <h2>從地震發生到警報發出要幾秒</h2>
+  <h2>警報不是瞬間發出</h2>
   <ul>
-    <li>中大規模地震：約15至20秒演算出初步震央資訊，再用1至2秒對外通報。</li>
-    <li>美濃地震的例子：約12秒演算出初步震央資訊，對台北地區提供49秒的預警時效。</li>
+    <li>島內或近岸發生中大規模地震：約15至20秒演算出初步震央資訊，再用1至2秒對外通報。</li>
+    <li>2016年2月6日美濃地震：約12秒即演算出初步震央資訊，對台北地區可提供49秒的預警時效。</li>
   </ul>
-  <p class="muted">兩種說法的條件不同，不能互相替換。</p>
-  <aside class="notes">第一條是中大規模地震的一般說法，第二條是一次實際例子。</aside>
+  <p class="muted">兩條的條件不同，不能互相替換。</p>
+  <aside class="notes">兩條的條件不同，不能互相替換。第一條是一般說法，第二條是一次實際例子；原文沒有說明12秒是否包含通報時間。</aside>
 <div class="src"><span>出處</span><a href="../wiki/concepts/強震即時警報.html">強震即時警報</a><a href="../wiki/topics/預警時間與盲區.html">預警時間與盲區</a></div></section>
 
 <section class="slide" data-kind="concept" data-wiki="topics/預警時間與盲區.md">
@@ -218,29 +219,29 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
   <ul>
     <li>資料處理需要一定的時間。</li>
     <li>近震央地區接收到警報時，S波可能已經到達，這些地區稱為預警盲區。</li>
-    <li>越靠近震央，預警時間越短。</li>
+    <li>越靠近震央，預警時間越短；通報比S波更快到達時，可爭取數秒至數十秒。</li>
   </ul>
-  <p class="callout">盲區多大，Wiki目前沒有寫，所以不給距離。</p>
+  <p class="callout">來源沒有給盲區的範圍，所以這裡不給距離。</p>
   <aside class="notes">這是學生最想弄懂的問題，多花一點時間。</aside>
 <div class="src"><span>出處</span><a href="../wiki/topics/預警時間與盲區.html">預警時間與盲區</a></div></section>
 
-<section class="slide" data-kind="practice" data-wiki="concepts/強震即時警報.md topics/預警時間與盲區.md">
+<section class="slide" data-kind="practice" data-wiki="concepts/P波與S波.md concepts/強震即時警報.md topics/預警時間與盲區.md">
   <h2>試算：離震央多遠還來得及</h2>
-  <p>可提前的時間，取決於「S波多久到」和「警報多久發出」。警報發布時間先簡化成20秒。</p>
-  <p class="callout">試算還需要S波速度，Wiki尚未收錄，補到來源後才開放輸入距離。</p>
-  <!-- 補到S波速度後，在這裡放：<div class="calc-eew" data-vs="（S波速度，公里/秒）" data-alert="20" data-wiki="concepts/P波與S波.md concepts/強震即時警報.md"></div> -->
-  <aside class="notes">發布警報秒數用20，是簡化：通報軟體約在地震發生後20秒內完成通報與告警，PWS約在20多秒內，這是學生的決定。S波速度缺，等補來源。</aside>
-<div class="src"><span>出處</span><a href="../wiki/concepts/強震即時警報.html">強震即時警報</a><a href="../wiki/topics/預警時間與盲區.html">預警時間與盲區</a><a href="../wiki/concepts/P波與S波.html">P波與S波</a></div></section>
+  <div class="calc-eew" data-vs="4.0" data-alert="20" data-wiki="concepts/P波與S波.md concepts/強震即時警報.md topics/預警時間與盲區.md"></div>
+  <p>距離是你和震央的距離。結果是負數，代表這個算式算出S波比警報先到。紅圈是算式的結果；來源沒有給盲區範圍，這不是官方範圍。</p>
+  <p class="muted">S波速度用美國USGS的每秒2.5英里（換算：約4.0公里/秒）；警報秒數用中央氣象署通報軟體約20秒內，簡化成20秒。兩個數字來自不同國家，是簡化估算。</p>
+  <aside class="notes">發布警報秒數用20是學生的決定：通報軟體約在地震發生後20秒內完成通報與告警，PWS約在20多秒內。S波速度只有美國USGS的數字，中央氣象署沒有給。算式（距離除以S波速度，再減警報秒數）是簡化算法，Wiki沒有寫（推論：根據是預警時間要比較S波到達和警報發出的時間）。</aside>
+<div class="src"><span>出處</span><a href="../wiki/concepts/P波與S波.html">P波與S波</a><a href="../wiki/concepts/強震即時警報.html">強震即時警報</a><a href="../wiki/topics/預警時間與盲區.html">預警時間與盲區</a></div></section>
 
-<section class="slide" data-kind="misconception" data-wiki="concepts/規模.md concepts/強震即時警報.md">
+<section class="slide" data-kind="misconception" data-wiki="concepts/規模.md concepts/強震即時警報.md concepts/震源與震央.md">
   <h2>三個常見誤解</h2>
   <div class="cols">
     <div class="card"><h3>規模6.5級？</h3><p>誤植。正確寫法是「規模6.5」。</p></div>
-    <div class="card"><h3>規模大就一定災情大？</h3><p>還要看震源深度和震央距離。</p></div>
+    <div class="card"><h3>規模大就一定災情大？</h3><p>還要看震源深度和震央距離：震源淺、離震央近，通常搖得更強。</p></div>
     <div class="card"><h3>警報會預測地震？</h3><p>不會。地震發生後才通報。</p></div>
   </div>
   <aside class="notes">警報的其他限制：連續地震時可能無法精確分辨波形；雜訊可能被誤判為地震而誤報。</aside>
-<div class="src"><span>出處</span><a href="../wiki/concepts/規模.html">規模</a><a href="../wiki/concepts/強震即時警報.html">強震即時警報</a></div></section>
+<div class="src"><span>出處</span><a href="../wiki/concepts/規模.html">規模</a><a href="../wiki/concepts/強震即時警報.html">強震即時警報</a><a href="../wiki/concepts/震源與震央.html">震源與震央</a></div></section>
 
 <section class="slide" data-kind="concept" data-wiki="topics/警報名稱比較.md">
   <h2>四個名稱的差別</h2>
@@ -250,44 +251,47 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
       <tr><td>地震預報</td><td>預測地震，目前無法準確做到</td></tr>
       <tr><td>地震速報</td><td>地震發生後彙整有感地震報告</td></tr>
       <tr><td>強震即時警報</td><td>搶在破壞性震波抵達前通報</td></tr>
-      <tr><td>國家級警報</td><td>讓手機收到文字與聲響告警</td></tr>
+      <tr><td>國家級警報</td><td>讓手機收到文字與聲響告警（PWS，是強震即時警報的通報管道之一）</td></tr>
     </tbody>
   </table>
-  <aside class="notes">這是氣象署地震百問的分法。不同來源對「地震速報」和手機訊息的關係說法不同，這裡只用這一種分法。</aside>
+  <p class="muted">這是〈地震百問〉的分法；不同來源對「地震速報」的用法不同。</p>
+  <aside class="notes">不同來源對「地震速報」和手機訊息的關係說法不同，這裡只用地震百問的分法。</aside>
 <div class="src"><span>出處</span><a href="../wiki/topics/警報名稱比較.html">警報名稱比較</a></div></section>
 
 <section class="slide" data-kind="process" data-wiki="topics/國家級警報.md">
   <h2>國家級警報什麼時候發布</h2>
-  <div class="compare">
-    <div class="card"><h3>新聞稿（113年8月30日）</h3><p>預估規模5.0以上且預估震度4級以上；或預估規模6.5以上且預估震度3級以上。</p></div>
-    <div class="card"><h3>另一篇（日期未標示）</h3><p>規模5以上，預估縣市政府所在地震度5級以上。</p></div>
+  <div class="cols">
+    <div class="card"><h3>新聞稿（113年8月30日）</h3><p>現有：預估規模達5.0、震度達4級。新增：預估規模達6.5、震度達3級。</p></div>
+    <div class="card"><h3>科普文章（日期未標示）</h3><p>規模5以上，縣市政府所在地震度5級以上。</p></div>
+    <div class="card"><h3>地震百問（日期未標示）</h3><p>預估規模5.0、震度4級；或6.5、3級。</p></div>
   </div>
-  <p class="warn">規模6.5的條件，新聞稿說是新增，另一篇資料已寫了同一組門檻，Wiki不判斷哪個對。</p>
-  <aside class="notes">兩個說法並列，不說哪個是現行規定。</aside>
+  <p class="warn">規模6.5條件：新聞稿說新增，地震百問已有，不判斷誰對。</p>
+  <aside class="notes">三個說法並列，不說哪個是現行規定。</aside>
 <div class="src"><span>出處</span><a href="../wiki/topics/國家級警報.html">國家級警報</a></div></section>
 
 <section class="slide" data-kind="process" data-wiki="topics/國家級警報.md">
-  <h2>發布條件的時間線</h2>
+  <h2>國家級警報的時間線</h2>
   <ol class="timeline">
-    <li><strong>1989年</strong>中央氣象署成立地震測報中心</li>
-    <li><strong>2016年</strong>NCC開始推動PWS</li>
+    <li><strong>1989年</strong>成立地震測報中心</li>
+    <li><strong>2016年</strong>國家通訊傳播委員會開始推動災防告警廣播訊息系統（PWS）</li>
     <li><strong>113年6月5日</strong>專家學者會議討論新增條件</li>
     <li><strong>113年7月17日</strong>防救災單位會議討論通過</li>
-    <li><strong>113年9月1日</strong>新增規模6.5條件上線</li>
+    <li><strong>113年9月1日</strong>新增規模6.5條件，訂於這天上線</li>
   </ol>
-  <p class="muted">113年9月1日之前的調整，目前來源沒有說。</p>
+  <p class="muted">1989年、2016年是西元年，113年是民國年。更早的調整，來源沒說。</p>
   <aside class="notes">想知道更早是哪一年改的，要等第二批來源。</aside>
 <div class="src"><span>出處</span><a href="../wiki/topics/國家級警報.html">國家級警報</a></div></section>
 
 <section class="slide" data-kind="process" data-wiki="topics/收到警報怎麼做.md">
   <h2>收到警報怎麼做</h2>
+  <p>PWS會在強震發生後的短短數秒至數十秒內發送預警訊息，要立刻行動。</p>
   <div class="cols">
     <div class="card"><h3>室內</h3><p>迅速掩護，遠離窗戶和吊燈等易碎落物。</p></div>
     <div class="card"><h3>室外</h3><p>尋找開闊地蹲下，保護頭部。</p></div>
     <div class="card"><h3>駕駛中</h3><p>減速靠邊停車，地震結束後再行駛。</p></div>
   </div>
   <p class="muted">這是新聞稿的三句話，不是完整防護說明。</p>
-  <aside class="notes">完整的防護步驟，Wiki還沒有來源。</aside>
+  <aside class="notes">完整的防護步驟，Wiki還沒有來源；「掩護」要做什麼動作，Wiki沒有更多說明。</aside>
 <div class="src"><span>出處</span><a href="../wiki/topics/收到警報怎麼做.html">收到警報怎麼做</a></div></section>
 
 <section class="slide" data-kind="quiz" data-wiki="concepts/規模.md concepts/震度.md">
@@ -319,37 +323,33 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
 <section class="slide" data-kind="quiz" data-wiki="topics/國家級警報.md">
   <h2>小測驗：發布條件</h2>
   <div class="quiz" data-answer="a">
-    <p>新聞稿說113年9月1日起新增的條件是哪一個？</p>
+    <p>新聞稿說訂於113年9月1日上線的新增條件是哪一個？</p>
     <button data-opt="a">預估規模6.5以上，且預估震度3級以上</button>
     <button data-opt="b">預估規模5.0以上，且預估震度4級以上</button>
     <button data-opt="c">預估規模6.5以上，且預估震度5級以上</button>
     <button data-opt="d">預估規模5.0以上，且預估震度3級以上</button>
-    <p class="why" data-wiki="topics/國家級警報.md">新聞稿說新增的是預估規模達6.5且預估震度達3級；規模5.0且震度4級是原有條件。另一篇資料對此說法不同。</p>
+    <p class="why" data-wiki="topics/國家級警報.md">新聞稿說新增的是預估規模達6.5且預估震度達3級；規模5.0且震度4級是現有條件。地震百問說法不同。</p>
   </div>
   <aside class="notes">答案a。</aside>
 <div class="src"><span>出處</span><a href="../wiki/topics/國家級警報.html">國家級警報</a></div></section>
 
-<section class="slide" data-kind="summary" data-wiki="overview.md">
-  <h2>記住這五件事</h2>
+<section class="slide" data-kind="summary" data-wiki="overview.md topics/國家級警報.md topics/收到警報怎麼做.md">
+  <h2>記住這六件事</h2>
   <ol>
     <li>規模只有一個值，震度各地不同</li>
     <li>P波先到，S波後到</li>
-    <li>警報要演算時間，近震央有預警盲區</li>
-    <li>國家級警報看預估規模和預估震度</li>
+    <li>強震即時警報用早期震波訊號演算，搶在破壞性震波前通報</li>
+    <li>近震央有預警盲區，所以有時先搖才響</li>
+    <li>國家級警報：新聞稿的條件是預估規模5.0、震度4級，或預估規模6.5、震度3級（來源說法不同）</li>
     <li>收到警報，依所在位置掩護、蹲下或靠邊停車</li>
   </ol>
   <aside class="notes">回到開頭的問題：先搖才響，是因為盲區。</aside>
-<div class="src"><span>出處</span><a href="../wiki/overview.html">Wiki總覽</a></div></section>
+<div class="src"><span>出處</span><a href="../wiki/overview.html">Wiki總覽</a><a href="../wiki/topics/國家級警報.html">國家級警報</a><a href="../wiki/topics/收到警報怎麼做.html">收到警報怎麼做</a></div></section>
 
 <section class="slide" data-kind="sources">
   <h2>資料來源</h2>
-  <ul>
-    <li>中央氣象署數位科普網〈國家級警報來了--地震測報過程〉（日期未標示）</li>
-    <li>中央氣象署〈地震百問〉選錄兩組（日期未標示）</li>
-    <li>中央氣象署〈地震速報－軟體專區〉（日期未標示）</li>
-    <li>中央氣象署新聞稿（113年8月30日）</li>
-  </ul>
-<div class="cols"><div><h3>用到的Wiki頁（10）</h3><ul><li><a href="../wiki/overview.html">Wiki總覽</a></li><li><a href="../wiki/topics/預警時間與盲區.html">預警時間與盲區</a></li><li><a href="../wiki/concepts/規模.html">規模</a></li><li><a href="../wiki/concepts/震度.html">震度</a></li><li><a href="../wiki/concepts/震源與震央.html">震源與震央</a></li><li><a href="../wiki/concepts/P波與S波.html">P波與S波</a></li><li><a href="../wiki/concepts/強震即時警報.html">強震即時警報</a></li><li><a href="../wiki/topics/警報名稱比較.html">警報名稱比較</a></li><li><a href="../wiki/topics/國家級警報.html">國家級警報</a></li><li><a href="../wiki/topics/收到警報怎麼做.html">收到警報怎麼做</a></li></ul></div><div><h3>這些頁引用的來源（5）</h3><ul><li><a href="../wiki/sources/S01-cwa-edu-pws-story.html">S01 國家級警報來了--地震測報過程</a></li><li><a href="../wiki/sources/S02-cwa-faq-basics.html">S02 地震百問（選錄）：震源與震央、地震波、規模、震度</a></li><li><a href="../wiki/sources/S03-cwa-faq-eew.html">S03 地震百問（選錄）：地震預報、地震速報與強震即時警報</a></li><li><a href="../wiki/sources/S04-cwa-eew-principle.html">S04 地震速報－軟體專區（強震即時警報之原理等）</a></li><li><a href="../wiki/sources/S05-cwa-press-2024-pws.html">S05 新聞稿：交通部中央氣象署地震災防告警細胞廣播訊息（PWS）新增發布條件</a></li></ul></div></div></section>
+  <p>各頁用到的Wiki頁和它們引用的來源，列在下方。</p>
+<div class="cols"><div><h3>用到的Wiki頁（10）</h3><ul><li><a href="../wiki/overview.html">Wiki總覽</a></li><li><a href="../wiki/topics/預警時間與盲區.html">預警時間與盲區</a></li><li><a href="../wiki/concepts/規模.html">規模</a></li><li><a href="../wiki/concepts/震度.html">震度</a></li><li><a href="../wiki/concepts/震源與震央.html">震源與震央</a></li><li><a href="../wiki/concepts/P波與S波.html">P波與S波</a></li><li><a href="../wiki/concepts/強震即時警報.html">強震即時警報</a></li><li><a href="../wiki/topics/警報名稱比較.html">警報名稱比較</a></li><li><a href="../wiki/topics/國家級警報.html">國家級警報</a></li><li><a href="../wiki/topics/收到警報怎麼做.html">收到警報怎麼做</a></li></ul></div><div><h3>這些頁引用的來源（6）</h3><ul><li><a href="../wiki/sources/S01-cwa-edu-pws-story.html">S01 國家級警報來了--地震測報過程</a></li><li><a href="../wiki/sources/S02-cwa-faq-basics.html">S02 地震百問（選錄）：震源與震央、地震波、規模、震度</a></li><li><a href="../wiki/sources/S03-cwa-faq-eew.html">S03 地震百問（選錄）：地震預報、地震速報與強震即時警報</a></li><li><a href="../wiki/sources/S04-cwa-eew-principle.html">S04 地震速報－軟體專區（強震即時警報之原理等）</a></li><li><a href="../wiki/sources/S05-cwa-press-2024-pws.html">S05 新聞稿：交通部中央氣象署地震災防告警細胞廣播訊息（PWS）新增發布條件</a></li><li><a href="../wiki/sources/S06-usgs-eew-overview.html">S06 Earthquake Early Warning – Overview</a></li></ul></div></div></section>
 
 </main>
 <nav class="hud" aria-label="簡報控制">
@@ -453,8 +453,8 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
       '<label for="' + uid + '">你離震央多遠？ <span class="km"></span></label>' +
       '<input id="' + uid + '" type="range" min="0" max="300" step="5" value="120">' +
       '<div class="out"></div><p class="verdict"></p>' +
-      '<p class="formula">簡化試算：可提前秒數 ＝ 距離 ÷ S波速度（' + vs + ' 公里/秒）－ 警報送達時間（' + alertT +
-      ' 秒）。把震源當成在地表、波速固定，只用來看趨勢。</p>' +
+      '<p class="formula">簡化試算：可提前秒數 ＝ 距離 ÷ S波速度（' + c.dataset.vs + ' 公里/秒）－ 警報送達時間（' + c.dataset.alert +
+      ' 秒）。把震源當成在地表、波速固定，只用來看趨勢；紅圈是這個算式算出警報趕不上S波的範圍。</p>' +
       '</div><div><svg viewBox="0 0 320 320" role="img" aria-label="震央、盲區和你的位置"></svg></div></div>';
     const input = c.querySelector("input"), out = c.querySelector(".out"), verdict = c.querySelector(".verdict");
     const km = c.querySelector(".km"), svg = c.querySelector("svg");
@@ -468,7 +468,7 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
       svg.innerHTML =
         '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="#d8cfbd" stroke-dasharray="3 5"/>' +
         '<circle cx="' + cx + '" cy="' + cy + '" r="' + (blind * scale) + '" fill="rgba(196,54,44,.14)" stroke="#c4362c"/>' +
-        '<text x="' + cx + '" y="' + (cy - blind * scale - 6) + '" text-anchor="middle" font-size="11" fill="#c4362c" font-family="monospace">盲區 約' + Math.round(blind) + '公里</text>' +
+        '<text x="' + cx + '" y="' + (cy - blind * scale - 6) + '" text-anchor="middle" font-size="11" fill="#c4362c" font-family="monospace">試算盲區 約' + Math.round(blind) + '公里</text>' +
         '<circle cx="' + cx + '" cy="' + cy + '" r="5" fill="#1c1b18"/>' +
         '<text x="' + (cx + 9) + '" y="' + (cy + 4) + '" font-size="11" fill="#1c1b18" font-family="monospace">震央</text>' +
         '<circle cx="' + (cx + d * scale) + '" cy="' + cy + '" r="7" fill="' + (lead > 0 ? "#2f7d4f" : "#c4362c") + '"/>' +

@@ -241,8 +241,8 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
       '<label for="' + uid + '">你離震央多遠？ <span class="km"></span></label>' +
       '<input id="' + uid + '" type="range" min="0" max="300" step="5" value="120">' +
       '<div class="out"></div><p class="verdict"></p>' +
-      '<p class="formula">簡化試算：可提前秒數 ＝ 距離 ÷ S波速度（' + vs + ' 公里/秒）－ 警報送達時間（' + alertT +
-      ' 秒）。把震源當成在地表、波速固定，只用來看趨勢。</p>' +
+      '<p class="formula">簡化試算：可提前秒數 ＝ 距離 ÷ S波速度（' + c.dataset.vs + ' 公里/秒）－ 警報送達時間（' + c.dataset.alert +
+      ' 秒）。把震源當成在地表、波速固定，只用來看趨勢；紅圈是這個算式算出警報趕不上S波的範圍。</p>' +
       '</div><div><svg viewBox="0 0 320 320" role="img" aria-label="震央、盲區和你的位置"></svg></div></div>';
     const input = c.querySelector("input"), out = c.querySelector(".out"), verdict = c.querySelector(".verdict");
     const km = c.querySelector(".km"), svg = c.querySelector("svg");
@@ -256,7 +256,7 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
       svg.innerHTML =
         '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="#d8cfbd" stroke-dasharray="3 5"/>' +
         '<circle cx="' + cx + '" cy="' + cy + '" r="' + (blind * scale) + '" fill="rgba(196,54,44,.14)" stroke="#c4362c"/>' +
-        '<text x="' + cx + '" y="' + (cy - blind * scale - 6) + '" text-anchor="middle" font-size="11" fill="#c4362c" font-family="monospace">盲區 約' + Math.round(blind) + '公里</text>' +
+        '<text x="' + cx + '" y="' + (cy - blind * scale - 6) + '" text-anchor="middle" font-size="11" fill="#c4362c" font-family="monospace">試算盲區 約' + Math.round(blind) + '公里</text>' +
         '<circle cx="' + cx + '" cy="' + cy + '" r="5" fill="#1c1b18"/>' +
         '<text x="' + (cx + 9) + '" y="' + (cy + 4) + '" font-size="11" fill="#1c1b18" font-family="monospace">震央</text>' +
         '<circle cx="' + (cx + d * scale) + '" cy="' + cy + '" r="7" fill="' + (lead > 0 ? "#2f7d4f" : "#c4362c") + '"/>' +

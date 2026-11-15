@@ -60,3 +60,13 @@
 {"seq": 60, "time": "2026-11-15T21:44:25", "node": "C1", "target": "Q02", "attempt": 1, "status": "fail", "codes": {"W07": 3}, "note": "", "check_file": "60-C1-Q02.txt", "owners": {"N4": {"W07": 1}, "N5": {"W07": 2}}}
 {"seq": 61, "time": "2026-11-15T21:44:42", "node": "N5", "target": "Q02", "attempt": 3, "status": "done", "codes": {}, "note": "依C1把4.0移進換算括號（Q01、Q02）"}
 {"seq": 62, "time": "2026-11-15T21:44:43", "node": "C1", "target": "Q02", "attempt": 2, "status": "pass", "codes": {}, "note": "", "check_file": "62-C1-Q02.txt"}
+{"seq": 63, "time": "2026-11-15T21:45:51", "node": "N6", "target": "deck", "attempt": 3, "status": "done", "codes": {}, "note": "AI寫簡報第2版：第10頁放試算（4.0、20），修審查6個錯，採用6條建議"}
+{"seq": 64, "time": "2026-11-15T21:45:51", "node": "C2a", "target": "deck", "attempt": 2, "status": "pass", "codes": {}, "note": "", "check_file": "64-C2a-deck.txt"}
+{"seq": 65, "time": "2026-11-15T21:47:59", "node": "C2b", "target": "deck", "attempt": 2, "status": "fail", "codes": {"R1": 2, "R2": 3, "R3": 3}, "note": "另一個AI審查第2版：修改帶進新錯（第8頁補了Wiki沒有的解釋、第15頁發送時間講成預警時間）、試算畫出80公里盲區但Wiki說沒有範圍、出處頁缺S06等；約3個是第1次審查沒抓到的", "check_file": "65-C2b-deck.txt"}
+{"seq": 66, "time": "2026-11-15T21:48:41", "node": "T", "target": "calc", "attempt": 1, "status": "note", "codes": {}, "note": "審查第2版第10頁的盲區意見有一部分出在版型（學生維護）：公式改顯示原始數字4.0，紅圈標「試算盲區」並說明是算式的結果"}
+{"seq": 67, "time": "2026-11-15T21:49:42", "node": "N6", "target": "deck", "attempt": 4, "status": "done", "codes": {}, "note": "AI寫簡報第3版：修審查第2次的8個錯，第20頁改由build列來源"}
+{"seq": 68, "time": "2026-11-15T21:49:42", "node": "C2a", "target": "deck", "attempt": 3, "status": "fail", "codes": {"P03": 1, "P04": 1}, "note": "", "check_file": "68-C2a-deck.txt"}
+{"seq": 69, "time": "2026-11-15T21:50:01", "node": "R", "target": "deck", "attempt": 1, "status": "fix", "codes": {}, "note": "N6已重生3次（v1上限），C2a剩的2個錯由學生手動改：「小於0」改成「是負數」、備註裡自己寫的公式拿掉「」"}
+{"seq": 70, "time": "2026-11-15T21:50:01", "node": "C2a", "target": "deck", "attempt": 4, "status": "pass", "codes": {}, "note": "", "check_file": "70-C2a-deck.txt"}
+{"seq": 71, "time": "2026-11-15T21:50:54", "node": "C2b", "target": "deck", "attempt": 3, "status": "pass", "codes": {}, "note": "第2位審查AI複查第3版：上次8個錯改好7個，第20頁要建置後確認S06；新錯0、建議4", "check_file": "71-C2b-deck.txt"}
+{"seq": 72, "time": "2026-11-15T21:50:54", "node": "N7", "target": "docs", "attempt": 1, "status": "done", "codes": {}, "note": "build.py產生docs/；確認出處頁自動列出S06"}
