@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>S04 原始來源｜地震預警LLM Wiki</title>
+<title>S04原始來源｜地震預警LLM Wiki</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css"></head>
-<body><header class="top"><div class="in"><a class="brand" href="../index.html">地震預警 LLM Wiki</a><nav><a href="../index.html">首頁</a><a href="../slides/index.html">教學簡報</a><a href="../wiki/index.html">Wiki目錄</a><a href="../graph.html">頁面關係圖</a><a href="../flow.html">流程圖</a><a href="../runs/index.html">執行紀錄</a><a href="../map.html">簡報對應表</a><a href="../AGENTS.html">規則</a></nav></div></header>
-<div class="wrap single"><main><h1>S04 地震速報－軟體專區（強震即時警報之原理等）</h1><div class="meta">發布者：交通部中央氣象署 地震測報中心<br>發布日期：未標示<br>取得日期：2026-11-15<br>授權：中央氣象署「政府網站資料開放宣告」：可重製、改作、公開傳輸，使用時註明出處<br>網址：<a href="https://scweb.cwa.gov.tw/zh-tw/guidance/eew">https://scweb.cwa.gov.tw/zh-tw/guidance/eew</a><br>SHA-256：<code>ca36267c6fac4dfe701278733de112a8375da3631e12460edb6949a1a83ea15e</code></div><p>這是 <code>tools/fetch.py</code> 取得時存下的文字，之後不再修改；只收文字，圖片沒有收錄。</p><pre class="raw">強震即時警報之原理
+<body><header class="top"><div class="in"><a class="brand" href="../index.html">地震預警LLM Wiki</a><nav><a href="../index.html">首頁</a><a href="../slides/index.html">教學簡報</a><a href="../wiki/index.html">Wiki目錄</a><a href="../graph.html">頁面關係圖</a><a href="../flow.html">流程圖</a><a href="../runs/index.html">執行紀錄</a><a href="../map.html">簡報對應表</a><a href="../AGENTS.html">規則</a></nav></div></header>
+<div class="wrap single"><main><h1>S04 地震速報－軟體專區（強震即時警報之原理等）</h1><div class="meta">發布者：交通部中央氣象署 地震測報中心<br>發布日期：未標示<br>取得日期：2026-11-15<br>授權：中央氣象署「政府網站資料開放宣告」：可重製、改作、公開傳輸，使用時註明出處<br>網址：<a href="https://scweb.cwa.gov.tw/zh-tw/guidance/eew">https://scweb.cwa.gov.tw/zh-tw/guidance/eew</a><br>SHA-256：<code>ca36267c6fac4dfe701278733de112a8375da3631e12460edb6949a1a83ea15e</code></div><p>這是<code>tools/fetch.py</code>取得時存下的文字，之後不再修改；只收文字，圖片沒有收錄。</p><pre class="raw">強震即時警報之原理
 (1).何謂強震即時警報？
 強震即時警報是指當大地震發生後，利用震央附近地震站觀測到的早期震波資料，快速解算出地震規模、位置與深度，並以此預估各地區之震度與震波到時等資訊，再利用快速通訊技術，搶在具威脅性的地震波（S波）到達前，對各地區通報預估的震度及震波到時等資訊。如果強震即時警報的通報比實際破壞性地震波（S波）更快到達，相關地區就可爭取數秒至數十秒的預警時間來應變，是目前最有效的地震減災科技。
 (2).強震即時警報與地震預測有何差異？

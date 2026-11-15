@@ -6,6 +6,7 @@
     <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0 0L10 5L0 10z" fill="#c4362c"/>
     </marker>
+    <linearGradient id="mx" x1="0" x2="1"><stop offset="0.5" stop-color="#fbf8f2"/><stop offset="0.5" stop-color="#fff4e6"/></linearGradient>
     <style>
       .t{font-size:14px;fill:#1c1b18;font-weight:700}
       .s{font-size:12px;fill:#45413a}
@@ -17,6 +18,7 @@
       .ck{fill:#f6dcd6;stroke:#c4362c;stroke-width:1.8}
       .nw{fill:#f6dcd6;stroke:#c4362c;stroke-width:3}
       .hu{fill:#fff4e6;stroke:#d47a22;stroke-width:1.6;stroke-dasharray:5 4}
+      .mx{fill:url(#mx);stroke:#1c1b18;stroke-width:1.6}
       .e{fill:none;stroke:#1c1b18;stroke-width:1.5}
       .r{fill:none;stroke:#c4362c;stroke-width:1.5;stroke-dasharray:6 4}
     </style>
@@ -25,8 +27,8 @@
   <text x="30" y="36" font-size="20" font-weight="900" fill="#1c1b18">graph v2：檢查往前移（新增C1a、C0）</text>
 
   <!-- N0 -->
-  <rect class="ai" x="30" y="60" width="170" height="54" rx="8"/>
-  <text class="t" x="44" y="84">N0 規劃討論</text><text class="s" x="44" y="103">範圍、讀者、第一批來源</text>
+  <rect class="mx" x="30" y="60" width="200" height="54" rx="8"/>
+  <text class="t" x="44" y="84">N0 規劃討論（AI＋學生）</text><text class="s" x="44" y="103">範圍、讀者、第一批來源</text>
   <path class="e" d="M115 114V150" marker-end="url(#a)"/>
 
   <!-- ingest loop -->
@@ -57,8 +59,8 @@
   <text class="g" x="829" y="330">通過 → 下一篇來源</text>
 
   <!-- slides loop -->
-  <path class="e" d="M760 342V392" marker-end="url(#a)"/>
-  <text class="g" x="772" y="372">來源都處理完</text>
+  <path class="e" d="M155 342V426" marker-end="url(#a)"/>
+  <text class="g" x="147" y="372" text-anchor="end">來源都處理完</text>
   <rect x="20" y="394" width="960" height="170" rx="12" fill="none" stroke="#7a7366" stroke-dasharray="3 5"/>
   <text class="g" x="34" y="414">簡報（query loop）</text>
   <rect class="ai" x="34" y="430" width="135" height="58" rx="8"/>
@@ -73,18 +75,19 @@
   <rect class="ck" x="670" y="430" width="135" height="58" rx="8"/>
   <text class="t" x="682" y="454">C2 簡報檢查</text><text class="s" x="682" y="474">程式＋AI審查</text>
   <rect class="pg" x="829" y="430" width="135" height="58" rx="8"/>
-  <text class="t" x="841" y="454">N7 發佈</text><text class="s" x="841" y="474">build.py → Pages</text>
+  <text class="t" x="841" y="454">N7 建置發佈</text><text class="s" x="841" y="474">build.py → Pages</text>
   <path class="e" d="M169 459H189" marker-end="url(#a)"/>
   <path class="e" d="M328 459H348" marker-end="url(#a)"/>
   <path class="e" d="M487 459H507" marker-end="url(#a)"/>
   <path class="e" d="M646 459H666" marker-end="url(#a)"/>
   <path class="e" d="M805 459H825" marker-end="url(#a)"/>
   <path class="r" d="M419 488C419 532 260 532 260 492" marker-end="url(#ar)"/>
-  <text class="l" x="226" y="546">查詢頁或試算數字有錯：回N5</text>
+  <text class="l" x="226" y="546">查詢頁或試算數字有錯：回N5（最多3次）</text>
   <path class="r" d="M737 488C737 532 578 532 578 492" marker-end="url(#ar)"/>
-  <text class="l" x="560" y="546">不通過：重生出錯的頁（最多3次）</text>
+  <text class="l" x="560" y="546">不通過：重做出錯的頁（最多3次）</text>
   <path class="r" d="M405 430C405 380 101 380 101 252" marker-end="url(#ar)"/>
-  <text class="l" x="420" y="380">C0發現Wiki缺資料：回N1補來源（產生簡報之前）</text>
+  <text class="l" x="420" y="364">C0擋下大綱列出的缺資料：回N1補來源，</text>
+  <text class="l" x="420" y="381">或學生決定不補（產生簡報之前）</text>
 
   <!-- legend -->
   <rect class="ai" x="30" y="590" width="22" height="16" rx="3"/><text class="s" x="58" y="603">AI節點</text>
@@ -93,4 +96,6 @@
   <rect class="nw" x="350" y="590" width="22" height="16" rx="3"/><text class="s" x="378" y="603">v2新增的檢查</text>
   <rect class="hu" x="490" y="590" width="22" height="16" rx="3"/><text class="s" x="518" y="603">學生</text>
   <path class="r" d="M570 598H610" marker-end="url(#ar)"/><text class="s" x="618" y="603">重複執行的路線</text>
+  <rect class="mx" x="730" y="590" width="22" height="16" rx="3"/><text class="s" x="758" y="603">AI＋學生</text>
+  <text class="s" x="30" y="630">每個紅色虛線迴圈最多3次；3次還沒通過，由學生決定手動修改，或把剩下的問題記在log。</text>
 </svg>

@@ -4,7 +4,7 @@
   python3 tools/check_outline.py --run run-02 --target Q02   檢查並記錄到執行紀錄
 
 檢查（AGENTS.md 第8.4節）：
-  查詢頁（wiki/queries/）用 lint_wiki.py 的單頁檢查（引文、數字、出處、連結），錯了回N4、N5
+  查詢頁（wiki/queries/）用 lint_wiki.py 的單頁檢查（引文、數字、出處、連結），錯了回N5（Q01的錯記在N4，由N5一起改）
   O02 大綱要有「## 試算數字」：data-vs、data-alert 各一行，數字要在寫的那一頁找得到，錯了回N5
   O03 大綱要有「## Wiki缺資料」：寫「無」，或每一項都標「（學生決定不補）」；還有缺的就回N1補來源
 有錯誤（E）時結束碼為1。

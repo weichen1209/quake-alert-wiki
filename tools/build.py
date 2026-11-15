@@ -37,10 +37,11 @@ def rel(from_out, to_out):
 # ---------------- Markdown（只支援 AGENTS.md 第4.7節的範圍，外加程式碼區塊） ----------------
 
 class Ctx:
-    def __init__(self, out_rel, cite_map, md_dir=""):
+    def __init__(self, out_rel, cite_map, md_dir="", keep_cites=False):
         self.out_rel = out_rel      # 這頁輸出到 docs/ 的哪裡
         self.cite_map = cite_map    # Sxx -> docs 底下來源摘要頁的位置
         self.md_dir = md_dir
+        self.keep_cites = keep_cites   # 執行紀錄照原樣顯示〔Sxx〕，不轉成上標連結
 
     def href(self, h):
         if re.match(r"^[a-z]+://", h) or h.startswith("#") or h.startswith("mailto:"):
@@ -72,7 +73,8 @@ def inline(text, ctx):
             if not target:
                 return f'<span class="cite">{sid}</span>'
             return f'<a class="cite" href="{esc(rel(ctx.out_rel, target))}">{sid}</a>'
-        s = re.sub(r"〔(S\d{2})〕", cite, s)
+        if not ctx.keep_cites:
+            s = re.sub(r"〔(S\d{2})〕", cite, s)
         out.append(s)
     return "".join(out)
 
@@ -206,6 +208,7 @@ h3{font-size:18px;margin:1.3em 0 .4em}
 .meta{font-size:14px;color:var(--muted);margin:0 0 1.2em;padding:10px 14px;background:var(--card);border:1px solid var(--rule);border-radius:8px}
 .meta .type{font:600 12px var(--mono);color:#fff;padding:2px 8px;border-radius:4px;margin-right:8px}
 .meta .summary{display:block;color:var(--ink-2);font-size:15px;margin-top:4px}
+.meta code,.meta a{overflow-wrap:anywhere;word-break:break-all}
 a.cite,span.cite{font:600 11px var(--mono);vertical-align:super;text-decoration:none;color:var(--alert);margin:0 1px}
 blockquote{margin:1em 0;padding:.6em 1em;border-left:4px solid var(--p);background:var(--p-soft)}
 blockquote p{margin:.2em 0}
@@ -248,7 +251,7 @@ def page(out_rel, title, body, side=""):
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{esc(css)}"></head>
-<body><header class="top"><div class="in"><a class="brand" href="{esc(rel(out_rel, 'index.html'))}">地震預警 LLM Wiki</a><nav>{nav}</nav></div></header>
+<body><header class="top"><div class="in"><a class="brand" href="{esc(rel(out_rel, 'index.html'))}">地震預警LLM Wiki</a><nav>{nav}</nav></div></header>
 <div class="{wrap}"><main>{body}</main>{side_html}</div>
 <footer class="bot">資料來源：交通部中央氣象署等公開資料（見各來源頁的授權說明）｜<a href="{REPO}">GitHub</a></footer>
 </body></html>
@@ -313,11 +316,12 @@ def main():
         chips = " ".join(
             f'<a class="cite" href="{esc(rel(out_rel, cite_map[s]))}">{s}</a>' if s in cite_map else s for s in srcs)
         head = (f'<div class="meta"><span class="type" style="background:{TYPE_COLOR.get(typ, "#555")}">{TYPE_LABEL.get(typ, typ)}</span>'
-                f'更新 {esc(str(meta.get("updated", "")))}　來源 {chips or "－"}'
+                f'更新{esc(str(meta.get("updated", "")))}　來源{chips or "－"}'
                 f'<span class="summary">{inline(str(meta.get("summary", "")), ctx)}</span></div>')
         body = md_to_html(bodies[r], ctx)
         if not body.lstrip().startswith("<h1"):
-            body = f"<h1>{esc(meta.get('title', r))}</h1>" + body
+            body = f"<h1>{esc(meta.get('title', r))}</h1>" + head + body
+            head = ""
         else:
             body = body.replace("</h1>", "</h1>" + head, 1)
             head = ""
@@ -354,8 +358,8 @@ def main():
                 f"發布日期：{esc(str(meta.get('published', '')))}<br>取得日期：{esc(e['retrieved'])}<br>"
                 f"授權：{esc(e['license'])}<br>網址：" + "<br>".join(f'<a href="{esc(u)}">{esc(u)}</a>' for u in urls) +
                 f"<br>SHA-256：<code>{e['sha256']}</code></div>"
-                "<p>這是 <code>tools/fetch.py</code> 取得時存下的文字，之後不再修改；只收文字，圖片沒有收錄。</p>")
-        write(out_rel, page(out_rel, f"{sid} 原始來源", info + f'<pre class="raw">{esc(body.strip())}</pre>'))
+                "<p>這是<code>tools/fetch.py</code>取得時存下的文字，之後不再修改；只收文字，圖片沒有收錄。</p>")
+        write(out_rel, page(out_rel, f"{sid}原始來源", info + f'<pre class="raw">{esc(body.strip())}</pre>'))
 
     # 簡報
     deck_src = ROOT / "slides" / "deck.html"
@@ -430,14 +434,14 @@ def main():
     rows2 = "".join(f'<tr><td><a href="wiki/{esc(p[:-3])}.html">{esc(metas[p].get("title", p))}</a></td><td>{TYPE_LABEL.get(metas[p].get("type"), "")}</td><td>' +
                     ("、".join(f'<a href="slides/index.html#{n}">{n}</a>' for n in used.get(p, [])) or "－") + "</td></tr>"
                     for p in pages if metas[p].get("type") in ("concept", "topic", "overview"))
-    body = ("<h1>簡報對應表</h1><p>每一頁簡報用到哪些Wiki頁、這些頁引用哪些原始來源。由 <code>tools/build.py</code> 依簡報的 <code>data-wiki</code> 和Wiki頁的前置資料產生。</p>"
+    body = ("<h1>簡報對應表</h1><p>每一頁簡報用到哪些Wiki頁、這些頁引用哪些原始來源。由<code>tools/build.py</code>依簡報的<code>data-wiki</code>和Wiki頁的前置資料產生。</p>"
             "<h2>簡報 → Wiki → 來源</h2><div class=\"tablewrap\"><table><thead><tr><th>頁</th><th>種類</th><th>標題</th><th>Wiki頁</th><th>來源</th></tr></thead><tbody>"
             + "".join(rows) + "</tbody></table></div>"
             "<h2>概念、主題頁被哪幾頁簡報用到</h2><div class=\"tablewrap\"><table><thead><tr><th>Wiki頁</th><th>類型</th><th>簡報頁</th></tr></thead><tbody>"
             + rows2 + "</tbody></table></div>")
     write("map.html", page("map.html", "簡報對應表", body))
 
-    # 頁面關係圖（簡單的力導向排版，固定亂數種子）
+    # 頁面關係圖（簡單的力導向排版，固定亂數種子；連結照排序處理，每次建置的位置相同）
     nodes = [r for r in pages]
     rnd = random.Random(3)
     pos = {n: [rnd.uniform(0, 1), rnd.uniform(0, 1)] for n in nodes}
@@ -445,6 +449,9 @@ def main():
     und = {(a, b) for a, b in edges} | {(b, a) for a, b in edges}
     for it in range(400):
         disp = {n: [0.0, 0.0] for n in nodes}
+        for n in nodes:   # 往中心的引力，取代每一輪把座標夾在0到1（夾住會讓節點排在邊框上）
+            disp[n][0] -= (pos[n][0] - 0.5) * 0.6
+            disp[n][1] -= (pos[n][1] - 0.5) * 0.6
         for a in nodes:
             for b in nodes:
                 if a == b:
@@ -454,7 +461,7 @@ def main():
                 f = k * k / d
                 disp[a][0] += dx / d * f
                 disp[a][1] += dy / d * f
-        for a, b in und:
+        for a, b in sorted(und):
             dx, dy = pos[a][0] - pos[b][0], pos[a][1] - pos[b][1]
             d = math.hypot(dx, dy) or 1e-4
             f = d * d / k / 2
@@ -466,15 +473,50 @@ def main():
             d = math.hypot(dx, dy) or 1e-4
             pos[n][0] += dx / d * min(d, temp)
             pos[n][1] += dy / d * min(d, temp)
-            pos[n][0] = min(1, max(0, pos[n][0]))
-            pos[n][1] = min(1, max(0, pos[n][1]))
+    for i in (0, 1):   # 排完再依實際範圍縮放到0到1
+        lo, hi = min(p[i] for p in pos.values()), max(p[i] for p in pos.values())
+        for p in pos.values():
+            p[i] = (p[i] - lo) / ((hi - lo) or 1)
     Wd, Hd, pad = 1000, 700, 70
+
+    def label(n):
+        """討論單、來源、查詢頁只寫代號，完整標題放在<title>。"""
+        t = metas[n].get("title", n)
+        m = re.search(r"\b([DSQ]\d{2})\b", t) if metas[n].get("type") in ("discussion", "source", "query") else None
+        return m.group(1) if m else t
 
     def xy(n):
         return pad + pos[n][0] * (Wd - 2 * pad), pad + pos[n][1] * (Hd - 2 * pad)
     deg = {n: 0 for n in nodes}
     for a, b in und:
         deg[a] += 1
+    # 標籤避讓：圓點加標籤的範圍互相重疊時，把兩個節點上下推開（字寬用中文13、英數7.5估算）
+    P = {n: list(xy(n)) for n in nodes}
+    rad = {n: 5 + min(10, deg[n] * 0.9) for n in nodes}
+
+    def box(n):
+        x, y = P[n]
+        r, w = rad[n], sum(13 if ord(c) > 255 else 7.5 for c in label(n))
+        lx0, lx1 = (x - r - 3 - w, x - r - 3) if x > Wd / 2 else (x + r + 3, x + r + 3 + w)
+        return min(x - r, lx0) - 2, min(y - r, y - 10) - 2, max(x + r, lx1) + 2, max(y + r, y + 6) + 2
+    for _ in range(300):
+        moved = False
+        for i, a in enumerate(nodes):
+            for b in nodes[i + 1:]:
+                A, B = box(a), box(b)
+                ox, oy = min(A[2], B[2]) - max(A[0], B[0]), min(A[3], B[3]) - max(A[1], B[1])
+                if ox > 0 and oy > 0:
+                    s = (oy / 2 + 0.5) * (1 if P[a][1] >= P[b][1] else -1)
+                    P[a][1] += s
+                    P[b][1] -= s
+                    moved = True
+        for n in nodes:
+            P[n][1] = min(Hd - 22, max(22, P[n][1]))
+        if not moved:
+            break
+
+    def xy(n):   # 之後畫線、畫點都用避讓後的位置
+        return P[n][0], P[n][1]
     svg = [f'<svg viewBox="0 0 {Wd} {Hd}" role="img" aria-label="Wiki頁面之間的連結">']
     for a, b in sorted({tuple(sorted(e)) for e in und}):
         (x1, y1), (x2, y2) = xy(a), xy(b)
@@ -483,11 +525,14 @@ def main():
         x, y = xy(n)
         r = 5 + min(10, deg[n] * 0.9)
         col = TYPE_COLOR.get(metas[n].get("type"), "#555")
-        svg.append(f'<a href="wiki/{esc(n[:-3])}.html"><circle cx="{x:.0f}" cy="{y:.0f}" r="{r:.1f}" fill="{col}"/>'
-                   f'<text x="{x + r + 3:.0f}" y="{y + 4:.0f}">{esc(metas[n].get("title", n))}</text></a>')
+        right = x > Wd / 2   # 右半邊的標籤寫在圓點左邊，才不會超出圖框
+        tx, anchor = (x - r - 3, "end") if right else (x + r + 3, "start")
+        svg.append(f'<a href="wiki/{esc(n[:-3])}.html"><title>{esc(metas[n].get("title", n))}</title>'
+                   f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{r:.1f}" fill="{col}"/>'
+                   f'<text x="{tx:.0f}" y="{y + 4:.0f}" text-anchor="{anchor}">{esc(label(n))}</text></a>')
     svg.append("</svg>")
     legend = "".join(f'<span><i style="background:{TYPE_COLOR[t]}"></i>{TYPE_LABEL[t]}</span>' for t in TYPE_LABEL)
-    body = (f"<h1>頁面關係圖</h1><p>{len(nodes)} 個頁面、{len({tuple(sorted(e)) for e in und})} 條連結（不含目錄和紀錄）。圓點越大，連到它或它連出去的頁面越多。點圓點可以開頁面。</p>"
+    body = (f"<h1>頁面關係圖</h1><p>{len(nodes)}個頁面、{len({tuple(sorted(e)) for e in und})}條連結（不含目錄和紀錄）。圓點越大，連到它或它連出去的頁面越多。討論單、來源和查詢頁只寫代號，滑鼠移到圓點上會顯示完整標題，點圓點可以開頁面。</p>"
             f'<p class="legend">{legend}</p><div class="graph">{"".join(svg)}</div>')
     write("graph.html", page("graph.html", "頁面關係圖", body))
 
@@ -498,7 +543,7 @@ def main():
         name = rd.name
         for md in sorted(rd.glob("*.md")):
             out_rel = f"runs/{name}/{md.stem}.html"
-            write(out_rel, page(out_rel, f"{name} {md.stem}", md_to_html(md.read_text(encoding="utf-8"), Ctx(out_rel, cite_map))))
+            write(out_rel, page(out_rel, f"{name} {md.stem}", md_to_html(md.read_text(encoding="utf-8"), Ctx(out_rel, cite_map, keep_cites=True))))
         for txt in sorted((rd / "checks").glob("*.txt")) if (rd / "checks").exists() else []:
             out_rel = f"runs/{name}/checks/{txt.stem}.html"
             write(out_rel, page(out_rel, txt.name, f"<h1>{esc(txt.name)}</h1><pre class=\"raw\">{esc(txt.read_text(encoding='utf-8'))}</pre>"))
@@ -508,7 +553,7 @@ def main():
                                   "<h1>執行紀錄</h1><p>每次照流程圖執行一遍就開一個資料夾，記下每個節點的結果和檢查輸出。</p><ul>" + "".join(run_links) + "</ul>"))
 
     # 規則、流程圖、首頁
-    for name, out_rel, title in [("AGENTS.md", "AGENTS.html", "規則 AGENTS.md"), ("FLOW.md", "flow.html", "流程圖"),
+    for name, out_rel, title in [("AGENTS.md", "AGENTS.html", "規則AGENTS.md"), ("FLOW.md", "flow.html", "流程圖"),
                                  ("README.md", "index.html", "首頁")]:
         f = ROOT / name
         if not f.exists():

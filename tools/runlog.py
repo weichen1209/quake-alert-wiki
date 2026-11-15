@@ -2,7 +2,8 @@
 
   python3 tools/runlog.py add <run> <節點> <對象> <結果> [說明] [--codes R1=2,R3=1] [--file 檔名]
   python3 tools/runlog.py report <run>
-結果用 pass、fail、done、reply、gap 其中一種。檢查程式加 --run 時會自動記錄。
+結果用 pass、fail、done、reply、gap、note、fix 其中一種：note是補充說明（學生讀頁面發現的問題、版型修正、改決定），
+fix是學生手動修改；統計只算pass和fail。檢查程式加 --run 時會自動記錄。
 """
 import datetime
 import json

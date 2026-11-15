@@ -23,6 +23,7 @@ h3{font-size:18px;margin:1.3em 0 .4em}
 .meta{font-size:14px;color:var(--muted);margin:0 0 1.2em;padding:10px 14px;background:var(--card);border:1px solid var(--rule);border-radius:8px}
 .meta .type{font:600 12px var(--mono);color:#fff;padding:2px 8px;border-radius:4px;margin-right:8px}
 .meta .summary{display:block;color:var(--ink-2);font-size:15px;margin-top:4px}
+.meta code,.meta a{overflow-wrap:anywhere;word-break:break-all}
 a.cite,span.cite{font:600 11px var(--mono);vertical-align:super;text-decoration:none;color:var(--alert);margin:0 1px}
 blockquote{margin:1em 0;padding:.6em 1em;border-left:4px solid var(--p);background:var(--p-soft)}
 blockquote p{margin:.2em 0}
