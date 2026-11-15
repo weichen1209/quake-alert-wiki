@@ -35,3 +35,14 @@
 {"seq": 35, "time": "2026-11-15T22:22:19", "node": "N4", "target": "Q01", "attempt": 2, "status": "done", "codes": {}, "note": "依S09更新：收到警報後（S05）和地震搖晃時（S09）兩種情境，室外說法不同並列"}
 {"seq": 36, "time": "2026-11-15T22:22:19", "node": "N5", "target": "Q02", "attempt": 2, "status": "done", "codes": {}, "note": "依C0和S09更新：第17頁放三步驟和理由、行動不便者一句、駕駛中標新聞稿；起始年標學生決定不補；試算數字兩行改回第6.5節格式"}
 {"seq": 37, "time": "2026-11-15T22:22:19", "node": "C0", "target": "Q02", "attempt": 2, "status": "pass", "codes": {}, "note": "", "check_file": "37-C0-Q02.txt"}
+{"seq": 38, "time": "2026-11-15T22:23:38", "node": "N6", "target": "deck", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫簡報第4版22頁：P波標說明頁的說法、條件拆兩頁（加S07、S08）、時間線加兩條、警報限制頁、第17頁保命三步驟；run-01最後4條R4全採用"}
+{"seq": 39, "time": "2026-11-15T22:23:38", "node": "C2a", "target": "deck", "attempt": 1, "status": "pass", "codes": {}, "note": "警告5", "check_file": "39-C2a-deck.txt"}
+{"seq": 40, "time": "2026-11-15T22:26:03", "node": "C2b", "target": "deck", "attempt": 1, "status": "fail", "codes": {"R2": 1, "R3": 4}, "note": "新的審查AI（v2：第一次用沒看過簡報的AI）：PWS沒解釋、S01的規模不是預估、兩篇來源都叫科普文、地震報告沒解釋、第17頁標題是收到警報但內容是搖晃時的動作；建議7條", "check_file": "40-C2b-deck.txt"}
+{"seq": 41, "time": "2026-11-15T22:26:03", "node": "R", "target": "deck", "attempt": 1, "status": "note", "codes": {}, "note": "第17頁的錯一部分出在學生的決定：學生先前同意不放S05室內、室外兩句；改成兩種情境都放（收到警報後：S05；地震搖晃時：S09）"}
+{"seq": 42, "time": "2026-11-15T22:27:20", "node": "N6", "target": "deck", "attempt": 2, "status": "done", "codes": {}, "note": "AI寫簡報第5版：修審查5個錯（PWS解釋、S01規模是偵測到的、來源稱呼分開、地震報告解釋、第17頁兩種情境都放），採用5條R4、未採用2條（Wiki沒有依據）"}
+{"seq": 43, "time": "2026-11-15T22:27:20", "node": "C2a", "target": "deck", "attempt": 2, "status": "pass", "codes": {}, "note": "警告3", "check_file": "43-C2a-deck.txt"}
+{"seq": 44, "time": "2026-11-15T22:28:07", "node": "C2b", "target": "deck", "attempt": 2, "status": "fail", "codes": {"R1": 1}, "note": "同一位審查AI複查第5版：上次5個錯都改好；修改帶進1個新錯（第16頁替地震報告加的解釋是從別頁講誤差的句子拼來的）；建議3條", "check_file": "44-C2b-deck.txt"}
+{"seq": 45, "time": "2026-11-15T22:28:42", "node": "N6", "target": "deck", "attempt": 3, "status": "done", "codes": {}, "note": "AI寫簡報第6版：第16頁改成Wiki有的說法（說明頁沒說這個產品的內容）、第13頁補細胞廣播的白話、第10、17頁縮短"}
+{"seq": 46, "time": "2026-11-15T22:28:42", "node": "C2a", "target": "deck", "attempt": 3, "status": "pass", "codes": {}, "note": "警告3", "check_file": "46-C2a-deck.txt"}
+{"seq": 47, "time": "2026-11-15T22:29:20", "node": "C2b", "target": "deck", "attempt": 3, "status": "pass", "codes": {}, "note": "同一位審查AI複查第6版：上次的錯改好，新錯0、建議2（第16頁括號裡的「Wiki」新手看不懂、第13頁最後一列字多），留到下一次", "check_file": "47-C2b-deck.txt"}
+{"seq": 48, "time": "2026-11-15T22:29:36", "node": "N7", "target": "docs", "attempt": 1, "status": "done", "codes": {}, "note": "build.py產生docs/：22頁簡報、出處頁自動列出S01到S09"}

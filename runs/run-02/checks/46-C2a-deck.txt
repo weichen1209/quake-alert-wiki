@@ -1,0 +1,4 @@
+W P07 slides/deck.html:120 正文 175 字，超過160字
+W P07 slides/deck.html:157 正文 202 字，超過160字
+W P07 slides/deck.html:172 正文 203 字，超過160字
+共 22 頁；錯誤 0 個、警告 3 個（P07×3）

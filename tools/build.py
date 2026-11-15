@@ -518,7 +518,7 @@ def main():
             n_pages = len(pages)
             stats = (f'<div class="stats"><div>{len(got)}<small>原始來源</small></div><div>{n_pages}<small>Wiki頁面</small></div>'
                      f'<div>{len(slides_info)}<small>簡報頁</small></div><div>{len(runs)}<small>執行紀錄</small></div></div>')
-            body = body.replace("<!--STATS-->", stats)
+            body = body.replace("<p>&lt;!--STATS--&gt;</p>", stats)   # README裡的 <!--STATS--> 經過轉義
         write(out_rel, page(out_rel, title, body))
     for svg_file in (ROOT / "templates").glob("flow-*.svg"):
         shutil.copy(svg_file, DOCS / svg_file.name)
