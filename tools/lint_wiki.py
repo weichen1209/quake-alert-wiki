@@ -85,6 +85,8 @@ def section_text(body, title):
 
 def owner_of(f, ln, code, msg):
     """這個錯是哪個節點產生的：討論單依小節分（AI的部分算N2，D00算N0；學生回覆算R；決定算N3），其他檔案算N3。"""
+    if f.startswith("wiki/queries/"):
+        return "N5" if "大綱" in f else "N4"
     if not f.startswith("wiki/discussions/"):
         return "N3"
     if code == "W11":

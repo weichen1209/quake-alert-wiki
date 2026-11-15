@@ -70,7 +70,7 @@ def report(run):
     lines += ["", "## 各生成節點被檢查抓到錯的次數", "",
               "檢查沒通過時，錯誤依所在的檔案和小節算到產生它的節點：討論單裡AI寫的部分算N2（D00算N0），「學生回覆」算R，「決定」和其他Wiki頁算N3。學生回覆時發現的錯算N2。", "",
               "| 節點 | 有錯的檢查次數 | 錯誤代碼合計 |", "|---|---|---|"]
-    for node in [n for n in ["N0", "N2", "R", "N3", "N5", "N6"] if n in ("N2", "N3", "N5", "N6") or fails.get(n)]:
+    for node in [n for n in ["N0", "N2", "R", "N3", "N4", "N5", "N6"] if n in ("N2", "N3", "N5", "N6") or fails.get(n)]:
         c = per_node.get(node, Counter())
         codes = "、".join(f"{k}×{v}" for k, v in sorted(c.items())) or "－"
         lines.append(f"| {node} {NODES[node]} | {fails.get(node, 0)} | {codes} |")

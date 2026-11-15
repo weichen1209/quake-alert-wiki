@@ -1,0 +1,212 @@
+<section class="slide" data-kind="title">
+  <h1>地震預警與國家級警報</h1>
+  <p class="lead">為什麼有時候先搖才響？</p>
+  <aside class="notes">開場：先問大家有沒有收過國家級警報，是先搖還是先響。這份簡報的內容全部來自這個Wiki。</aside>
+</section>
+
+<section class="slide" data-kind="objectives" data-wiki="overview.md">
+  <h2>看完你能說明什麼</h2>
+  <ol>
+    <li>規模和震度的差別</li>
+    <li>P波和S波</li>
+    <li>強震即時警報怎麼運作</li>
+    <li>為什麼震央附近有時先搖才響</li>
+    <li>國家級警報什麼時候發布</li>
+    <li>收到警報怎麼做</li>
+  </ol>
+  <aside class="notes">六件事對應簡報的順序：前面是原理，後面是制度和行動。</aside>
+</section>
+
+<section class="slide" data-kind="hook" data-wiki="topics/預警時間與盲區.md">
+  <h2>手機還沒響，地就先搖了</h2>
+  <p class="big">為什麼？</p>
+  <p>近震央地區接收到警報時，S波可能已經到達。這件事會在後面講清楚。</p>
+  <aside class="notes">先讓大家猜原因，不要馬上給答案。</aside>
+</section>
+
+<section class="slide" data-kind="concept" data-wiki="concepts/規模.md concepts/震度.md">
+  <h2>規模和震度不一樣</h2>
+  <div class="compare">
+    <div class="card"><h3>規模</h3><p>震源釋放的總能量。一次地震只有一個值，寫「規模6.5」，不加級。</p></div>
+    <div class="card"><h3>震度</h3><p>各地搖晃的激烈程度。各地不同，寫「震度4級」，要加級。</p></div>
+  </div>
+  <aside class="notes">規模像地震本身的大小，震度像你所在位置感受到的搖晃。</aside>
+</section>
+
+<section class="slide" data-kind="concept" data-wiki="concepts/震源與震央.md">
+  <h2>震源在地下，震央在地面</h2>
+  <div class="compare">
+    <div class="card"><h3>震源</h3><p>地震錯動發生的起始點，位於地下深處。</p></div>
+    <div class="card"><h3>震央</h3><p>震源在地表的垂直投影點。</p></div>
+  </div>
+  <p>離震央愈近的地區，通常搖得愈強。</p>
+  <aside class="notes">後面試算要用到「離震央多遠」，所以先把震央講清楚。</aside>
+</section>
+
+<section class="slide" data-kind="concept" data-wiki="concepts/P波與S波.md">
+  <h2>P波先到，S波後到</h2>
+  <div class="compare">
+    <div class="card"><h3>P波</h3><p>所有地震波中速度最快，最先抵達測站。</p></div>
+    <div class="card"><h3>S波</h3><p>速度次之，破壞力通常大於P波。</p></div>
+  </div>
+  <aside class="notes">Wiki沒有給兩種波的速度數字，這頁不講速度。</aside>
+</section>
+
+<section class="slide" data-kind="process" data-wiki="concepts/強震即時警報.md">
+  <h2>強震即時警報怎麼運作</h2>
+  <ol class="steps">
+    <li>靠近震央的少數地震站，最早收錄到早期震波訊號</li>
+    <li>快速演算出震央資訊</li>
+    <li>推估各地的預估震度與到時</li>
+    <li>快速對外通報</li>
+  </ol>
+  <aside class="notes">原文寫的是「早期震波訊號」，沒有寫是P波，所以不要在這裡說成P波。</aside>
+</section>
+
+<section class="slide" data-kind="process" data-wiki="concepts/強震即時警報.md topics/預警時間與盲區.md">
+  <h2>從地震發生到警報發出要幾秒</h2>
+  <ul>
+    <li>中大規模地震：約15至20秒演算出初步震央資訊，再用1至2秒對外通報。</li>
+    <li>美濃地震的例子：約12秒演算出初步震央資訊，對台北地區提供49秒的預警時效。</li>
+  </ul>
+  <p class="muted">兩種說法的條件不同，不能互相替換。</p>
+  <aside class="notes">第一條是中大規模地震的一般說法，第二條是一次實際例子。</aside>
+</section>
+
+<section class="slide" data-kind="concept" data-wiki="topics/預警時間與盲區.md">
+  <h2>為什麼有時候先搖才響</h2>
+  <ul>
+    <li>資料處理需要一定的時間。</li>
+    <li>近震央地區接收到警報時，S波可能已經到達，這些地區稱為預警盲區。</li>
+    <li>越靠近震央，預警時間越短。</li>
+  </ul>
+  <p class="callout">盲區多大，Wiki目前沒有寫，所以不給距離。</p>
+  <aside class="notes">這是學生最想弄懂的問題，多花一點時間。</aside>
+</section>
+
+<section class="slide" data-kind="practice" data-wiki="concepts/強震即時警報.md topics/預警時間與盲區.md">
+  <h2>試算：離震央多遠還來得及</h2>
+  <p>可提前的時間，取決於「S波多久到」和「警報多久發出」。警報發布時間先簡化成20秒。</p>
+  <p class="callout">試算還需要S波速度，Wiki尚未收錄，補到來源後才開放輸入距離。</p>
+  <!-- 補到S波速度後，在這裡放：<div class="calc-eew" data-vs="（S波速度，公里/秒）" data-alert="20" data-wiki="concepts/P波與S波.md concepts/強震即時警報.md"></div> -->
+  <aside class="notes">發布警報秒數用20，是簡化：通報軟體約在地震發生後20秒內完成通報與告警，PWS約在20多秒內，這是學生的決定。S波速度缺，等補來源。</aside>
+</section>
+
+<section class="slide" data-kind="misconception" data-wiki="concepts/規模.md concepts/強震即時警報.md">
+  <h2>三個常見誤解</h2>
+  <div class="cols">
+    <div class="card"><h3>規模6.5級？</h3><p>誤植。正確寫法是「規模6.5」。</p></div>
+    <div class="card"><h3>規模大就一定災情大？</h3><p>還要看震源深度和震央距離。</p></div>
+    <div class="card"><h3>警報會預測地震？</h3><p>不會。地震發生後才通報。</p></div>
+  </div>
+  <aside class="notes">警報的其他限制：連續地震時可能無法精確分辨波形；雜訊可能被誤判為地震而誤報。</aside>
+</section>
+
+<section class="slide" data-kind="concept" data-wiki="topics/警報名稱比較.md">
+  <h2>四個名稱的差別</h2>
+  <table>
+    <thead><tr><th>名稱</th><th>做什麼</th></tr></thead>
+    <tbody>
+      <tr><td>地震預報</td><td>預測地震，目前無法準確做到</td></tr>
+      <tr><td>地震速報</td><td>地震發生後彙整有感地震報告</td></tr>
+      <tr><td>強震即時警報</td><td>搶在破壞性震波抵達前通報</td></tr>
+      <tr><td>國家級警報</td><td>讓手機收到文字與聲響告警</td></tr>
+    </tbody>
+  </table>
+  <aside class="notes">這是氣象署地震百問的分法。不同來源對「地震速報」和手機訊息的關係說法不同，這裡只用這一種分法。</aside>
+</section>
+
+<section class="slide" data-kind="process" data-wiki="topics/國家級警報.md">
+  <h2>國家級警報什麼時候發布</h2>
+  <div class="compare">
+    <div class="card"><h3>新聞稿（113年8月30日）</h3><p>預估規模5.0以上且預估震度4級以上；或預估規模6.5以上且預估震度3級以上。</p></div>
+    <div class="card"><h3>另一篇（日期未標示）</h3><p>規模5以上，預估縣市政府所在地震度5級以上。</p></div>
+  </div>
+  <p class="warn">規模6.5的條件，新聞稿說是新增，另一篇資料已寫了同一組門檻，Wiki不判斷哪個對。</p>
+  <aside class="notes">兩個說法並列，不說哪個是現行規定。</aside>
+</section>
+
+<section class="slide" data-kind="process" data-wiki="topics/國家級警報.md">
+  <h2>發布條件的時間線</h2>
+  <ol class="timeline">
+    <li><strong>1989年</strong>中央氣象署成立地震測報中心</li>
+    <li><strong>2016年</strong>NCC開始推動PWS</li>
+    <li><strong>113年6月5日</strong>專家學者會議討論新增條件</li>
+    <li><strong>113年7月17日</strong>防救災單位會議討論通過</li>
+    <li><strong>113年9月1日</strong>新增規模6.5條件上線</li>
+  </ol>
+  <p class="muted">113年9月1日之前的調整，目前來源沒有說。</p>
+  <aside class="notes">想知道更早是哪一年改的，要等第二批來源。</aside>
+</section>
+
+<section class="slide" data-kind="process" data-wiki="topics/收到警報怎麼做.md">
+  <h2>收到警報怎麼做</h2>
+  <div class="cols">
+    <div class="card"><h3>室內</h3><p>迅速掩護，遠離窗戶和吊燈等易碎落物。</p></div>
+    <div class="card"><h3>室外</h3><p>尋找開闊地蹲下，保護頭部。</p></div>
+    <div class="card"><h3>駕駛中</h3><p>減速靠邊停車，地震結束後再行駛。</p></div>
+  </div>
+  <p class="muted">這是新聞稿的三句話，不是完整防護說明。</p>
+  <aside class="notes">完整的防護步驟，Wiki還沒有來源。</aside>
+</section>
+
+<section class="slide" data-kind="quiz" data-wiki="concepts/規模.md concepts/震度.md">
+  <h2>小測驗：規模和震度</h2>
+  <div class="quiz" data-answer="b">
+    <p>同一次地震，哪個說法正確？</p>
+    <button data-opt="a">規模各地不同，震度只有一個值</button>
+    <button data-opt="b">規模只有一個值，震度各地不同</button>
+    <button data-opt="c">規模和震度都是各地不同</button>
+    <button data-opt="d">規模和震度是同一個東西</button>
+    <p class="why" data-wiki="concepts/規模.md concepts/震度.md">規模是震源釋放的總能量，一次地震只有一個值；震度是各地搖晃的程度，各地不同。</p>
+  </div>
+  <aside class="notes">答案b。</aside>
+</section>
+
+<section class="slide" data-kind="quiz" data-wiki="topics/預警時間與盲區.md">
+  <h2>小測驗：為什麼先搖才響</h2>
+  <div class="quiz" data-answer="c">
+    <p>震央附近有時先搖才收到警報，原因是什麼？</p>
+    <button data-opt="a">警報故意等地震結束才發</button>
+    <button data-opt="b">P波比S波慢</button>
+    <button data-opt="c">資料處理需要時間，近震央地區收到警報時S波可能已到達</button>
+    <button data-opt="d">離震央越近，預警時間越長</button>
+    <p class="why" data-wiki="topics/預警時間與盲區.md">資料處理需要一定的時間，近震央地區接收到警報時S波可能已經到達，這些地區稱為預警盲區。</p>
+  </div>
+  <aside class="notes">答案c。</aside>
+</section>
+
+<section class="slide" data-kind="quiz" data-wiki="topics/國家級警報.md">
+  <h2>小測驗：發布條件</h2>
+  <div class="quiz" data-answer="a">
+    <p>新聞稿說113年9月1日起新增的條件是哪一個？</p>
+    <button data-opt="a">預估規模6.5以上，且預估震度3級以上</button>
+    <button data-opt="b">預估規模5.0以上，且預估震度4級以上</button>
+    <button data-opt="c">預估規模6.5以上，且預估震度5級以上</button>
+    <button data-opt="d">預估規模5.0以上，且預估震度3級以上</button>
+    <p class="why" data-wiki="topics/國家級警報.md">新聞稿說新增的是預估規模達6.5且預估震度達3級；規模5.0且震度4級是原有條件。另一篇資料對此說法不同。</p>
+  </div>
+  <aside class="notes">答案a。</aside>
+</section>
+
+<section class="slide" data-kind="summary" data-wiki="overview.md">
+  <h2>記住這五件事</h2>
+  <ol>
+    <li>規模只有一個值，震度各地不同</li>
+    <li>P波先到，S波後到</li>
+    <li>警報要演算時間，近震央有預警盲區</li>
+    <li>國家級警報看預估規模和預估震度</li>
+    <li>收到警報，依所在位置掩護、蹲下或靠邊停車</li>
+  </ol>
+  <aside class="notes">回到開頭的問題：先搖才響，是因為盲區。</aside>
+</section>
+
+<section class="slide" data-kind="sources">
+  <h2>資料來源</h2>
+  <ul>
+    <li>中央氣象署數位科普網〈國家級警報來了--地震測報過程〉（日期未標示）</li>
+    <li>中央氣象署〈地震百問〉選錄兩組（日期未標示）</li>
+    <li>中央氣象署〈地震速報－軟體專區〉（日期未標示）</li>
+    <li>中央氣象署新聞稿（113年8月30日）</li>
+  </ul>
+</section>

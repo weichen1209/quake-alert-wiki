@@ -39,3 +39,11 @@
 {"seq": 39, "time": "2026-11-15T21:30:57", "node": "C1", "target": "S05", "attempt": 1, "status": "fail", "codes": {"W07": 6, "W06": 15}, "note": "警告1", "check_file": "39-C1-S05.txt", "owners": {"N2": {"W07": 5, "W06": 11}, "N3": {"W06": 4, "W07": 1}}}
 {"seq": 40, "time": "2026-11-15T21:32:17", "node": "N3", "target": "S05", "attempt": 2, "status": "done", "codes": {}, "note": "依C1修改：引文補出處、非原文拿掉「」、刪掉規則允許的（2024年）和來源代號（沒有回報規則和檢查不一致）"}
 {"seq": 41, "time": "2026-11-15T21:32:17", "node": "C1", "target": "S05", "attempt": 2, "status": "pass", "codes": {}, "note": "警告1", "check_file": "41-C1-S05.txt"}
+{"seq": 42, "time": "2026-11-15T21:35:34", "node": "N4", "target": "Q01", "attempt": 1, "status": "done", "codes": {}, "note": "AI讀Wiki回答新手學習順序，10步"}
+{"seq": 43, "time": "2026-11-15T21:35:34", "node": "N5", "target": "Q02", "attempt": 1, "status": "done", "codes": {}, "note": "AI排20頁大綱；自己列出Wiki缺資料：S波速度、發布警報秒數只能暫定20、113年以前的條件、防護動作只有3句；設計說明為了W05掛了不準確的S04出處（AI自己說的）"}
+{"seq": 44, "time": "2026-11-15T21:35:34", "node": "R", "target": "Q02", "attempt": 1, "status": "reply", "codes": {}, "note": "學生確認試算的發布警報秒數用20（PWS約20多秒內，簡化成20秒）；v1在N5後面沒有檢查，缺資料照流程留給N6回報"}
+{"seq": 45, "time": "2026-11-15T21:36:41", "node": "N6", "target": "deck", "attempt": 1, "status": "done", "codes": {}, "note": "AI寫簡報第1版20頁；第10頁試算缺S波速度，元件先用註解留著，回報Wiki缺資料"}
+{"seq": 46, "time": "2026-11-15T21:36:41", "node": "C2a", "target": "deck", "attempt": 1, "status": "pass", "codes": {}, "note": "", "check_file": "46-C2a-deck.txt"}
+{"seq": 47, "time": "2026-11-15T21:38:41", "node": "C2b", "target": "deck", "attempt": 1, "status": "fail", "codes": {"R2": 2, "R3": 4}, "note": "另一個AI審查：第10頁沒有試算、第13頁兩個「另一篇」不是同一篇、第14頁把預定上線寫成已上線、術語沒解釋；建議11條", "check_file": "47-C2b-deck.txt"}
+{"seq": 48, "time": "2026-11-15T21:38:41", "node": "N6", "target": "deck", "attempt": 2, "status": "gap", "codes": {}, "note": "Wiki缺資料：S波速度（第10頁試算）→ 回N1補來源"}
+{"seq": 49, "time": "2026-11-15T21:38:45", "node": "N1", "target": "S06", "attempt": 1, "status": "done", "codes": {}, "note": "缺資料回N1：取得 usgs-eew-overview（S波速度）"}

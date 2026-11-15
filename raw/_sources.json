@@ -363,7 +363,12 @@
             "File icon"
           ]
         }
-      ]
+      ],
+      "id": "S06",
+      "file": "S06-usgs-eew-overview.md",
+      "retrieved": "2026-11-15",
+      "sha256": "3b436e4a3ef762529d1110c1f9c2ad2a06f058151b6183264b50843c8b9c12c0",
+      "chars": 5920
     },
     {
       "key": "cwa-edu-three-steps",
