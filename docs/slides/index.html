@@ -24,6 +24,9 @@ body{overflow:hidden}
 .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
   padding:clamp(56px,7vh,84px) clamp(20px,7vw,120px) clamp(76px,10vh,108px);overflow-y:auto}
 .slide.active{display:flex;animation:in .35s ease-out}
+/* 內容比視窗高時（小螢幕、打開備註）改成從上方排、出處跟在內容後面，標題才不會被切掉 */
+.slide.long{justify-content:flex-start}
+.slide.long .src{position:static;margin-top:1.2em}
 @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .slide>*{max-width:1080px;width:100%;margin-left:auto;margin-right:auto}
 .kicker{position:absolute;top:clamp(16px,3vh,28px);left:clamp(20px,7vw,120px);font:600 13px/1 var(--mono);
@@ -113,7 +116,7 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
 .calc-eew .verdict{margin:.5em 0 0;font-weight:700}
 .calc-eew .verdict.blind{color:var(--alert)}
 .calc-eew .verdict.ok{color:var(--ok)}
-.calc-eew svg{width:100%;height:auto;display:block}
+.calc-eew svg{width:100%;height:auto;display:block;max-height:min(46vh,440px)}
 .calc-eew .formula{font:13px/1.5 var(--mono);color:var(--muted);margin:.6em 0 0}
 /* 下方控制列 */
 .hud{position:fixed;left:0;right:0;bottom:0;height:30px;display:flex;align-items:center;gap:12px;
@@ -405,11 +408,18 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
     document.getElementById("count").textContent = (cur + 1) + " / " + total;
     document.getElementById("bar").style.width = ((cur + 1) / total * 100) + "%";
     if (location.hash !== "#" + (cur + 1)) history.replaceState(null, "", "#" + (cur + 1));
+    fit();
   }
+  function fit(){
+    const s = slides[cur];
+    s.classList.remove("long");
+    if (s.scrollHeight > s.clientHeight + 2) s.classList.add("long");
+  }
+  window.addEventListener("resize", fit);
   const fromHash = () => parseInt((location.hash || "#1").slice(1), 10) - 1 || 0;
   document.getElementById("prev").onclick = () => show(cur - 1);
   document.getElementById("next").onclick = () => show(cur + 1);
-  document.getElementById("notesBtn").onclick = () => document.body.classList.toggle("show-notes");
+  document.getElementById("notesBtn").onclick = () => { document.body.classList.toggle("show-notes"); fit(); };
   window.addEventListener("hashchange", () => show(fromHash()));
   document.addEventListener("keydown", e => {
     if (e.target.tagName === "INPUT") return;
@@ -417,7 +427,7 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
     else if (["ArrowLeft","PageUp"].includes(e.key)) { e.preventDefault(); show(cur - 1); }
     else if (e.key === "Home") show(0);
     else if (e.key === "End") show(total - 1);
-    else if (e.key === "n" || e.key === "N") document.body.classList.toggle("show-notes");
+    else if (e.key === "n" || e.key === "N") { document.body.classList.toggle("show-notes"); fit(); }
   });
   let tx = null;
   document.addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, {passive:true});

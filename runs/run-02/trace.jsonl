@@ -46,3 +46,5 @@
 {"seq": 46, "time": "2026-11-15T22:28:42", "node": "C2a", "target": "deck", "attempt": 3, "status": "pass", "codes": {}, "note": "警告3", "check_file": "46-C2a-deck.txt"}
 {"seq": 47, "time": "2026-11-15T22:29:20", "node": "C2b", "target": "deck", "attempt": 3, "status": "pass", "codes": {}, "note": "同一位審查AI複查第6版：上次的錯改好，新錯0、建議2（第16頁括號裡的「Wiki」新手看不懂、第13頁最後一列字多），留到下一次", "check_file": "47-C2b-deck.txt"}
 {"seq": 48, "time": "2026-11-15T22:29:36", "node": "N7", "target": "docs", "attempt": 1, "status": "done", "codes": {}, "note": "build.py產生docs/：22頁簡報、出處頁自動列出S01到S09"}
+{"seq": 49, "time": "2026-11-15T22:35:29", "node": "T", "target": "deck", "attempt": 1, "status": "note", "codes": {}, "note": "學生截圖時發現：1280×720的視窗裡第10、22頁比視窗高，版型把內容垂直置中，標題被切掉、出處壓到內文；改成內容太高時從上方排、出處跟在內容後面，試算圖依視窗高度縮小（簡報內容沒改）"}
+{"seq": 50, "time": "2026-11-15T22:35:29", "node": "N7", "target": "docs", "attempt": 2, "status": "done", "codes": {}, "note": "版型修正後重新建置docs/"}
