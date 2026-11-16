@@ -26,9 +26,10 @@ body{overflow:hidden}
 .slide.active{display:flex;animation:in .35s ease-out}
 /* 內容比視窗高時（小螢幕、打開備註）改成從上方排、出處跟在內容後面，標題才不會被切掉 */
 .slide.long{justify-content:flex-start}
-.slide.long .src{position:static;margin-top:1.2em}
+.slide.long .src{position:static;margin-top:1.2em;width:100%;max-width:1080px}
 @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .slide>*{max-width:1080px;width:100%;margin-left:auto;margin-right:auto}
+.slide>.big,.slide>.callout,.slide>.warn,.slide>.compare,.slide>.steps,.slide>.timeline,.slide>.quiz,.slide>.calc-eew{margin-left:auto;margin-right:auto}
 .kicker{position:absolute;top:clamp(16px,3vh,28px);left:clamp(20px,7vw,120px);font:600 13px/1 var(--mono);
   letter-spacing:.08em;color:var(--muted);width:auto}
 .kicker b{color:var(--alert);font-weight:600}
@@ -96,6 +97,8 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
 .seismo .mark{stroke-width:1.5;stroke-dasharray:4 4}
 /* 資料來源頁：清單較長，字小一點才放得進1280×720 */
 .slide[data-kind="sources"] li{font-size:16px;line-height:1.45}
+.slide[data-kind="sources"] a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule)}
+.slide[data-kind="sources"] a:hover{color:var(--alert);border-color:var(--alert)}
 /* 測驗 */
 .quiz{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:1em 1.2em;margin:.3em 0 1em}
 .quiz>p:first-child{font-weight:700;margin-bottom:.6em}
@@ -119,8 +122,9 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
 .calc-eew .verdict{margin:.5em 0 0;font-weight:700}
 .calc-eew .verdict.blind{color:var(--alert)}
 .calc-eew .verdict.ok{color:var(--ok)}
-.calc-eew svg{width:100%;height:auto;display:block;max-height:min(46vh,440px)}
+.calc-eew svg{width:100%;height:auto;display:block;max-height:min(36vh,440px)}
 .calc-eew .formula{font-size:clamp(15px,1.5vw,18px);line-height:1.6;color:var(--muted);margin:.6em 0 0}
+.slide[data-kind="practice"] p.muted{font-size:clamp(14px,1.4vw,18px);line-height:1.6}
 /* 下方控制列 */
 .hud{position:fixed;left:0;right:0;bottom:0;height:30px;display:flex;align-items:center;gap:12px;
   padding:0 clamp(12px,3vw,28px);font:12px var(--mono);color:var(--muted);background:linear-gradient(transparent,rgba(244,239,230,.96) 40%)}
@@ -133,7 +137,7 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
   .steps{flex-direction:column}
   .steps>li:not(:last-child)::after{display:none}
   .slide{justify-content:flex-start;padding-top:64px}
-  .src{position:static;margin-top:1.2em}
+  .src{position:static;margin-top:1.2em;width:100%}
   .seismo{top:70px;height:22vh}
 }
 @media print{
@@ -195,8 +199,8 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
   document.addEventListener("keydown", e => {
     // 拉桿只接方向鍵和Home、End；PageDown、PageUp、空白鍵、N照常換頁或開備註
     if (e.target.tagName === "INPUT" && ["ArrowLeft","ArrowRight","ArrowUp","ArrowDown","Home","End"].includes(e.key)) return;
-    // 焦點在測驗選項上時，空白鍵用來作答
-    if (e.key === " " && e.target.closest && e.target.closest(".quiz button")) return;
+    // 焦點在還沒作答的測驗選項上時，空白鍵用來作答；作答後照常換頁
+    if (e.key === " " && e.target.closest && e.target.closest(".quiz:not(.done) button")) return;
     if (["ArrowRight","PageDown"," "].includes(e.key)) { e.preventDefault(); show(cur + 1); }
     else if (["ArrowLeft","PageUp"].includes(e.key)) { e.preventDefault(); show(cur - 1); }
     else if (e.key === "Home") show(0);
@@ -272,7 +276,7 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
     const input = c.querySelector("input"), out = c.querySelector(".out"), verdict = c.querySelector(".verdict");
     const km = c.querySelector(".km"), svg = c.querySelector("svg");
     function draw(){
-      const d = parseFloat(input.value), ts = d / vs, lead = ts - alertT;
+      const d = parseFloat(input.value), ts = Math.round(d / vs * 10) / 10, lead = ts - alertT;
       km.textContent = d + "公里";
       out.innerHTML = "S波抵達：<b>" + ts.toFixed(1) + "</b>秒<br>警報送達：<b>" + alertT + "</b>秒";
       if (Math.abs(lead) < 0.05) { verdict.className = "verdict blind"; verdict.textContent = "在盲區邊界：S波和警報約同時到，沒有預警時間"; }
@@ -282,12 +286,12 @@ body.show-notes .notes{display:block;margin-top:1em;padding:.8em 1em;border:1px 
       svg.innerHTML =
         '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="#d8cfbd" stroke-dasharray="3 5"/>' +
         '<circle cx="' + cx + '" cy="' + cy + '" r="' + (blind * scale) + '" fill="rgba(196,54,44,.14)" stroke="#c4362c"/>' +
-        '<text x="' + cx + '" y="' + (cy - blind * scale - 6) + '" text-anchor="middle" font-size="15" fill="#c4362c">試算盲區約' + Math.round(blind) + '公里</text>' +
+        '<text x="' + cx + '" y="' + (cy - blind * scale - 6) + '" text-anchor="middle" font-size="19" fill="#c4362c">試算盲區約' + Math.round(blind) + '公里</text>' +
         '<circle cx="' + cx + '" cy="' + cy + '" r="5" fill="#1c1b18"/>' +
-        '<text x="' + (cx - 9) + '" y="' + (cy + 4) + '" text-anchor="end" font-size="15" fill="#1c1b18">震央</text>' +
+        '<text x="' + (cx - 9) + '" y="' + (cy + 4) + '" text-anchor="end" font-size="19" fill="#1c1b18">震央</text>' +
         '<circle cx="' + (cx + d * scale) + '" cy="' + cy + '" r="7" fill="' + (lead >= 0.05 ? "#2f7d4f" : "#c4362c") + '"/>' +
-        '<text x="' + (cx + d * scale) + '" y="' + (cy + 26) + '" text-anchor="middle" font-size="15" fill="#45413a">你</text>' +
-        '<text x="' + (cx + R) + '" y="' + (cy + R + 14) + '" text-anchor="end" font-size="13" fill="#7a7366">300公里</text>';
+        '<text x="' + (cx + d * scale) + '" y="' + (cy + 26) + '" text-anchor="middle" font-size="19" fill="#45413a">你</text>' +
+        '<text x="' + (cx + R) + '" y="' + (cy + R + 14) + '" text-anchor="end" font-size="16" fill="#7a7366">300公里</text>';
     }
     input.addEventListener("input", draw);
     draw();

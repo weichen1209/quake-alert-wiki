@@ -97,5 +97,5 @@
   <rect class="hu" x="490" y="590" width="22" height="16" rx="3"/><text class="s" x="518" y="603">學生</text>
   <path class="r" d="M570 598H610" marker-end="url(#ar)"/><text class="s" x="618" y="603">重複執行的路線</text>
   <rect class="mx" x="730" y="590" width="22" height="16" rx="3"/><text class="s" x="758" y="603">AI＋學生</text>
-  <text class="s" x="30" y="630">每個紅色虛線迴圈最多3次；3次還沒通過，由學生決定手動修改，或把剩下的問題記在log。</text>
+  <text class="s" x="30" y="630">標了最多3次的迴圈，3次還沒通過，由學生決定手動修改，或把剩下的問題記在log。</text>
 </svg>

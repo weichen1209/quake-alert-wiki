@@ -550,7 +550,7 @@ def main():
         run_links.append(f'<li><a href="{name}/README.html">{name}</a>' +
                          (f'　<a href="{name}/review.html">AI審查</a>' if (rd / "review.md").exists() else "") + "</li>")
     write("runs/index.html", page("runs/index.html", "執行紀錄",
-                                  "<h1>執行紀錄</h1><p>每次照流程圖執行一遍就開一個資料夾，記下每個節點的結果和檢查輸出。</p><ul>" + "".join(run_links) + "</ul>"))
+                                  "<h1>執行紀錄</h1><p>每次照流程圖執行一遍就開一個資料夾，記下每個節點的結果和檢查輸出。紀錄裡的「學生」是流程裡的角色，這次學生角色的步驟由能執行程式的AI代做（見<a href=\"../flow.html\">流程圖頁</a>開頭）。</p><ul>" + "".join(run_links) + "</ul>"))
 
     # 規則、流程圖、首頁
     for name, out_rel, title in [("AGENTS.md", "AGENTS.html", "規則AGENTS.md"), ("FLOW.md", "flow.html", "流程圖"),
